@@ -65,9 +65,10 @@
     [self.closeCurrentView setTitle:@"关闭" forState:UIControlStateNormal];
     [self.closeCurrentView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.closeCurrentView addTarget:self action:@selector(closeCurrentView:) forControlEvents:UIControlEventTouchUpInside];
+    self.closeCurrentView.titleLabel.font = [UIFont systemFontOfSize:16];
     
     UIButton *backView = [UIButton buttonWithType:UIButtonTypeCustom];
-    backView.frame = CGRectMake(0, 0, 70, 28);
+    backView.frame = CGRectMake(0, 0, 60, 28);
     [backView setTitle:@"返回" forState:UIControlStateNormal];
     [backView setImage:[UIImage imageNamed:@"BackIcon"] forState:UIControlStateNormal];
     [backView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -83,6 +84,7 @@
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
     }
+    
     [self.view insertSubview:self.WKWebPageView belowSubview:self.WKWebLoading];
     NSURLRequest *request = [NSURLRequest requestWithURL:self.requestURL];
     [self.WKWebPageView loadRequest:request];
