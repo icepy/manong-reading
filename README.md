@@ -1,7 +1,7 @@
 # manong reading
 
 
-> Tag v1.0
+> Tag v1.0.1
 >
 > License MIT License
 >
