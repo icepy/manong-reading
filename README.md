@@ -24,6 +24,12 @@ To compile the project, you may temporarily modify the bundle_id after adding yo
 
 编译此项目，bundle id可以临时修改成你想要的，然后添加到你的苹果开发者中心。
 
+## 致谢
+
+dataSource [manong](https://github.com/nemoTyrant/manong)
+
+码农周刊 [精选一周IT技术干货](http://weekly.manong.io/)
+
 ## License
 
 This code is distributed under the terms and conditions of the MIT license.
