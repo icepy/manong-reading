@@ -1,0 +1,45 @@
+
+/* Class = "UIButton"; normalTitle = "介绍与反馈"; ObjectID = "1OV-Gr-Qh0"; */
+"1OV-Gr-Qh0.normalTitle" = "介绍与反馈";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "2m6-UB-i3q"; */
+"2m6-UB-i3q.text" = "Label";
+
+/* Class = "UILabel"; text = "世界上最遥远的距离就是没网--请检查设置"; ObjectID = "5Hg-G3-l5q"; */
+"5Hg-G3-l5q.text" = "世界上最遥远的距离就是没网--请检查设置";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ACo-TY-M5F"; */
+"ACo-TY-M5F.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "设置"; ObjectID = "CMA-bf-Crr"; */
+"CMA-bf-Crr.title" = "设置";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "HSn-NG-D99"; */
+"HSn-NG-D99.text" = "Label";
+
+/* Class = "UITextView"; text = "致谢      《码农周刊》为中国区的开发者精选一周技术干货。      《https://github.com/nemoTyrant/manong》对每期期刊的开发语言进行了基础分类。  介绍      1 根据开发语言进行分类\n    2 精细化的搜索（在全列表中）\n    3 按阅读时间的搜索（在全列表中）不怕阅读之后忘记\n    4 如果您认为文章有价值，那么可以保存到印象笔记（学习积累），或者Pockte（稍后阅读）\n    5 此外您还可以通过微博，微信分享给你的好友，同事  如何反馈我？         1 邮箱：wenwenicepy@qq.com        2 支持：http://lcepy.github.io/ "; ObjectID = "Qgb-5I-YPx"; */
+"Qgb-5I-YPx.text" = "致谢      《码农周刊》为中国区的开发者精选一周技术干货。      《https://github.com/nemoTyrant/manong》对每期期刊的开发语言进行了基础分类。  介绍      1 根据开发语言进行分类\n    2 精细化的搜索（在全列表中）\n    3 按阅读时间的搜索（在全列表中）不怕阅读之后忘记\n    4 如果您认为文章有价值，那么可以保存到印象笔记（学习积累），或者Pockte（稍后阅读）\n    5 此外您还可以通过微博，微信分享给你的好友，同事  如何反馈我？         1 邮箱：wenwenicepy@qq.com        2 支持：http://lcepy.github.io/ ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "SVp-ak-8CX"; */
+"SVp-ak-8CX.text" = "Label";
+
+/* Class = "UILabel"; text = "世界上最遥远的距离就是没网--请检查设置"; ObjectID = "WyG-H2-L9v"; */
+"WyG-H2-L9v.text" = "世界上最遥远的距离就是没网--请检查设置";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "aaH-4O-jMb"; */
+"aaH-4O-jMb.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cAA-o4-lrk"; */
+"cAA-o4-lrk.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "同步"; ObjectID = "d0a-OZ-rpv"; */
+"d0a-OZ-rpv.normalTitle" = "同步";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ssJ-Aq-twn"; */
+"ssJ-Aq-twn.text" = "Label";
+
+/* Class = "UISearchBar"; placeholder = "搜索您感兴趣的...."; ObjectID = "uCR-Xx-2Cz"; */
+"uCR-Xx-2Cz.placeholder" = "搜索您感兴趣的....";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zcf-ak-qx3"; */
+"zcf-ak-qx3.text" = "Label";
