@@ -58,6 +58,7 @@
     self.swipeGestureRigth.delegate = self;
     self.actionNumber = 0;
     self.showNotNetMessage.numberOfLines = 0;
+    
     self.closeCurrentView = [UIButton buttonWithType:UIButtonTypeCustom];
     self.closeCurrentView.frame = CGRectMake(0, 0, 40, 44);
     self.closeCurrentView.hidden = YES;
@@ -66,10 +67,14 @@
     [self.closeCurrentView addTarget:self action:@selector(closeCurrentView:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *backView = [UIButton buttonWithType:UIButtonTypeCustom];
-    backView.frame = CGRectMake(0, 0, 40, 44);
+    backView.frame = CGRectMake(0, 0, 70, 28);
     [backView setTitle:@"返回" forState:UIControlStateNormal];
+    [backView setImage:[UIImage imageNamed:@"BackIcon"] forState:UIControlStateNormal];
     [backView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [backView addTarget:self action:@selector(backPage:) forControlEvents:UIControlEventTouchUpInside];
+    backView.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    backView.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    backView.titleLabel.font = [UIFont systemFontOfSize:16];
     
     UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithCustomView:self.closeCurrentView];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backView];
@@ -191,20 +196,8 @@
 }
 - (IBAction)actionShare:(UIBarButtonItem *)sender {
     BOOL isweixin = [WXApi isWXAppInstalled];
-//    NSURL *shareUrl = self.requestURL;
-//    NSURL *inputURL = nil;
-//    if (self.actionNumber < 2) {
-//        NSString *trueURL = [shareUrl.query stringByRemovingPercentEncoding];
-//        NSArray *arr = [trueURL componentsSeparatedByString:@"="];
-//        inputURL = [NSURL URLWithString:arr[1]];
-//    }else{
-//        inputURL = self.requestURL;
-//    }
-    
-    
-    
     NSString *shareText = [NSString stringWithFormat:@"%@ Origin:%@",self.requestTitle,self.requestURL.host];
-    NSArray *activityItems = @[shareText,[UIImage imageNamed:@"Icon"],self.requestURL];
+    NSArray *activityItems = @[shareText,[UIImage imageNamed:@"shareIcon"],self.requestURL];
     NSArray *activity = nil;
     if (isweixin) {
         activity = @[[[WeixinSessionActivity alloc] init], [[WeixinTimelineActivity alloc] init]];

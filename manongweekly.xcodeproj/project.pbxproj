@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17074B0A1AFB505300303A04 /* jiantou.png in Resources */ = {isa = PBXBuildFile; fileRef = 17074B091AFB505300303A04 /* jiantou.png */; };
 		17177BF61AF4F71400DD4BB2 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17177BF51AF4F71400DD4BB2 /* libWeChatSDK.a */; };
 		173788FA1AF0896E00F883EC /* referralPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 173788F91AF0896E00F883EC /* referralPageViewController.m */; };
 		1737890E1AF0BAC600F883EC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1737890D1AF0BAC600F883EC /* Reachability.m */; };
@@ -44,6 +43,7 @@
 		177E92621AE76ED3008F83B4 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 177E92611AE76ED3008F83B4 /* UITableView+FDTemplateLayoutCell.m */; };
 		177E926E1AE771EF008F83B4 /* MNTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 177E926D1AE771EF008F83B4 /* MNTagCell.m */; };
 		177E92711AE77200008F83B4 /* MNContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 177E92701AE77200008F83B4 /* MNContentCell.m */; };
+		1790C3EA1B159BD200E8554F /* shareIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1790C3E91B159BD200E8554F /* shareIcon.png */; };
 		17B1DCD51AFC916D0070E20D /* settingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B1DCD41AFC916D0070E20D /* settingViewController.m */; };
 		17B1DCD81AFC98500070E20D /* MNSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B1DCD71AFC98500070E20D /* MNSettingCell.m */; };
 		17B251A41AE4E44000394467 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B251A21AE4E44000394467 /* Main.storyboard */; };
@@ -69,7 +69,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		17074B091AFB505300303A04 /* jiantou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jiantou.png; sourceTree = "<group>"; };
 		17177BF51AF4F71400DD4BB2 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		173788F81AF0896E00F883EC /* referralPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = referralPageViewController.h; sourceTree = "<group>"; };
 		173788F91AF0896E00F883EC /* referralPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = referralPageViewController.m; sourceTree = "<group>"; };
@@ -111,6 +110,7 @@
 		177E92701AE77200008F83B4 /* MNContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNContentCell.m; sourceTree = "<group>"; };
 		17817D5B1AF252AF00A8CEA7 /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/Main.strings"; sourceTree = "<group>"; };
 		17817D5C1AF252AF00A8CEA7 /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		1790C3E91B159BD200E8554F /* shareIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareIcon.png; sourceTree = "<group>"; };
 		17B1DCD31AFC916D0070E20D /* settingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingViewController.h; sourceTree = "<group>"; };
 		17B1DCD41AFC916D0070E20D /* settingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingViewController.m; sourceTree = "<group>"; };
 		17B1DCD61AFC98500070E20D /* MNSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSettingCell.h; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 		17074B081AFB505300303A04 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				17074B091AFB505300303A04 /* jiantou.png */,
+				1790C3E91B159BD200E8554F /* shareIcon.png */,
 			);
 			name = Resources;
 			path = manongweekly/Resources;
@@ -472,11 +472,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17074B0A1AFB505300303A04 /* jiantou.png in Resources */,
 				173789321AF2052A00F883EC /* icon_timeline@2x.png in Resources */,
 				17B251A41AE4E44000394467 /* Main.storyboard in Resources */,
 				1737892E1AF2052A00F883EC /* icon_session@2x.png in Resources */,
 				17B251A91AE4E44000394467 /* LaunchScreen.xib in Resources */,
+				1790C3EA1B159BD200E8554F /* shareIcon.png in Resources */,
 				1737892B1AF2052A00F883EC /* icon_session-8.png in Resources */,
 				1737892F1AF2052A00F883EC /* icon_timeline-8.png in Resources */,
 				173789311AF2052A00F883EC /* icon_timeline.png in Resources */,
