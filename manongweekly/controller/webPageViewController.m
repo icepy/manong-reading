@@ -59,28 +59,6 @@
     self.actionNumber = 0;
     self.showNotNetMessage.numberOfLines = 0;
     
-    self.closeCurrentView = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.closeCurrentView.frame = CGRectMake(0, 0, 40, 44);
-    self.closeCurrentView.hidden = YES;
-    [self.closeCurrentView setTitle:@"关闭" forState:UIControlStateNormal];
-    [self.closeCurrentView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.closeCurrentView addTarget:self action:@selector(closeCurrentView:) forControlEvents:UIControlEventTouchUpInside];
-    self.closeCurrentView.titleLabel.font = [UIFont systemFontOfSize:16];
-    
-    UIButton *backView = [UIButton buttonWithType:UIButtonTypeCustom];
-    backView.frame = CGRectMake(0, 0, 60, 28);
-    [backView setTitle:@"返回" forState:UIControlStateNormal];
-    [backView setImage:[UIImage imageNamed:@"BackIcon"] forState:UIControlStateNormal];
-    [backView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [backView addTarget:self action:@selector(backPage:) forControlEvents:UIControlEventTouchUpInside];
-    backView.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    backView.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    backView.titleLabel.font = [UIFont systemFontOfSize:16];
-    
-    UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithCustomView:self.closeCurrentView];
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backView];
-    
-    self.navigationItem.leftBarButtonItems = @[backItem,closeItem];
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
     }
@@ -207,6 +185,9 @@
     self.activc = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:activity];
     self.activc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint];
     [self presentViewController:self.activc animated:YES completion:nil];
+}
+- (IBAction)closeModalView:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)dealloc

@@ -86,7 +86,9 @@
 {
     NSLog(@"table view controller Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)self));
     if ([segue.identifier isEqualToString:@"gotoWebPage"]) {
-        webPageViewController *webPage = (webPageViewController *)segue.destinationViewController;
+        
+        UINavigationController *navC = (UINavigationController *)segue.destinationViewController;
+        webPageViewController *webPage = (webPageViewController *)navC.topViewController;
         self.updateIndexPath = [self.contentCategoryTable indexPathForSelectedRow];
         ManongContent *content = self.dataSource[self.updateIndexPath.row];
         NSDate *date = [NSDate date];
