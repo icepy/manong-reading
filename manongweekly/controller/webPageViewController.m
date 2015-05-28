@@ -14,7 +14,7 @@
 #import "webPageViewController.h"
 
 
-@interface webPageViewController()<WKNavigationDelegate,UIGestureRecognizerDelegate>
+@interface webPageViewController()<WKNavigationDelegate>
 
 @property (strong,nonatomic) UIApplication *application;
 @property (strong,nonatomic) UIActivityViewController *activc;
@@ -24,7 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *WKWebProgress;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backViewButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardViewButton;
-@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRigth;
 @property (assign,nonatomic) NSInteger actionNumber;
 
 @end
@@ -53,18 +52,10 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
     __weak webPageViewController *weakSelf = self;
-    
     dispatch_async(dispatch_get_main_queue(), ^{
-        weakSelf.swipeGestureRigth.delegate = weakSelf;
         weakSelf.actionNumber = 0;
         weakSelf.showNotNetMessage.numberOfLines = 0;
-        
-        if ([weakSelf.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-            weakSelf.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
-        }
-        
         [weakSelf.view insertSubview:weakSelf.WKWebPageView belowSubview:weakSelf.WKWebLoading];
         NSURLRequest *request = [NSURLRequest requestWithURL:weakSelf.requestURL];
         [weakSelf.WKWebPageView loadRequest:request];
@@ -77,8 +68,6 @@
         weakSelf.WKWebPageView.allowsBackForwardNavigationGestures = YES;
         NSLog(@"%@",self.requestURL);
     });
-    
-    
 }
 
 -(void)backPage:(UIButton *)sender
@@ -98,15 +87,6 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)swipeBackOrClose:(UISwipeGestureRecognizer *)sender {
-    WKBackForwardList *list = self.WKWebPageView.backForwardList;
-    NSArray *backList = list.backList;
-    if (!backList.count) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }else{
-        [self.WKWebPageView goBack];
-    }
-}
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {

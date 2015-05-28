@@ -65,7 +65,6 @@
     MNContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MNContentsCell" forIndexPath:indexPath];
     cell.manongContent = self.dataSource[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    NSLog(@"%@",NSStringFromCGRect(cell.frame));
     return cell;
 }
 
