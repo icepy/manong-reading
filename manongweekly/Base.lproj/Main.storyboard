@@ -317,7 +317,7 @@
                                             <outlet property="cName" destination="ACo-TY-M5F" id="fw4-6L-4ea"/>
                                             <outlet property="cOrigin" destination="SVp-ak-8CX" id="4wD-QT-bcT"/>
                                             <outlet property="cTime" destination="cAA-o4-lrk" id="QLP-X3-Z8y"/>
-                                            <segue destination="6dB-5W-b2i" kind="push" identifier="searchGoToWebPage" id="xNj-Vg-nL3"/>
+                                            <segue destination="zji-G9-dJz" kind="modal" identifier="searchGoToWebPage" id="qJB-Di-oD4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -411,7 +411,7 @@
                                             <outlet property="contentOrigin" destination="zcf-ak-qx3" id="OKa-HL-L8o"/>
                                             <outlet property="contentTime" destination="2m6-UB-i3q" id="caL-NV-jf6"/>
                                             <outlet property="contentTitle" destination="ssJ-Aq-twn" id="VpC-ax-eM7"/>
-                                            <segue destination="6dB-5W-b2i" kind="push" identifier="gotoWebPage" id="hTG-Ja-ena"/>
+                                            <segue destination="zji-G9-dJz" kind="modal" identifier="gotoWebPage" id="YUJ-17-L8W"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -440,7 +440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4H-Tm-1W0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="596" y="727"/>
+            <point key="canvasLocation" x="596" y="1209"/>
         </scene>
         <!--Web Page View Controller-->
         <scene sceneID="Hb6-iw-Bxu">
@@ -483,22 +483,60 @@
                             <constraint firstItem="zUm-x4-3Mw" firstAttribute="top" secondItem="idl-uO-rJR" secondAttribute="bottom" id="zch-wY-xwh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zfD-15-wmh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="kOS-Hd-5yY">
+                    <toolbarItems>
+                        <barButtonItem enabled="NO" title="后退" id="vXO-w7-G3b">
+                            <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="actionShare:" destination="6dB-5W-b2i" id="1rH-CW-1JB"/>
+                                <action selector="backURL:" destination="6dB-5W-b2i" id="HeF-LY-1j7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="flexibleSpace" id="oKm-cn-glf"/>
+                        <barButtonItem enabled="NO" title="前进" id="62s-H2-Qix">
+                            <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="forwardURL:" destination="6dB-5W-b2i" id="o5K-5j-7gU"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="flexibleSpace" id="CRt-li-PGs"/>
+                        <barButtonItem systemItem="refresh" id="Mom-YJ-rIP">
+                            <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="reloadCurrentURL:" destination="6dB-5W-b2i" id="ocp-Pe-blQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="flexibleSpace" id="bhw-hW-4HC"/>
+                        <barButtonItem systemItem="reply" id="v18-qg-vkR">
+                            <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="openSafari:" destination="6dB-5W-b2i" id="Ta9-6m-eqY"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="Oyg-BR-etR">
+                        <barButtonItem key="leftBarButtonItem" title="关闭" id="J2k-Z3-xhj">
+                            <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="closeModalView:" destination="6dB-5W-b2i" id="APL-HN-Gwc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="cKE-c0-SS5">
+                            <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="actionShare:" destination="6dB-5W-b2i" id="dL0-GT-GcC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="WKWebLoading" destination="bZZ-0F-sij" id="qE7-66-oNH"/>
                         <outlet property="WKWebProgress" destination="zUm-x4-3Mw" id="OHt-sk-lV1"/>
+                        <outlet property="backViewButton" destination="vXO-w7-G3b" id="kfs-Lf-b4u"/>
+                        <outlet property="forwardViewButton" destination="62s-H2-Qix" id="RDx-j4-8Je"/>
                         <outlet property="showNotNetMessage" destination="5Hg-G3-l5q" id="gMi-f1-kLu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLz-2W-D25" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1444" y="727"/>
+            <point key="canvasLocation" x="3062" y="1209"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fwj-9U-Q44">
@@ -553,8 +591,29 @@
             </objects>
             <point key="canvasLocation" x="1316" y="-912"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JUa-Gv-QOp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="zji-G9-dJz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="O0B-J6-VYK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="mgn-2l-bW0">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="6dB-5W-b2i" kind="relationship" relationship="rootViewController" id="MRY-mn-ajm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="goy-R1-0Ce" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2250" y="1209"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xNj-Vg-nL3"/>
+        <segue reference="YUJ-17-L8W"/>
     </inferredMetricsTieBreakers>
 </document>
