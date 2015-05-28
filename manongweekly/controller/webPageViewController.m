@@ -22,8 +22,11 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *WKWebLoading;
 @property (weak, nonatomic) IBOutlet UILabel *showNotNetMessage;
 @property (weak, nonatomic) IBOutlet UIProgressView *WKWebProgress;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backViewButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardViewButton;
 
-@property (strong,nonatomic) UIButton *closeCurrentView;
+
+
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRigth;
 
 @property (assign,nonatomic) NSInteger actionNumber;
@@ -55,45 +58,30 @@
 {
     [super viewDidLoad];
     
-    self.swipeGestureRigth.delegate = self;
-    self.actionNumber = 0;
-    self.showNotNetMessage.numberOfLines = 0;
+    __weak webPageViewController *weakSelf = self;
     
-    self.closeCurrentView = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.closeCurrentView.frame = CGRectMake(0, 0, 40, 44);
-    self.closeCurrentView.hidden = YES;
-    [self.closeCurrentView setTitle:@"关闭" forState:UIControlStateNormal];
-    [self.closeCurrentView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.closeCurrentView addTarget:self action:@selector(closeCurrentView:) forControlEvents:UIControlEventTouchUpInside];
-    self.closeCurrentView.titleLabel.font = [UIFont systemFontOfSize:16];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        weakSelf.swipeGestureRigth.delegate = weakSelf;
+        weakSelf.actionNumber = 0;
+        weakSelf.showNotNetMessage.numberOfLines = 0;
+        
+        if ([weakSelf.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+            weakSelf.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
+        }
+        
+        [weakSelf.view insertSubview:weakSelf.WKWebPageView belowSubview:weakSelf.WKWebLoading];
+        NSURLRequest *request = [NSURLRequest requestWithURL:weakSelf.requestURL];
+        [weakSelf.WKWebPageView loadRequest:request];
+        weakSelf.showNotNetMessage.hidden = YES;
+        [weakSelf.WKWebPageView addObserver:weakSelf forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
+        [weakSelf.WKWebPageView addObserver:weakSelf forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
+        [weakSelf.WKWebPageView addObserver:weakSelf forKeyPath:@"URL" options:NSKeyValueObservingOptionNew context:nil];
+        [weakSelf.WKWebPageView addObserver:weakSelf forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
+        [weakSelf.WKWebPageView addObserver:weakSelf forKeyPath:@"canGoForward" options:NSKeyValueObservingOptionNew context:nil];
+        weakSelf.WKWebPageView.allowsBackForwardNavigationGestures = YES;
+    });
     
-    UIButton *backView = [UIButton buttonWithType:UIButtonTypeCustom];
-    backView.frame = CGRectMake(0, 0, 60, 28);
-    [backView setTitle:@"返回" forState:UIControlStateNormal];
-    [backView setImage:[UIImage imageNamed:@"BackIcon"] forState:UIControlStateNormal];
-    [backView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [backView addTarget:self action:@selector(backPage:) forControlEvents:UIControlEventTouchUpInside];
-    backView.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    backView.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    backView.titleLabel.font = [UIFont systemFontOfSize:16];
     
-    UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithCustomView:self.closeCurrentView];
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backView];
-    
-    self.navigationItem.leftBarButtonItems = @[backItem,closeItem];
-    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-        self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    }
-    
-    [self.view insertSubview:self.WKWebPageView belowSubview:self.WKWebLoading];
-    NSURLRequest *request = [NSURLRequest requestWithURL:self.requestURL];
-    [self.WKWebPageView loadRequest:request];
-    self.showNotNetMessage.hidden = YES;
-    [self.WKWebPageView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
-    [self.WKWebPageView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
-    [self.WKWebPageView addObserver:self forKeyPath:@"URL" options:NSKeyValueObservingOptionNew context:nil];
-    [self.WKWebPageView addObserver:self forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
-    self.WKWebPageView.allowsBackForwardNavigationGestures = YES;
 }
 
 -(void)backPage:(UIButton *)sender
@@ -141,9 +129,17 @@
     }
     
     if ([keyPath isEqualToString:@"canGoBack"]) {
-        NSLog(@"can go back %zd",self.WKWebPageView.canGoBack);
-        self.closeCurrentView.hidden = !self.WKWebPageView.canGoBack;
+        self.backViewButton.enabled = YES;
+        if (!self.WKWebPageView.backForwardList.backList.count) {
+            self.backViewButton.enabled = NO;
+            self.forwardViewButton.enabled = YES;
+        }
     }
+    
+    if ([keyPath isEqualToString:@"canGoForward"]) {
+        self.forwardViewButton.enabled = NO;
+    }
+    
 }
 
 //页面开始加载时
@@ -171,13 +167,6 @@
     self.WKWebPageView.scrollView.contentSize = scrollContentSize;
     NSLog(@"contentsize%@",NSStringFromCGSize(self.WKWebPageView.scrollView.contentSize));
     NSLog(@"%@",NSStringFromCGRect(self.WKWebPageView.frame));
-    
-//    self.WKWebPageView.scrollView.contentOffset = CGPointMake(0, 64);
-//    NSString *js = @"var WKWDoc = document.getElementsByTagName('body')[0];WKWDoc.style.overflowX='hidden';WKWDoc.style.color='red';";
-//    NSLog(@"%@",js);
-//    [self.WKWebPageView evaluateJavaScript:js completionHandler:^(id k, NSError *e) {
-//        NSLog(@"%@",e);
-//    }];
 }
 
 //页面加载失败
@@ -208,6 +197,25 @@
     self.activc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint];
     [self presentViewController:self.activc animated:YES completion:nil];
 }
+- (IBAction)closeModalView:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)openSafari:(UIBarButtonItem *)sender {
+    [self.application openURL:self.requestURL];
+}
+
+
+- (IBAction)reloadCurrentURL:(UIBarButtonItem *)sender {
+    [self.WKWebPageView reloadFromOrigin];
+}
+- (IBAction)forwardURL:(UIBarButtonItem *)sender {
+    [self.WKWebPageView goForward];
+}
+
+- (IBAction)backURL:(UIBarButtonItem *)sender {
+    [self.WKWebPageView goBack];
+}
 
 -(void)dealloc
 {
@@ -216,6 +224,7 @@
     [self.WKWebPageView removeObserver:self forKeyPath:@"title"];
     [self.WKWebPageView removeObserver:self forKeyPath:@"URL"];
     [self.WKWebPageView removeObserver:self forKeyPath:@"canGoBack"];
+    [self.WKWebPageView removeObserver:self forKeyPath:@"canGoForward"];
 //    NSLog(@"%@",NSStringFromCGSize(self.WKWebPageView.scrollView.contentSize));
     NSLog(@"web page view controller 销毁");
 }

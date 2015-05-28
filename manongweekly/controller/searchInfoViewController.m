@@ -288,24 +288,29 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"searchGoToWebPage"]) {
-        webPageViewController *webPage = (webPageViewController *)segue.destinationViewController;
-        NSIndexPath *indexPath = [self.showSearchInfoTable indexPathForSelectedRow];
-        ManongContent *content = self.searchDataSource[indexPath.row];
-        NSDate *date = [NSDate date];
-        NSString *readTime = [self.manager createDateNowString:date];
-        ManongContent *mncontent = [self.manager fetchManong:@"ManongContent" fetchKey:@"wkName" fetchValue:content.wkName];
-        if (mncontent) {
-            mncontent.wkTime = date;
-            mncontent.wkStringTime = readTime;
-            mncontent.wkStatus = @YES;
-            content.wkTime = date;
-            content.wkStringTime = readTime;
-            content.wkStatus = @YES;
-            [self.manager saveData];
-        }
-        NSURL *url = [NSURL URLWithString:content.wkUrl];
-        webPage.requestURL = url;
-        webPage.requestTitle = content.wkName;
+        __weak searchInfoViewController *weakSelf = self;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UINavigationController *navC = (UINavigationController *)segue.destinationViewController;
+            webPageViewController *webPage = (webPageViewController *)navC.topViewController;
+            NSIndexPath *indexPath = [weakSelf.showSearchInfoTable indexPathForSelectedRow];
+            ManongContent *content = weakSelf.searchDataSource[indexPath.row];
+            NSDate *date = [NSDate date];
+            NSString *readTime = [weakSelf.manager createDateNowString:date];
+            ManongContent *mncontent = [weakSelf.manager fetchManong:@"ManongContent" fetchKey:@"wkName" fetchValue:content.wkName];
+            if (mncontent) {
+                mncontent.wkTime = date;
+                mncontent.wkStringTime = readTime;
+                mncontent.wkStatus = @YES;
+                content.wkTime = date;
+                content.wkStringTime = readTime;
+                content.wkStatus = @YES;
+                [weakSelf.manager saveData];
+            }
+            NSURL *url = [NSURL URLWithString:content.wkUrl];
+            webPage.requestURL = url;
+            webPage.requestTitle = content.wkName;
+        });
+        
     }
 }
 
