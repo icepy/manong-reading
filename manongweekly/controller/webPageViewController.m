@@ -24,11 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *WKWebProgress;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backViewButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardViewButton;
-
-
-
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRigth;
-
 @property (assign,nonatomic) NSInteger actionNumber;
 
 @end
@@ -79,6 +75,7 @@
         [weakSelf.WKWebPageView addObserver:weakSelf forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
         [weakSelf.WKWebPageView addObserver:weakSelf forKeyPath:@"canGoForward" options:NSKeyValueObservingOptionNew context:nil];
         weakSelf.WKWebPageView.allowsBackForwardNavigationGestures = YES;
+        NSLog(@"%@",self.requestURL);
     });
     
     
@@ -125,7 +122,10 @@
     }
     
     if ([keyPath isEqualToString:@"URL"]) {
-        self.requestURL = self.WKWebPageView.URL;
+        if (self.WKWebPageView.URL) {
+            self.requestURL = self.WKWebPageView.URL;
+        }
+        
     }
     
     if ([keyPath isEqualToString:@"canGoBack"]) {
@@ -185,6 +185,7 @@
 {
     [super didReceiveMemoryWarning];
 }
+
 - (IBAction)actionShare:(UIBarButtonItem *)sender {
     BOOL isweixin = [WXApi isWXAppInstalled];
     NSString *shareText = [NSString stringWithFormat:@"%@ Origin:%@",self.requestTitle,self.requestURL.host];
@@ -197,6 +198,7 @@
     self.activc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint];
     [self presentViewController:self.activc animated:YES completion:nil];
 }
+
 - (IBAction)closeModalView:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -205,10 +207,12 @@
     [self.application openURL:self.requestURL];
 }
 
-
 - (IBAction)reloadCurrentURL:(UIBarButtonItem *)sender {
+    self.application.networkActivityIndicatorVisible = YES;
+    self.WKWebLoading.hidden = NO;
     [self.WKWebPageView reloadFromOrigin];
 }
+
 - (IBAction)forwardURL:(UIBarButtonItem *)sender {
     [self.WKWebPageView goForward];
 }
