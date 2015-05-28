@@ -63,7 +63,6 @@
     MNSearchInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MNSearchInfoCell" forIndexPath:indexPath];
     cell.manongC = self.searchDataSource[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    NSLog(@"%@",NSStringFromCGRect(cell.frame));
     return cell;
 }
 
