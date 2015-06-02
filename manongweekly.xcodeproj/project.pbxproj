@@ -537,7 +537,6 @@
 					};
 					17B251AD1AE4E44000394467 = {
 						CreatedOnToolsVersion = 6.3;
-						TestTargetID = 17B251941AE4E44000394467;
 					};
 				};
 			};
@@ -867,7 +866,7 @@
 		17B251BC1AE4E44000394467 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: wenwen xiang (D69C7E3QAW)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -876,25 +875,25 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = manongWeeklyDayOneTests/Info.plist;
+				INFOPLIST_FILE = manongweeklyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = manongweeklyTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/manongWeeklyDayOne.app/manongWeeklyDayOne";
+				PROVISIONING_PROFILE = "6b419f17-3e53-4bfc-b4ff-89ab7dcd1ff2";
 			};
 			name = Debug;
 		};
 		17B251BD1AE4E44000394467 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: wenwen xiang (D69C7E3QAW)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = manongWeeklyDayOneTests/Info.plist;
+				INFOPLIST_FILE = manongweeklyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = manongweeklyTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/manongWeeklyDayOne.app/manongWeeklyDayOne";
+				PROVISIONING_PROFILE = "6b419f17-3e53-4bfc-b4ff-89ab7dcd1ff2";
 			};
 			name = Release;
 		};
@@ -908,6 +907,7 @@
 				178D25FE1B1D450E008236E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17B251901AE4E44000394467 /* Build configuration list for PBXProject "manongweekly" */ = {
 			isa = XCConfigurationList;
