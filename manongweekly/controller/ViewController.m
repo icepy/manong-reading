@@ -174,8 +174,6 @@ NSInteger testTime = 1;
     NSMutableArray *dataArray = self.manager.dataSource[indexPath.section];
     if (dataArray.count > 0) {
         cell.manongTag = dataArray[indexPath.row];
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
 }

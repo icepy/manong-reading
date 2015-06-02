@@ -165,24 +165,36 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hPN-1r-JfY" id="DVH-dy-PTf">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaH-4O-jMb">
-                                                    <rect key="frame" x="7" y="10" width="260" height="44"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXJ-0h-StJ">
+                                                    <rect key="frame" x="7" y="8" width="22" height="47"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="260" id="2RM-iN-1Jg"/>
+                                                        <constraint firstAttribute="width" constant="22" id="9xv-Pj-7ew"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaH-4O-jMb">
+                                                    <rect key="frame" x="34" y="10" width="502" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                    <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="aaH-4O-jMb" firstAttribute="top" secondItem="DVH-dy-PTf" secondAttribute="topMargin" constant="2" id="BWZ-Ny-SRu"/>
-                                                <constraint firstItem="aaH-4O-jMb" firstAttribute="leading" secondItem="DVH-dy-PTf" secondAttribute="leadingMargin" constant="-1" id="iAl-xl-iJo"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="aaH-4O-jMb" secondAttribute="bottom" constant="1" id="uIA-gG-3pW"/>
+                                                <constraint firstAttribute="bottom" secondItem="aaH-4O-jMb" secondAttribute="bottom" constant="10" id="6SZ-x6-SvE"/>
+                                                <constraint firstItem="aaH-4O-jMb" firstAttribute="leading" secondItem="QXJ-0h-StJ" secondAttribute="trailing" constant="5" id="Azw-AE-W0B"/>
+                                                <constraint firstItem="QXJ-0h-StJ" firstAttribute="top" secondItem="DVH-dy-PTf" secondAttribute="topMargin" id="Lo1-oM-di9"/>
+                                                <constraint firstItem="QXJ-0h-StJ" firstAttribute="leading" secondItem="DVH-dy-PTf" secondAttribute="leadingMargin" constant="-1" id="PJC-Qe-Ba6"/>
+                                                <constraint firstItem="aaH-4O-jMb" firstAttribute="top" secondItem="DVH-dy-PTf" secondAttribute="top" constant="10" id="YwY-0O-1np"/>
+                                                <constraint firstAttribute="trailing" secondItem="aaH-4O-jMb" secondAttribute="trailing" constant="31" id="ZU2-I3-xlB"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="QXJ-0h-StJ" secondAttribute="bottom" id="mQR-lI-S8K"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="colorTag" destination="QXJ-0h-StJ" id="jfL-VN-7vX"/>
                                             <outlet property="tagTitleName" destination="aaH-4O-jMb" id="nFJ-HN-TDx"/>
                                             <segue destination="UYT-Je-O1O" kind="push" identifier="gotoContent" id="rN0-3L-WHq"/>
                                         </connections>
@@ -550,7 +562,7 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.0" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
