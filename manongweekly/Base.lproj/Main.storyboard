@@ -229,7 +229,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="P95-bk-su9">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="设置" id="CMA-bf-Crr">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" image="SettingImage" id="CMA-bf-Crr">
                             <connections>
                                 <segue destination="0K1-OM-Whr" kind="modal" id="ld2-gD-2Mx"/>
                             </connections>
@@ -625,6 +625,9 @@
             <point key="canvasLocation" x="2250" y="1209"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SettingImage" width="16" height="16"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YUJ-17-L8W"/>
     </inferredMetricsTieBreakers>

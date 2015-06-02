@@ -28,6 +28,7 @@
 		176B63841AEB8844003CA376 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B63831AEB8844003CA376 /* SystemConfiguration.framework */; };
 		176B63861AEB8856003CA376 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B63851AEB8856003CA376 /* libz.dylib */; };
 		176B63881AEB8869003CA376 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B63871AEB8869003CA376 /* libsqlite3.0.dylib */; };
+		177C60781B1DB308002D5852 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177C60771B1DB308002D5852 /* Images.xcassets */; };
 		177C80A41AEF2B1C0069149A /* MNSearchInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 177C80A31AEF2B1C0069149A /* MNSearchInfoCell.m */; };
 		177C80A71AEF2EC50069149A /* searchInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177C80A61AEF2EC50069149A /* searchInfoViewController.m */; };
 		177E923B1AE76B86008F83B4 /* modelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B251CA1AE4EB7400394467 /* modelManager.m */; };
@@ -52,7 +53,6 @@
 		17B1DCD51AFC916D0070E20D /* settingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B1DCD41AFC916D0070E20D /* settingViewController.m */; };
 		17B1DCD81AFC98500070E20D /* MNSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B1DCD71AFC98500070E20D /* MNSettingCell.m */; };
 		17B251A41AE4E44000394467 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B251A21AE4E44000394467 /* Main.storyboard */; };
-		17B251A61AE4E44000394467 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17B251A51AE4E44000394467 /* Images.xcassets */; };
 		17B251A91AE4E44000394467 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17B251A71AE4E44000394467 /* LaunchScreen.xib */; };
 		17B251B51AE4E44000394467 /* manongWeeklyDayOneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B251B41AE4E44000394467 /* manongWeeklyDayOneTests.m */; };
 		17B251D71AE5E9B500394467 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B251D61AE5E9B500394467 /* CoreData.framework */; };
@@ -124,6 +124,7 @@
 		176B63831AEB8844003CA376 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		176B63851AEB8856003CA376 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		176B63871AEB8869003CA376 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		177C60771B1DB308002D5852 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		177C80A21AEF2B1C0069149A /* MNSearchInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSearchInfoCell.h; sourceTree = "<group>"; };
 		177C80A31AEF2B1C0069149A /* MNSearchInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSearchInfoCell.m; sourceTree = "<group>"; };
 		177C80A51AEF2EC50069149A /* searchInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchInfoViewController.h; sourceTree = "<group>"; };
@@ -156,7 +157,6 @@
 		17B2519F1AE4E44000394467 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		17B251A01AE4E44000394467 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		17B251A31AE4E44000394467 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		17B251A51AE4E44000394467 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		17B251A81AE4E44000394467 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		17B251AE1AE4E44000394467 /* manongweeklyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = manongweeklyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B251B31AE4E44000394467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -375,8 +375,8 @@
 				17B251BE1AE4E79D00394467 /* controller */,
 				17B2519C1AE4E44000394467 /* AppDelegate.h */,
 				17B2519D1AE4E44000394467 /* AppDelegate.m */,
+				177C60771B1DB308002D5852 /* Images.xcassets */,
 				17B251A21AE4E44000394467 /* Main.storyboard */,
-				17B251A51AE4E44000394467 /* Images.xcassets */,
 				17B251A71AE4E44000394467 /* LaunchScreen.xib */,
 				17B251981AE4E44000394467 /* Supporting Files */,
 			);
@@ -585,7 +585,7 @@
 				1737892F1AF2052A00F883EC /* icon_timeline-8.png in Resources */,
 				173789311AF2052A00F883EC /* icon_timeline.png in Resources */,
 				1737892C1AF2052A00F883EC /* icon_session-8@2x.png in Resources */,
-				17B251A61AE4E44000394467 /* Images.xcassets in Resources */,
+				177C60781B1DB308002D5852 /* Images.xcassets in Resources */,
 				1737892D1AF2052A00F883EC /* icon_session.png in Resources */,
 				173789301AF2052A00F883EC /* icon_timeline-8@2x.png in Resources */,
 			);
