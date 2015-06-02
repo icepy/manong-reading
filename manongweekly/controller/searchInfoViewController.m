@@ -317,6 +317,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)backForIndex:(UIBarButtonItem *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 -(void)dealloc
 {

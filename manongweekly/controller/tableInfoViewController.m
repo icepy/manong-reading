@@ -32,9 +32,12 @@
     NSLog(@"table view controller Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)self));
     __weak tableInfoViewController *weakSelf = self;
     self.contentCategoryTable.dataSource = self;
+    self.contentCategoryTable.delegate = self;
     self.tableInfoLoading.hidden = NO;
     self.contentCategoryTable.hidden = YES;
     self.navigationItem.title = self.tagToInfoParameter;
+    
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray *arr = [weakSelf.manager fetchAllManongContent:weakSelf.tagToInfoParameter];
         weakSelf.dataSource = [[NSMutableArray alloc] initWithArray:arr];
@@ -68,13 +71,15 @@
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    __weak tableInfoViewController *weakSelf = self;
-    return [tableView fd_heightForCellWithIdentifier:@"MNContentsCell" configuration:^(MNContentCell *cell) {
-        cell.manongContent = weakSelf.dataSource[indexPath.row];
-    }];
-}
+
+
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    __weak tableInfoViewController *weakSelf = self;
+//    return [tableView fd_heightForCellWithIdentifier:@"MNContentsCell" configuration:^(MNContentCell *cell) {
+//        cell.manongContent = weakSelf.dataSource[indexPath.row];
+//    }];
+//}
 
 -(void)didReceiveMemoryWarning
 {
@@ -109,6 +114,9 @@
         });
        
     }
+}
+- (IBAction)backForIndex:(UIBarButtonItem *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)dealloc
