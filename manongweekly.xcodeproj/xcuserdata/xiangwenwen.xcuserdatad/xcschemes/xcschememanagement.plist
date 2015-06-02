@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>manongweeklyExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>178D25ED1B1D450E008236E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>17B251941AE4E44000394467</key>
 		<dict>
 			<key>primary</key>

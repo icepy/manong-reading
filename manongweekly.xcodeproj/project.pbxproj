@@ -43,6 +43,10 @@
 		177E92621AE76ED3008F83B4 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 177E92611AE76ED3008F83B4 /* UITableView+FDTemplateLayoutCell.m */; };
 		177E926E1AE771EF008F83B4 /* MNTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 177E926D1AE771EF008F83B4 /* MNTagCell.m */; };
 		177E92711AE77200008F83B4 /* MNContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 177E92701AE77200008F83B4 /* MNContentCell.m */; };
+		178D25F11B1D450E008236E7 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 178D25F01B1D450E008236E7 /* NotificationCenter.framework */; };
+		178D25F71B1D450E008236E7 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 178D25F61B1D450E008236E7 /* TodayViewController.m */; };
+		178D25F91B1D450E008236E7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178D25F81B1D450E008236E7 /* MainInterface.storyboard */; };
+		178D25FC1B1D450E008236E7 /* manongweeklyExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 178D25EE1B1D450E008236E7 /* manongweeklyExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1790C3EA1B159BD200E8554F /* shareIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1790C3E91B159BD200E8554F /* shareIcon.png */; };
 		17B1DCD51AFC916D0070E20D /* settingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B1DCD41AFC916D0070E20D /* settingViewController.m */; };
 		17B1DCD81AFC98500070E20D /* MNSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B1DCD71AFC98500070E20D /* MNSettingCell.m */; };
@@ -59,6 +63,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		178D25FA1B1D450E008236E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17B2518D1AE4E44000394467 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 178D25ED1B1D450E008236E7;
+			remoteInfo = manongweeklyExtension;
+		};
 		17B251AF1AE4E44000394467 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 17B2518D1AE4E44000394467 /* Project object */;
@@ -67,6 +78,20 @@
 			remoteInfo = manongWeeklyDayOne;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		178D26001B1D450E008236E7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				178D25FC1B1D450E008236E7 /* manongweeklyExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		17177BF51AF4F71400DD4BB2 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
@@ -110,6 +135,12 @@
 		177E92701AE77200008F83B4 /* MNContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNContentCell.m; sourceTree = "<group>"; };
 		17817D5B1AF252AF00A8CEA7 /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/Main.strings"; sourceTree = "<group>"; };
 		17817D5C1AF252AF00A8CEA7 /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		178D25EE1B1D450E008236E7 /* manongweeklyExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = manongweeklyExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		178D25F01B1D450E008236E7 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		178D25F41B1D450E008236E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		178D25F51B1D450E008236E7 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		178D25F61B1D450E008236E7 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		178D25F81B1D450E008236E7 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		1790C3E91B159BD200E8554F /* shareIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareIcon.png; sourceTree = "<group>"; };
 		17B1DCD31AFC916D0070E20D /* settingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingViewController.h; sourceTree = "<group>"; };
 		17B1DCD41AFC916D0070E20D /* settingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingViewController.m; sourceTree = "<group>"; };
@@ -156,6 +187,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		178D25EB1B1D450E008236E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178D25F11B1D450E008236E7 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17B251921AE4E44000394467 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -260,6 +299,33 @@
 			path = "manongweekly/UITableView-FDTemplateLayoutCell";
 			sourceTree = "<group>";
 		};
+		178D25EF1B1D450E008236E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				178D25F01B1D450E008236E7 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		178D25F21B1D450E008236E7 /* manongweeklyExtension */ = {
+			isa = PBXGroup;
+			children = (
+				178D25F51B1D450E008236E7 /* TodayViewController.h */,
+				178D25F61B1D450E008236E7 /* TodayViewController.m */,
+				178D25F81B1D450E008236E7 /* MainInterface.storyboard */,
+				178D25F31B1D450E008236E7 /* Supporting Files */,
+			);
+			path = manongweeklyExtension;
+			sourceTree = "<group>";
+		};
+		178D25F31B1D450E008236E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				178D25F41B1D450E008236E7 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		17B2518C1AE4E44000394467 = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +344,8 @@
 				17B251EA1AE62E8E00394467 /* HPPLE */,
 				17B251971AE4E44000394467 /* manongweekly */,
 				17B251B11AE4E44000394467 /* manongweeklyTests */,
+				178D25F21B1D450E008236E7 /* manongweeklyExtension */,
+				178D25EF1B1D450E008236E7 /* Frameworks */,
 				17B251961AE4E44000394467 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -287,6 +355,7 @@
 			children = (
 				17B251951AE4E44000394467 /* manongweekly.app */,
 				17B251AE1AE4E44000394467 /* manongweeklyTests.xctest */,
+				178D25EE1B1D450E008236E7 /* manongweeklyExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -390,6 +459,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		178D25ED1B1D450E008236E7 /* manongweeklyExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 178D25FF1B1D450E008236E7 /* Build configuration list for PBXNativeTarget "manongweeklyExtension" */;
+			buildPhases = (
+				178D25EA1B1D450E008236E7 /* Sources */,
+				178D25EB1B1D450E008236E7 /* Frameworks */,
+				178D25EC1B1D450E008236E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = manongweeklyExtension;
+			productName = manongweeklyExtension;
+			productReference = 178D25EE1B1D450E008236E7 /* manongweeklyExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		17B251941AE4E44000394467 /* manongweekly */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17B251B81AE4E44000394467 /* Build configuration list for PBXNativeTarget "manongweekly" */;
@@ -397,10 +483,12 @@
 				17B251911AE4E44000394467 /* Sources */,
 				17B251921AE4E44000394467 /* Frameworks */,
 				17B251931AE4E44000394467 /* Resources */,
+				178D26001B1D450E008236E7 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				178D25FB1B1D450E008236E7 /* PBXTargetDependency */,
 			);
 			name = manongweekly;
 			productName = manongWeeklyDayOne;
@@ -434,6 +522,10 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = xiangwenwen;
 				TargetAttributes = {
+					178D25ED1B1D450E008236E7 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = V94YS5RCTX;
+					};
 					17B251941AE4E44000394467 = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = V94YS5RCTX;
@@ -463,11 +555,20 @@
 			targets = (
 				17B251941AE4E44000394467 /* manongweekly */,
 				17B251AD1AE4E44000394467 /* manongweeklyTests */,
+				178D25ED1B1D450E008236E7 /* manongweeklyExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		178D25EC1B1D450E008236E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178D25F91B1D450E008236E7 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17B251931AE4E44000394467 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -497,6 +598,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		178D25EA1B1D450E008236E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178D25F71B1D450E008236E7 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17B251911AE4E44000394467 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -543,6 +652,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		178D25FB1B1D450E008236E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 178D25ED1B1D450E008236E7 /* manongweeklyExtension */;
+			targetProxy = 178D25FA1B1D450E008236E7 /* PBXContainerItemProxy */;
+		};
 		17B251B01AE4E44000394467 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 17B251941AE4E44000394467 /* manongweekly */;
@@ -572,6 +686,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		178D25FD1B1D450E008236E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: wenwen xiang (D69C7E3QAW)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = manongweeklyExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3cf71cff-9806-47a9-b8a3-8ae6595b3839";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		178D25FE1B1D450E008236E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: wenwen xiang (D69C7E3QAW)";
+				INFOPLIST_FILE = manongweeklyExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3cf71cff-9806-47a9-b8a3-8ae6595b3839";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		17B251B61AE4E44000394467 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -757,6 +901,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		178D25FF1B1D450E008236E7 /* Build configuration list for PBXNativeTarget "manongweeklyExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				178D25FD1B1D450E008236E7 /* Debug */,
+				178D25FE1B1D450E008236E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		17B251901AE4E44000394467 /* Build configuration list for PBXProject "manongweekly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
