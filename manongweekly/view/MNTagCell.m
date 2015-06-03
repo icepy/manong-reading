@@ -25,7 +25,6 @@
     _manongTag = manongTag;
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    
     self.colorTag.layer.cornerRadius = 2.0;
     self.colorTag.layer.masksToBounds = YES;
     

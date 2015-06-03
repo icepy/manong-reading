@@ -16,13 +16,18 @@
 @implementation MNSettingCell
 
 
--(void)setMNSettingInfo:(NSString *)MNSettingInfo
+-(void)setMNSettingInfo:(NSDictionary *)MNSettingInfo
 {
     _MNSettingInfo = MNSettingInfo;
-    self.settingInfoShow.text = MNSettingInfo;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    self.settingInfoShow.text = MNSettingInfo[@"setName"];
+    self.imageView.image = [UIImage imageNamed:MNSettingInfo[@"setIcon"]];
+    
     if (self.section > 0) {
-        self.settingInfoShow.textAlignment = NSTextAlignmentCenter;
-        [self.settingInfoShow setTextColor:[UIColor colorWithRed:0.000 green:0.502 blue:0.502 alpha:1.000]];
+        self.accessoryType = UITableViewCellAccessoryNone;
+//        self.settingInfoShow.textAlignment = NSTextAlignmentCenter;
+//        [self.settingInfoShow setTextColor:[UIColor colorWithRed:0.000 green:0.502 blue:0.502 alpha:1.000]];
     }
 }
 

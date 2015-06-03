@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 xiangwenwen. All rights reserved.
 //
 
-
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "Reachability.h"
 #import "ViewController.h"
@@ -95,6 +94,10 @@ NSInteger testTime = 1;
     [self.reachability startNotifier];
     self.titleCategoryTable.dataSource = self;
     self.titleCategoryTable.delegate = self;
+    
+    //night
+
+    
     self.hideTagCon = [[NSMutableArray alloc] init];
 //    NSLog(@"view controller Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)self));
     [self.manager readConfig:^(NSDictionary *config) {
@@ -198,39 +201,40 @@ NSInteger testTime = 1;
     return section == 0 ? @"浏览标签" : @"语言分类";
 }
 
--(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 1) {
-        return  UITableViewCellEditingStyleDelete;
-    }
-    return UITableViewCellEditingStyleNone;
-}
-
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        NSMutableArray *needHideData = self.manager.dataSource[indexPath.section];
-        NSMutableArray *browseData = self.manager.dataSource[0];
-        ManongTag *tag = (ManongTag *)[needHideData objectAtIndex:indexPath.row];
-        
-        [browseData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            
-        }];
-        
-        [self.hideTagCon addObject:tag.tagName];
-        
-        
-        [needHideData removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-        
-    }
-}
-
--(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return @"隐藏";
-}
+//-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (indexPath.section == 1) {
+//        return  UITableViewCellEditingStyleDelete;
+//    }
+//    return UITableViewCellEditingStyleNone;
+//}
+//
+//-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if(editingStyle == UITableViewCellEditingStyleDelete) {
+//        
+//        NSMutableArray *needHideData = self.manager.dataSource[indexPath.section];
+//        NSMutableArray *browseData = self.manager.dataSource[0];
+//        ManongTag *tag = (ManongTag *)[needHideData objectAtIndex:indexPath.row];
+//        
+//        [browseData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//            ManongTag *browseTag = (ManongTag *)obj;
+//            if ([tag.tagName isEqualToString:browseTag.tagName]) {
+//                *stop = YES;
+//            }
+//        }];
+//        
+//        [self.hideTagCon addObject:tag.tagName];
+//        [needHideData removeObjectAtIndex:indexPath.row];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+//        
+//    }
+//}
+//
+//-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return @"隐藏";
+//}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

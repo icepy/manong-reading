@@ -1,24 +1,28 @@
 //
-//  referralPageViewController.m
+//  readingChartViewController.m
 //  manongweekly
 //
-//  Created by xiangwenwen on 15/4/29.
+//  Created by xiangwenwen on 15/6/3.
 //  Copyright (c) 2015年 xiangwenwen. All rights reserved.
 //
 
-#import "referralPageViewController.h"
+#import "readingChartViewController.h"
+#import <Masonry/Masonry.h>
 
-@interface referralPageViewController()<UIGestureRecognizerDelegate>
+@interface readingChartViewController()<UIGestureRecognizerDelegate>
 
 @end
 
-@implementation referralPageViewController
+@implementation readingChartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = self.referraTitle;
+    self.navigationItem.title = self.readingChartTitle;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -36,7 +40,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 /*
 #pragma mark - Navigation

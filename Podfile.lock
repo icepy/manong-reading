@@ -1,0 +1,16 @@
+PODS:
+  - Masonry (0.6.1)
+  - PNChart (0.8.3):
+    - UICountingLabel (~> 1.2.0)
+  - UICountingLabel (1.2.0)
+
+DEPENDENCIES:
+  - Masonry
+  - PNChart
+
+SPEC CHECKSUMS:
+  Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
+  PNChart: 8d81e061ec4845915184755d8da84f385ca1cb28
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
+
+COCOAPODS: 0.35.0

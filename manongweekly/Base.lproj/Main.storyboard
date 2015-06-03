@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-5I-YPx">
-                                <rect key="frame" x="10" y="30" width="580" height="498"/>
+                                <rect key="frame" x="10" y="30" width="580" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">致谢
 
@@ -41,7 +41,7 @@
        邮箱：wenwenicepy@qq.com
        支持：http://lcepy.github.io</string>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -54,7 +54,9 @@
                             <constraint firstItem="Qgb-5I-YPx" firstAttribute="top" secondItem="4FH-fd-PaU" secondAttribute="top" constant="30" id="y7b-f5-BPz"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="34g-ap-siq"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQh-XL-w0n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,24 +78,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MNSettingCell" rowHeight="44" id="g93-sn-wqs" customClass="MNSettingCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MNSettingCell" rowHeight="50" id="g93-sn-wqs" customClass="MNSettingCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g93-sn-wqs" id="kfi-g3-EUW">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpU-9z-pFT">
-                                                    <rect key="frame" x="20" y="12" width="560" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="45" y="10" width="560" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="hpU-9z-pFT" secondAttribute="trailing" constant="12" id="46H-EC-bsf"/>
-                                                <constraint firstItem="hpU-9z-pFT" firstAttribute="top" secondItem="kfi-g3-EUW" secondAttribute="topMargin" constant="4" id="esd-dw-U59"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="hpU-9z-pFT" secondAttribute="bottom" constant="3" id="jjn-sb-8Xx"/>
-                                                <constraint firstItem="hpU-9z-pFT" firstAttribute="leading" secondItem="kfi-g3-EUW" secondAttribute="leadingMargin" constant="12" id="ykK-Ww-Oep"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hpU-9z-pFT" secondAttribute="trailing" constant="-13" id="46H-EC-bsf"/>
+                                                <constraint firstItem="hpU-9z-pFT" firstAttribute="top" secondItem="kfi-g3-EUW" secondAttribute="topMargin" constant="2" id="esd-dw-U59"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hpU-9z-pFT" secondAttribute="bottom" constant="1" id="jjn-sb-8Xx"/>
+                                                <constraint firstItem="hpU-9z-pFT" firstAttribute="leading" secondItem="kfi-g3-EUW" secondAttribute="leadingMargin" constant="37" id="ykK-Ww-Oep"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -142,6 +144,39 @@
             </objects>
             <point key="canvasLocation" x="2128" y="-912"/>
         </scene>
+        <!--Reading Chart View Controller-->
+        <scene sceneID="GCD-Yt-4vF">
+            <objects>
+                <viewController storyboardIdentifier="readingChart" id="qtZ-vk-vPW" customClass="readingChartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="40N-iI-BUy"/>
+                        <viewControllerLayoutGuide type="bottom" id="v7d-t7-GOB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MWr-Ce-B9L">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ky-oQ-HZc">
+                                <rect key="frame" x="0.0" y="64" width="600" height="318"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BQC-9z-Aw3">
+                                <rect key="frame" x="0.0" y="382" width="600" height="218"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bsW-hl-Fv9">
+                                        <rect key="frame" x="0.0" y="56" width="600" height="162"/>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jfN-sM-WF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2128" y="-1653"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -172,7 +207,7 @@
                                                         <constraint firstAttribute="width" constant="22" id="9xv-Pj-7ew"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaH-4O-jMb">
@@ -523,6 +558,13 @@
                                 <action selector="forwardURL:" destination="6dB-5W-b2i" id="o5K-5j-7gU"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem systemItem="flexibleSpace" id="gbs-Ho-p1e"/>
+                        <barButtonItem image="NextWKWebPageImage" id="1di-iD-dDI">
+                            <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="nextWKWebPage:" destination="6dB-5W-b2i" id="Epg-dd-hJu"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem systemItem="flexibleSpace" id="CRt-li-PGs"/>
                         <barButtonItem image="RefreshImage" id="Mom-YJ-rIP">
                             <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -557,6 +599,7 @@
                         <outlet property="WKWebProgress" destination="zUm-x4-3Mw" id="OHt-sk-lV1"/>
                         <outlet property="backViewButton" destination="vXO-w7-G3b" id="kfs-Lf-b4u"/>
                         <outlet property="forwardViewButton" destination="62s-H2-Qix" id="RDx-j4-8Je"/>
+                        <outlet property="nextPagesWK" destination="1di-iD-dDI" id="QwV-9X-up5"/>
                         <outlet property="showNotNetMessage" destination="5Hg-G3-l5q" id="gMi-f1-kLu"/>
                     </connections>
                 </viewController>
@@ -576,7 +619,7 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.0" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
@@ -605,7 +648,7 @@
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -625,6 +668,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="O0B-J6-VYK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="mgn-2l-bW0">
@@ -643,6 +689,7 @@
         <image name="BackImage" width="16" height="16"/>
         <image name="CloseBtnImage" width="16" height="16"/>
         <image name="ForwardImage" width="16" height="16"/>
+        <image name="NextWKWebPageImage" width="16" height="16"/>
         <image name="RefreshImage" width="16" height="16"/>
         <image name="SettingImage" width="16" height="16"/>
     </resources>

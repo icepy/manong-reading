@@ -1,0 +1,2 @@
+pod 'PNChart'
+pod 'Masonry'

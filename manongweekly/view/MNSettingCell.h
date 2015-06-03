@@ -10,7 +10,7 @@
 
 @interface MNSettingCell : UITableViewCell
 
-@property(copy,nonatomic) NSString *MNSettingInfo;
+@property(strong,nonatomic) NSDictionary *MNSettingInfo;
 @property(assign,nonatomic) NSInteger section;
 
 @end

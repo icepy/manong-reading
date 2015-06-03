@@ -12,19 +12,25 @@
 #import "WeixinSessionActivity.h"
 #import "WeixinTimelineActivity.h"
 #import "webPageViewController.h"
+#import "modelManager.h"
+#import "ManongContent.h"
 
 
 @interface webPageViewController()<WKNavigationDelegate>
 
-@property (strong,nonatomic) UIApplication *application;
-@property (strong,nonatomic) UIActivityViewController *activc;
-@property (strong,nonatomic) WKWebView *WKWebPageView;
+@property (strong, nonatomic) UIApplication *application;
+@property (strong, nonatomic) UIActivityViewController *activc;
+@property (strong, nonatomic) WKWebView *WKWebPageView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *WKWebLoading;
 @property (weak, nonatomic) IBOutlet UILabel *showNotNetMessage;
 @property (weak, nonatomic) IBOutlet UIProgressView *WKWebProgress;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backViewButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardViewButton;
-@property (assign,nonatomic) NSInteger actionNumber;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextPagesWK;
+
+@property (assign, nonatomic) NSInteger actionNumber;
+@property (assign, nonatomic) NSUInteger cursorMC;
+@property (assign, nonatomic) NSUInteger dataCount;
 
 @end
 
@@ -52,6 +58,10 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    [self asyncMain];
+}
+
+-(void)asyncMain{
     __weak webPageViewController *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         weakSelf.actionNumber = 0;
@@ -66,8 +76,16 @@
         [weakSelf.WKWebPageView addObserver:weakSelf forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
         [weakSelf.WKWebPageView addObserver:weakSelf forKeyPath:@"canGoForward" options:NSKeyValueObservingOptionNew context:nil];
         weakSelf.WKWebPageView.allowsBackForwardNavigationGestures = YES;
-        NSLog(@"%@",self.requestURL);
+        if (weakSelf.currentMC) {
+            weakSelf.cursorMC = [weakSelf.dataSource indexOfObject:weakSelf.currentMC];
+            weakSelf.dataCount = weakSelf.dataSource.count;
+            NSUInteger tCursorMC = weakSelf.cursorMC + 1;
+            if (tCursorMC >= weakSelf.dataCount) {
+                weakSelf.nextPagesWK.enabled = NO;
+            }
+        }
     });
+    
 }
 
 -(void)backPage:(UIButton *)sender
@@ -194,12 +212,43 @@
 }
 
 - (IBAction)forwardURL:(UIBarButtonItem *)sender {
+    if (self.nextPagesWK.isEnabled) {
+        self.cursorMC ++;
+    }
     [self.WKWebPageView goForward];
 }
 
 - (IBAction)backURL:(UIBarButtonItem *)sender {
+    if (self.nextPagesWK.isEnabled) {
+        self.cursorMC --;
+    }
     [self.WKWebPageView goBack];
 }
+
+- (IBAction)nextWKWebPage:(UIBarButtonItem *)sender {
+    self.cursorMC ++;
+    if (self.cursorMC < self.dataCount) {
+        ManongContent *mnCont = (ManongContent *)[self.dataSource objectAtIndex:self.cursorMC];
+        NSDate *date = [NSDate date];
+        NSString *readTime = [self.manager createDateNowString:date];
+        ManongContent *mncontent = [self.manager fetchManong:@"ManongContent" fetchKey:@"wkName" fetchValue:mnCont.wkName];
+        if (mncontent) {
+            mncontent.wkTime = date;
+            mncontent.wkStringTime = readTime;
+            mncontent.wkStatus = @YES;
+            mnCont.wkTime = date;
+            mnCont.wkStringTime = readTime;
+            mnCont.wkStatus = @YES;
+            [self.manager saveData];
+        }
+        NSURL *url = [NSURL URLWithString:mnCont.wkUrl];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.WKWebPageView loadRequest:request];
+    }else{
+        self.nextPagesWK.enabled = NO;
+    }
+}
+
 
 -(void)dealloc
 {

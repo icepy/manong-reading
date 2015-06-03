@@ -61,6 +61,8 @@
 		17D1C3321AFE17CC005EF874 /* ManongDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D1C3311AFE17CC005EF874 /* ManongDigest.m */; };
 		17D1C3351AFE17CD005EF874 /* ManongTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D1C3341AFE17CD005EF874 /* ManongTag.m */; };
 		17D1C3381AFE17CD005EF874 /* ManongTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D1C3371AFE17CD005EF874 /* ManongTitle.m */; };
+		17DDBA3E1B1EBD7900002579 /* readingChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DDBA3D1B1EBD7900002579 /* readingChartViewController.m */; };
+		67C62D5539F903D9FC48BBDB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C316A7BE44DE7E9CA6F082C7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +188,11 @@
 		17D1C3341AFE17CD005EF874 /* ManongTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManongTag.m; sourceTree = "<group>"; };
 		17D1C3361AFE17CD005EF874 /* ManongTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManongTitle.h; sourceTree = "<group>"; };
 		17D1C3371AFE17CD005EF874 /* ManongTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManongTitle.m; sourceTree = "<group>"; };
+		17DDBA3C1B1EBD7900002579 /* readingChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = readingChartViewController.h; sourceTree = "<group>"; };
+		17DDBA3D1B1EBD7900002579 /* readingChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = readingChartViewController.m; sourceTree = "<group>"; };
+		89257EE984B7D580BA5D0D81 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C316A7BE44DE7E9CA6F082C7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F059420C2755CBA372249CD4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +217,7 @@
 				176B63841AEB8844003CA376 /* SystemConfiguration.framework in Frameworks */,
 				17B251F51AE62EA700394467 /* libxml2.2.dylib in Frameworks */,
 				17B251D71AE5E9B500394467 /* CoreData.framework in Frameworks */,
+				67C62D5539F903D9FC48BBDB /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				178D25F01B1D450E008236E7 /* NotificationCenter.framework */,
+				C316A7BE44DE7E9CA6F082C7 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -351,6 +360,7 @@
 				178D25F21B1D450E008236E7 /* manongweeklyExtension */,
 				178D25EF1B1D450E008236E7 /* Frameworks */,
 				17B251961AE4E44000394467 /* Products */,
+				3F6B0154831E566C0400A9D1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -424,6 +434,8 @@
 				17B251C01AE4E7C300394467 /* webPageViewController.m */,
 				17B1DCD31AFC916D0070E20D /* settingViewController.h */,
 				17B1DCD41AFC916D0070E20D /* settingViewController.m */,
+				17DDBA3C1B1EBD7900002579 /* readingChartViewController.h */,
+				17DDBA3D1B1EBD7900002579 /* readingChartViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -460,6 +472,15 @@
 			path = manongweekly/HPPLE;
 			sourceTree = "<group>";
 		};
+		3F6B0154831E566C0400A9D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89257EE984B7D580BA5D0D81 /* Pods.debug.xcconfig */,
+				F059420C2755CBA372249CD4 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -484,10 +505,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17B251B81AE4E44000394467 /* Build configuration list for PBXNativeTarget "manongweekly" */;
 			buildPhases = (
+				74C69FA4E61F22A64EF526EC /* Check Pods Manifest.lock */,
 				17B251911AE4E44000394467 /* Sources */,
 				17B251921AE4E44000394467 /* Frameworks */,
 				17B251931AE4E44000394467 /* Resources */,
 				178D26001B1D450E008236E7 /* Embed App Extensions */,
+				1B6E4FA0C1BDE170A4237CB2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -600,6 +623,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1B6E4FA0C1BDE170A4237CB2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74C69FA4E61F22A64EF526EC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		178D25EA1B1D450E008236E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -619,6 +675,7 @@
 				177E92421AE76B9D008F83B4 /* XPathQuery.m in Sources */,
 				177E92431AE76B9D008F83B4 /* HTMLStringParse.m in Sources */,
 				17D1C3321AFE17CC005EF874 /* ManongDigest.m in Sources */,
+				17DDBA3E1B1EBD7900002579 /* readingChartViewController.m in Sources */,
 				17D1C32F1AFE17CC005EF874 /* ManongContent.m in Sources */,
 				1737893F1AF2053300F883EC /* WeixinSessionActivity.m in Sources */,
 				17B1DCD81AFC98500070E20D /* MNSettingCell.m in Sources */,
@@ -817,6 +874,7 @@
 		};
 		17B251B91AE4E44000394467 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89257EE984B7D580BA5D0D81 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -836,7 +894,7 @@
 					"$(PROJECT_DIR)/manongweekly",
 					"$(PROJECT_DIR)/manongweekly/weixin",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = manongweekly;
 				PROVISIONING_PROFILE = "ca69226a-5e13-4bc7-8bad-c707d8fd0822";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -845,6 +903,7 @@
 		};
 		17B251BA1AE4E44000394467 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F059420C2755CBA372249CD4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -864,7 +923,7 @@
 					"$(PROJECT_DIR)/manongweekly",
 					"$(PROJECT_DIR)/manongweekly/weixin",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = manongweekly;
 				PROVISIONING_PROFILE = "ca69226a-5e13-4bc7-8bad-c707d8fd0822";
 				TARGETED_DEVICE_FAMILY = 1;

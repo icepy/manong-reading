@@ -14,7 +14,7 @@
 #import "ManongContent.h"
 #import "webPageViewController.h"
 
-@interface tableInfoViewController()<UITableViewDataSource,UITableViewDelegate>
+@interface tableInfoViewController()<UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate>
 
 @property (strong,nonatomic) NSMutableArray *dataSource;
 @property (strong,nonatomic) NSIndexPath *updateIndexPath;
@@ -36,7 +36,7 @@
     self.tableInfoLoading.hidden = NO;
     self.contentCategoryTable.hidden = YES;
     self.navigationItem.title = self.tagToInfoParameter;
-    
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray *arr = [weakSelf.manager fetchAllManongContent:weakSelf.tagToInfoParameter];
@@ -52,9 +52,16 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if (self.contentCategoryTable && self.updateIndexPath) {
-        NSArray *arr = @[self.updateIndexPath];
-        [self.contentCategoryTable reloadRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationFade];
+    __weak tableInfoViewController *weakSelf = self;
+    if(self.contentCategoryTable && self.updateIndexPath) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSArray *arr = [weakSelf.manager fetchAllManongContent:weakSelf.tagToInfoParameter];
+            [weakSelf.dataSource removeAllObjects];
+            weakSelf.dataSource = [[NSMutableArray alloc] initWithArray:arr];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.contentCategoryTable reloadData];
+            });
+        });
     }
 }
 
@@ -70,8 +77,6 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
-
-
 
 //-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
@@ -91,9 +96,8 @@
     NSLog(@"table view controller Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)self));
     if ([segue.identifier isEqualToString:@"gotoWebPage"]) {
         __weak tableInfoViewController *weakSelf = self;
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             UINavigationController *navC = (UINavigationController *)segue.destinationViewController;
-            webPageViewController *webPage = (webPageViewController *)navC.topViewController;
             weakSelf.updateIndexPath = [weakSelf.contentCategoryTable indexPathForSelectedRow];
             ManongContent *content = weakSelf.dataSource[weakSelf.updateIndexPath.row];
             NSDate *date = [NSDate date];
@@ -109,10 +113,13 @@
                 [weakSelf.manager saveData];
             }
             NSURL *url = [NSURL URLWithString:content.wkUrl];
+            webPageViewController *webPage = (webPageViewController *)navC.topViewController;
             webPage.requestURL = url;
             webPage.requestTitle = content.wkName;
+            webPage.dataSource = weakSelf.dataSource;
+            webPage.currentMC = content;
+            webPage.manager = weakSelf.manager;
         });
-       
     }
 }
 - (IBAction)backForIndex:(UIBarButtonItem *)sender {

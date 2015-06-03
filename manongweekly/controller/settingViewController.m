@@ -10,6 +10,8 @@
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "MNSettingCell.h"
 #import "referralPageViewController.h"
+#import "readingChartViewController.h"
+
 
 @interface settingViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -17,6 +19,9 @@
 @property (strong, nonatomic) NSArray *dataSource;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *showLoading;
 @property (weak, nonatomic) IBOutlet UIView *showShade;
+@property (strong, nonatomic) NSDictionary *identifierMap;
+@property (strong, nonatomic) UISwitch *dknightSwitchView;
+
 @end
 
 @implementation settingViewController
@@ -24,10 +29,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.dataSource = @[@[@"应用介绍与反馈"],@[@"更新分类"],@[@"清除缓存"]];
+//    self.dataSource = @[@[@"阅读图表统计",@"应用介绍与反馈",@"更新推送"],@[@"更新分类"],@[@"清除缓存"]];
+    
+    self.dataSource = @[
+                        @[
+                            @{
+                                @"setName":@"阅读图表统计",
+                                @"setIcon":@"RankFillImage"
+                                },
+                            @{
+                                @"setName":@"应用介绍与反馈",
+                                @"setIcon":@"ProtocolReadImage"
+                                }
+                            ],
+                        @[
+                            @{
+                                @"setName":@"更新分类",
+                                @"setIcon":@"UpdateTagImage"
+                                },
+                            @{
+                                @"setName":@"清除缓存",
+                                @"setIcon":@"ClearCacheImage"
+                                }
+                            ]
+                        ];
+    
     self.navigationItem.title = @"设置";
     self.settingTable.dataSource = self;
     self.settingTable.delegate = self;
+    self.identifierMap = @{
+                           @"阅读图表统计":@"readingChart",
+                           @"应用介绍与反馈":@"referralPage"
+                           };
+//    self.dknightSwitchView = [[UISwitch alloc] initWithFrame:CGRectZero];
+//    [self.dknightSwitchView addTarget:self action:@selector(toNightChange) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,6 +72,8 @@
 - (IBAction)backIndexView {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+-(void)toNightChange{}
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -51,13 +88,12 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MNSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MNSettingCell" forIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    if (indexPath.section > 0) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.section = indexPath.section;
-    }
+    cell.section = indexPath.section;
     cell.MNSettingInfo = self.dataSource[indexPath.section][indexPath.row];
+//    if ([cell.MNSettingInfo[@"setName"] isEqualToString:@"更新推送"]) {
+//        cell.accessoryView = self.dknightSwitchView;
+//        cell.imageView.image = [UIImage imageNamed:@"RankFillImage"];
+//    }
     return cell;
 }
 
@@ -71,18 +107,15 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   NSString *tag =  self.dataSource[indexPath.section][indexPath.row];
-    if ([tag isEqualToString:@"应用介绍与反馈"]) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        referralPageViewController *referral = [storyboard instantiateViewControllerWithIdentifier:@"referralPage"];
-        referral.referraTitle = tag;
-        [self.navigationController pushViewController:referral animated:YES];
-    }else{
-        if ([tag isEqualToString:@"更新分类"]) {
+    NSDictionary *cellInfo =  self.dataSource[indexPath.section][indexPath.row];
+    NSString *tag = cellInfo[@"setName"];
+    
+    if (!self.identifierMap[tag]) {
+        if([tag isEqualToString:@"更新分类"]) {
             [self dismissViewControllerAnimated:YES completion:nil];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"kFetchGithubManongData" object:nil];
         }else{
-            if ([tag isEqualToString:@"清除缓存"]) {
+            if([tag isEqualToString:@"清除缓存"]){
                 self.showLoading.hidden = NO;
                 self.showShade.hidden = NO;
                 NSString *cache = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
@@ -105,7 +138,21 @@
                 });
             }
         }
+    }else{
+        
+        NSString *identifier = self.identifierMap[tag];
+        if ([identifier isEqualToString:@"referralPage"]) {
+            referralPageViewController *referral = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+            referral.referraTitle = tag;
+            [self.navigationController pushViewController:referral animated:YES];
+        }else if ([identifier isEqualToString:@"readingChart"]){
+            readingChartViewController *readChart = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+            readChart.readingChartTitle = tag;
+            readChart.manager = self.manager;
+            [self.navigationController pushViewController:readChart animated:YES];
+        }
     }
+    
 }
 
 -(void)dealloc

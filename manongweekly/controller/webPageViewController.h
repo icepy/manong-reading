@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class ManongContent;
+@class modelManager;
+
 @interface webPageViewController : UIViewController
 
 @property(strong,nonatomic) NSURL *requestURL;
 @property(copy,nonatomic) NSString *requestTitle;
+@property(strong,nonatomic) NSMutableArray *dataSource;
+@property(strong,nonatomic) ManongContent *currentMC;
+@property(strong,nonatomic) modelManager *manager;
 
 @end

@@ -1,8 +1,8 @@
 //
-//  settingViewController.h
+//  readingChartViewController.h
 //  manongweekly
 //
-//  Created by xiangwenwen on 15/5/8.
+//  Created by xiangwenwen on 15/6/3.
 //  Copyright (c) 2015年 xiangwenwen. All rights reserved.
 //
 
@@ -10,8 +10,9 @@
 
 @class modelManager;
 
-@interface settingViewController : UIViewController
+@interface readingChartViewController : UIViewController
 
 @property(strong, nonatomic) modelManager *manager;
+@property (copy, nonatomic) NSString *readingChartTitle;
 
 @end

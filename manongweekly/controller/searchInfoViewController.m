@@ -13,7 +13,7 @@
 #import "MNSearchInfoCell.h"
 #import "ManongContent.h"
 
-@interface searchInfoViewController ()<UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface searchInfoViewController ()<UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *exeSearchBar; //搜索
 @property (weak, nonatomic) IBOutlet UILabel *showErrorMessage; //错误消息
@@ -46,6 +46,7 @@
     self.showSearchInfoTable.delegate = self;
     self.navigationItem.title = @"搜索";
     self.showErrorMessage.numberOfLines = 0;
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -288,7 +289,7 @@
 {
     if ([segue.identifier isEqualToString:@"searchGoToWebPage"]) {
         __weak searchInfoViewController *weakSelf = self;
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             UINavigationController *navC = (UINavigationController *)segue.destinationViewController;
             webPageViewController *webPage = (webPageViewController *)navC.topViewController;
             NSIndexPath *indexPath = [weakSelf.showSearchInfoTable indexPathForSelectedRow];
@@ -309,7 +310,6 @@
             webPage.requestURL = url;
             webPage.requestTitle = content.wkName;
         });
-        
     }
 }
 
