@@ -8,6 +8,7 @@
 
 #import "readingChartViewController.h"
 #import <Masonry/Masonry.h>
+#import <PNChart/PNChart.h>
 
 @interface readingChartViewController()<UIGestureRecognizerDelegate>
 
@@ -20,8 +21,6 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = self.readingChartTitle;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    
-    
     
 }
 
