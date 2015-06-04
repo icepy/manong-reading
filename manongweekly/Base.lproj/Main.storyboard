@@ -160,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHf-JR-hz6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1356" y="-1768"/>
+            <point key="canvasLocation" x="1362" y="-1653"/>
         </scene>
         <!--Reading Chart View Controller-->
         <scene sceneID="GCD-Yt-4vF">
@@ -174,46 +174,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ky-oQ-HZc">
-                                <rect key="frame" x="0.0" y="64" width="600" height="318"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eya-vo-Z3L">
+                                <rect key="frame" x="0.0" y="157" width="600" height="443"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BQC-9z-Aw3">
-                                <rect key="frame" x="0.0" y="382" width="600" height="218"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YQM-n9-wtY">
-                                        <rect key="frame" x="0.0" y="44" width="600" height="174"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lss-Nh-Z7e">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="174"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hMG-Wf-SK6">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="174"/>
-                                                <subviews>
-                                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b82-u4-fPB">
-                                                        <rect key="frame" x="0.0" y="12" width="600" height="162"/>
-                                                    </pickerView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="V9S-Jj-bq5">
-                                        <rect key="frame" x="203" y="8" width="195" height="29"/>
-                                        <segments>
-                                            <segment title="统计分类"/>
-                                            <segment title="统计文章"/>
-                                        </segments>
-                                        <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </segmentedControl>
-                                </subviews>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bNf-yD-Ufb">
+                                <rect key="frame" x="200" y="64" width="201" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="201" id="h5V-kc-em7"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="分类天梯"/>
+                                    <segment title="阅读天梯"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Eya-vo-Z3L" secondAttribute="trailing" id="5XM-75-iGN"/>
+                            <constraint firstItem="Eya-vo-Z3L" firstAttribute="top" secondItem="MWr-Ce-B9L" secondAttribute="top" constant="157" id="PeM-wS-YEV"/>
+                            <constraint firstItem="bNf-yD-Ufb" firstAttribute="centerX" secondItem="Eya-vo-Z3L" secondAttribute="centerX" id="S4Z-XY-wy9"/>
+                            <constraint firstItem="Eya-vo-Z3L" firstAttribute="leading" secondItem="MWr-Ce-B9L" secondAttribute="leading" id="deH-PH-qHl"/>
+                            <constraint firstItem="bNf-yD-Ufb" firstAttribute="top" secondItem="40N-iI-BUy" secondAttribute="bottom" constant="44" id="iQD-RM-i0o"/>
+                            <constraint firstItem="Eya-vo-Z3L" firstAttribute="bottom" secondItem="v7d-t7-GOB" secondAttribute="top" id="nwX-2Y-oRI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chartDrawContainsView" destination="Eya-vo-Z3L" id="KFF-Jz-Qaj"/>
+                        <outlet property="segmentView" destination="bNf-yD-Ufb" id="n6c-FP-OJ6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfN-sM-WF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

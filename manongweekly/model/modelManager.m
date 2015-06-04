@@ -68,6 +68,7 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
         NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
         //创建持久化存储调度器
         NSPersistentStoreCoordinator *store = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+        //v1.2 core data 升级 （简单的增加些许字段）
         NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
                                  [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];

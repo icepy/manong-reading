@@ -88,5 +88,5 @@ tmp
 
 # Ignore vendor cache
 vendor/cache
-
+Pods/
 libWeChatSDK.a
