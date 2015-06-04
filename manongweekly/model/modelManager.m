@@ -68,7 +68,10 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
         NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
         //创建持久化存储调度器
         NSPersistentStoreCoordinator *store = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-        [store addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:dbUrl options:nil error:&error];
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                                 [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+        [store addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:dbUrl options:options error:&error];
         //创建上下文
         _context = [[NSManagedObjectContext alloc] init];
         [_context setPersistentStoreCoordinator:store];
@@ -178,6 +181,7 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
             manongContent.wkUrl = content[@"wkUrl"];
             manongContent.wkStatus = @NO;
             manongContent.wkContrsationKey = tagKey;
+            manongContent.wkCount = @0;
             [contentSet addObject:manongContent];
         }
         [manongTitle addMnwwContent:contentSet];
@@ -400,6 +404,7 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
                 manongContent.wkUrl = content[@"wkUrl"];
                 manongContent.wkStatus = @NO;
                 manongContent.wkContrsationKey = tagKey;
+                manongContent.wkCount = @0;
                 [contentSet addObject:manongContent];
             }
             [manongTitle addMnwwContent:contentSet];
@@ -418,6 +423,7 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
                         manongContent.wkUrl = content[@"wkUrl"];
                         manongContent.wkStatus = @NO;
                         manongContent.wkContrsationKey = tagKey;
+                        manongContent.wkCount = @0;
                     }
                 }
             }

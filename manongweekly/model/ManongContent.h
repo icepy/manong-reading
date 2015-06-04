@@ -2,7 +2,7 @@
 //  ManongContent.h
 //  manongweekly
 //
-//  Created by xiangwenwen on 15/5/9.
+//  Created by xiangwenwen on 15/6/4.
 //  Copyright (c) 2015年 xiangwenwen. All rights reserved.
 //
 
@@ -14,7 +14,9 @@
 @interface ManongContent : NSManagedObject
 
 @property (nonatomic, retain) NSString * wkContrsationKey;
+@property (nonatomic, retain) NSNumber * wkCount;
 @property (nonatomic, retain) NSString * wkName;
+@property (nonatomic, retain) NSString * wkOriginContent;
 @property (nonatomic, retain) NSString * wkOriginUrl;
 @property (nonatomic, retain) NSNumber * wkStatus;
 @property (nonatomic, retain) NSString * wkStringTime;

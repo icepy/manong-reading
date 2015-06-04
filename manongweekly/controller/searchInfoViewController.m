@@ -301,14 +301,12 @@
                 mncontent.wkTime = date;
                 mncontent.wkStringTime = readTime;
                 mncontent.wkStatus = @YES;
-                content.wkTime = date;
-                content.wkStringTime = readTime;
-                content.wkStatus = @YES;
+                mncontent.wkCount = [NSNumber numberWithInteger:[mncontent.wkCount integerValue] + 1];
                 [weakSelf.manager saveData];
             }
-            NSURL *url = [NSURL URLWithString:content.wkUrl];
+            NSURL *url = [NSURL URLWithString:mncontent.wkUrl];
             webPage.requestURL = url;
-            webPage.requestTitle = content.wkName;
+            webPage.requestTitle = mncontent.wkName;
         });
     }
 }

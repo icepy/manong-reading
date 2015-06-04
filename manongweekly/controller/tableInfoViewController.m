@@ -103,21 +103,20 @@
             NSDate *date = [NSDate date];
             NSString *readTime = [weakSelf.manager createDateNowString:date];
             ManongContent *mncontent = [weakSelf.manager fetchManong:@"ManongContent" fetchKey:@"wkName" fetchValue:content.wkName];
+            NSLog(@"%@",content.wkCount);
             if (mncontent) {
                 mncontent.wkTime = date;
                 mncontent.wkStringTime = readTime;
                 mncontent.wkStatus = @YES;
-                content.wkTime = date;
-                content.wkStringTime = readTime;
-                content.wkStatus = @YES;
+                mncontent.wkCount = [NSNumber numberWithInteger:[mncontent.wkCount integerValue] + 1];
                 [weakSelf.manager saveData];
             }
-            NSURL *url = [NSURL URLWithString:content.wkUrl];
+            NSURL *url = [NSURL URLWithString:mncontent.wkUrl];
             webPageViewController *webPage = (webPageViewController *)navC.topViewController;
             webPage.requestURL = url;
-            webPage.requestTitle = content.wkName;
+            webPage.requestTitle = mncontent.wkName;
             webPage.dataSource = weakSelf.dataSource;
-            webPage.currentMC = content;
+            webPage.currentMC = mncontent;
             webPage.manager = weakSelf.manager;
         });
     }

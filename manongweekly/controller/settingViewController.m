@@ -11,6 +11,7 @@
 #import "MNSettingCell.h"
 #import "referralPageViewController.h"
 #import "readingChartViewController.h"
+#import "privacyPolicyViewController.h"
 
 
 @interface settingViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -40,9 +41,17 @@
                             @{
                                 @"setName":@"应用介绍与反馈",
                                 @"setIcon":@"ProtocolReadImage"
+                                },
+                            @{
+                                @"setName":@"隐私政策",
+                                @"setIcon":@"PrivacyImage"
                                 }
                             ],
                         @[
+                            @{
+                                @"setName":@"码农周刊订阅",
+                                @"setIcon":@"ManongRessImage"
+                                },
                             @{
                                 @"setName":@"更新分类",
                                 @"setIcon":@"UpdateTagImage"
@@ -59,7 +68,8 @@
     self.settingTable.delegate = self;
     self.identifierMap = @{
                            @"阅读图表统计":@"readingChart",
-                           @"应用介绍与反馈":@"referralPage"
+                           @"应用介绍与反馈":@"referralPage",
+                           @"隐私政策":@"privacyPolicyPage"
                            };
 //    self.dknightSwitchView = [[UISwitch alloc] initWithFrame:CGRectZero];
 //    [self.dknightSwitchView addTarget:self action:@selector(toNightChange) forControlEvents:UIControlEventValueChanged];
@@ -150,6 +160,10 @@
             readChart.readingChartTitle = tag;
             readChart.manager = self.manager;
             [self.navigationController pushViewController:readChart animated:YES];
+        }else if ([identifier isEqualToString:@"privacyPolicyPage"]){
+            privacyPolicyViewController *policy = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+            policy.policyTitle = tag;
+            [self.navigationController pushViewController:policy animated:YES];
         }
     }
     

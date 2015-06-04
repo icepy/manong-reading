@@ -144,6 +144,24 @@
             </objects>
             <point key="canvasLocation" x="2128" y="-912"/>
         </scene>
+        <!--Privacy Policy View Controller-->
+        <scene sceneID="87M-4i-Qbv">
+            <objects>
+                <viewController storyboardIdentifier="privacyPolicyPage" id="D1a-9e-v6D" customClass="privacyPolicyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="irF-4K-e3E"/>
+                        <viewControllerLayoutGuide type="bottom" id="o44-Rh-HLz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CrX-yN-bTt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fHf-JR-hz6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1356" y="-1768"/>
+        </scene>
         <!--Reading Chart View Controller-->
         <scene sceneID="GCD-Yt-4vF">
             <objects>
@@ -218,14 +236,14 @@
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MNTagCell" rowHeight="64" id="hPN-1r-JfY" customClass="MNTagCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MNTagCell" rowHeight="44" id="hPN-1r-JfY" customClass="MNTagCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hPN-1r-JfY" id="DVH-dy-PTf">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXJ-0h-StJ">
-                                                    <rect key="frame" x="7" y="8" width="22" height="47"/>
+                                                    <rect key="frame" x="7" y="8" width="22" height="27"/>
                                                     <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="22" id="9xv-Pj-7ew"/>
@@ -235,7 +253,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaH-4O-jMb">
-                                                    <rect key="frame" x="34" y="10" width="502" height="43"/>
+                                                    <rect key="frame" x="34" y="10" width="502" height="23"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                     <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -290,7 +308,7 @@
                     <navigationItem key="navigationItem" id="P95-bk-su9">
                         <barButtonItem key="leftBarButtonItem" enabled="NO" image="SettingImage" id="CMA-bf-Crr">
                             <connections>
-                                <segue destination="0K1-OM-Whr" kind="modal" id="ld2-gD-2Mx"/>
+                                <segue destination="0K1-OM-Whr" kind="modal" identifier="SettingModal" id="ld2-gD-2Mx"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="search" id="DeZ-4I-etO">

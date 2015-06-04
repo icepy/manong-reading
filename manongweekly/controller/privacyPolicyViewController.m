@@ -1,27 +1,24 @@
 //
-//  readingChartViewController.m
+//  privacyPolicyViewController.m
 //  manongweekly
 //
-//  Created by xiangwenwen on 15/6/3.
+//  Created by xiangwenwen on 15/6/4.
 //  Copyright (c) 2015年 xiangwenwen. All rights reserved.
 //
 
-#import "readingChartViewController.h"
-#import <Masonry/Masonry.h>
-#import <PNChart/PNChart.h>
+#import "privacyPolicyViewController.h"
 
-@interface readingChartViewController()<UIGestureRecognizerDelegate>
+@interface privacyPolicyViewController ()<UIGestureRecognizerDelegate>
 
 @end
 
-@implementation readingChartViewController
+@implementation privacyPolicyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = self.readingChartTitle;
+    self.navigationItem.title = self.policyTitle;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -41,7 +38,7 @@
 }
 
 -(void)dealloc{
-    NSLog(@"readingChart ---释放");
+    NSLog(@"privacy policy -- 释放");
 }
 
 /*

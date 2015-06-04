@@ -2,7 +2,9 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="ManongContent" representedClassName="ManongContent" syncable="YES">
         <attribute name="wkContrsationKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wkCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="wkName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wkOriginContent" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wkOriginUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wkStatus" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="wkStringTime" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,7 +28,7 @@
         <relationship name="mnwwContent" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ManongContent" inverseName="mnwwTitle" inverseEntity="ManongContent" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ManongContent" positionX="-54" positionY="-9" width="128" height="165"/>
+        <element name="ManongContent" positionX="-54" positionY="-9" width="128" height="195"/>
         <element name="ManongDigest" positionX="-36" positionY="45" width="128" height="75"/>
         <element name="ManongTag" positionX="-36" positionY="9" width="128" height="90"/>
         <element name="ManongTitle" positionX="-18" positionY="27" width="128" height="105"/>

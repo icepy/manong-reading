@@ -23,8 +23,6 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key></key>
-			<string></string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLIconFile</key>

@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "tableInfoViewController.h"
 #import "searchInfoViewController.h"
+#import "settingViewController.h"
 #import "modelManager.h"
 #import "MNTagCell.h"
 #import "ManongTag.h"
@@ -239,6 +240,16 @@ NSInteger testTime = 1;
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"view controller Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)self));
+    
+    if ([segue.identifier isEqualToString:@"SettingModal"]) {
+        __weak ViewController *weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UINavigationController *navC = (UINavigationController *)segue.destinationViewController;
+            settingViewController *setting = (settingViewController *)navC.topViewController;
+            setting.manager = weakSelf.manager;
+        });
+    }
+    
     if ([segue.identifier isEqualToString:@"gotoSearch"]) {
         searchInfoViewController *searchMN = (searchInfoViewController *) segue.destinationViewController;
         searchMN.manager = self.manager;

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <CoreData/CoreData.h>
 
 
 @interface AppDelegate ()
@@ -60,5 +61,4 @@
 {
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
-
 @end

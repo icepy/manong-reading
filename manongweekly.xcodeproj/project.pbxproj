@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170D79951B202BA8009D2CEF /* ManongTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 170D79941B202BA8009D2CEF /* ManongTag.m */; };
+		170D79981B202BA8009D2CEF /* ManongDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 170D79971B202BA8009D2CEF /* ManongDigest.m */; };
+		170D799B1B202BA8009D2CEF /* ManongContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 170D799A1B202BA8009D2CEF /* ManongContent.m */; };
+		170D799E1B202BA9009D2CEF /* ManongTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 170D799D1B202BA9009D2CEF /* ManongTitle.m */; };
 		17177BF61AF4F71400DD4BB2 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17177BF51AF4F71400DD4BB2 /* libWeChatSDK.a */; };
 		173788FA1AF0896E00F883EC /* referralPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 173788F91AF0896E00F883EC /* referralPageViewController.m */; };
 		1737890E1AF0BAC600F883EC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1737890D1AF0BAC600F883EC /* Reachability.m */; };
@@ -57,10 +61,7 @@
 		17B251B51AE4E44000394467 /* manongWeeklyDayOneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B251B41AE4E44000394467 /* manongWeeklyDayOneTests.m */; };
 		17B251D71AE5E9B500394467 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B251D61AE5E9B500394467 /* CoreData.framework */; };
 		17B251F51AE62EA700394467 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B251F41AE62EA700394467 /* libxml2.2.dylib */; };
-		17D1C32F1AFE17CC005EF874 /* ManongContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D1C32E1AFE17CC005EF874 /* ManongContent.m */; };
-		17D1C3321AFE17CC005EF874 /* ManongDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D1C3311AFE17CC005EF874 /* ManongDigest.m */; };
-		17D1C3351AFE17CD005EF874 /* ManongTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D1C3341AFE17CD005EF874 /* ManongTag.m */; };
-		17D1C3381AFE17CD005EF874 /* ManongTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D1C3371AFE17CD005EF874 /* ManongTitle.m */; };
+		17B4B11C1B1FFCD60004A4C0 /* privacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B4B11B1B1FFCD60004A4C0 /* privacyPolicyViewController.m */; };
 		17DDBA3E1B1EBD7900002579 /* readingChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DDBA3D1B1EBD7900002579 /* readingChartViewController.m */; };
 		67C62D5539F903D9FC48BBDB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C316A7BE44DE7E9CA6F082C7 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		170D79921B202B10009D2CEF /* manong1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = manong1.2.xcdatamodel; sourceTree = "<group>"; };
+		170D79931B202BA7009D2CEF /* ManongTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManongTag.h; sourceTree = "<group>"; };
+		170D79941B202BA8009D2CEF /* ManongTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManongTag.m; sourceTree = "<group>"; };
+		170D79961B202BA8009D2CEF /* ManongDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManongDigest.h; sourceTree = "<group>"; };
+		170D79971B202BA8009D2CEF /* ManongDigest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManongDigest.m; sourceTree = "<group>"; };
+		170D79991B202BA8009D2CEF /* ManongContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManongContent.h; sourceTree = "<group>"; };
+		170D799A1B202BA8009D2CEF /* ManongContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManongContent.m; sourceTree = "<group>"; };
+		170D799C1B202BA9009D2CEF /* ManongTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManongTitle.h; sourceTree = "<group>"; };
+		170D799D1B202BA9009D2CEF /* ManongTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManongTitle.m; sourceTree = "<group>"; };
 		17177BF51AF4F71400DD4BB2 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		173788F81AF0896E00F883EC /* referralPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = referralPageViewController.h; sourceTree = "<group>"; };
 		173788F91AF0896E00F883EC /* referralPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = referralPageViewController.m; sourceTree = "<group>"; };
@@ -180,14 +190,8 @@
 		17B251EF1AE62E8E00394467 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		17B251F01AE62E8E00394467 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		17B251F41AE62EA700394467 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
-		17D1C32D1AFE17CC005EF874 /* ManongContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManongContent.h; sourceTree = "<group>"; };
-		17D1C32E1AFE17CC005EF874 /* ManongContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManongContent.m; sourceTree = "<group>"; };
-		17D1C3301AFE17CC005EF874 /* ManongDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManongDigest.h; sourceTree = "<group>"; };
-		17D1C3311AFE17CC005EF874 /* ManongDigest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManongDigest.m; sourceTree = "<group>"; };
-		17D1C3331AFE17CD005EF874 /* ManongTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManongTag.h; sourceTree = "<group>"; };
-		17D1C3341AFE17CD005EF874 /* ManongTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManongTag.m; sourceTree = "<group>"; };
-		17D1C3361AFE17CD005EF874 /* ManongTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManongTitle.h; sourceTree = "<group>"; };
-		17D1C3371AFE17CD005EF874 /* ManongTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManongTitle.m; sourceTree = "<group>"; };
+		17B4B11A1B1FFCD60004A4C0 /* privacyPolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = privacyPolicyViewController.h; sourceTree = "<group>"; };
+		17B4B11B1B1FFCD60004A4C0 /* privacyPolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = privacyPolicyViewController.m; sourceTree = "<group>"; };
 		17DDBA3C1B1EBD7900002579 /* readingChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = readingChartViewController.h; sourceTree = "<group>"; };
 		17DDBA3D1B1EBD7900002579 /* readingChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = readingChartViewController.m; sourceTree = "<group>"; };
 		89257EE984B7D580BA5D0D81 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -436,6 +440,8 @@
 				17B1DCD41AFC916D0070E20D /* settingViewController.m */,
 				17DDBA3C1B1EBD7900002579 /* readingChartViewController.h */,
 				17DDBA3D1B1EBD7900002579 /* readingChartViewController.m */,
+				17B4B11A1B1FFCD60004A4C0 /* privacyPolicyViewController.h */,
+				17B4B11B1B1FFCD60004A4C0 /* privacyPolicyViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -446,14 +452,14 @@
 				17B251C91AE4EB7400394467 /* modelManager.h */,
 				17B251CA1AE4EB7400394467 /* modelManager.m */,
 				177E92491AE76C66008F83B4 /* manong.xcdatamodeld */,
-				17D1C32D1AFE17CC005EF874 /* ManongContent.h */,
-				17D1C32E1AFE17CC005EF874 /* ManongContent.m */,
-				17D1C3301AFE17CC005EF874 /* ManongDigest.h */,
-				17D1C3311AFE17CC005EF874 /* ManongDigest.m */,
-				17D1C3331AFE17CD005EF874 /* ManongTag.h */,
-				17D1C3341AFE17CD005EF874 /* ManongTag.m */,
-				17D1C3361AFE17CD005EF874 /* ManongTitle.h */,
-				17D1C3371AFE17CD005EF874 /* ManongTitle.m */,
+				170D79931B202BA7009D2CEF /* ManongTag.h */,
+				170D79941B202BA8009D2CEF /* ManongTag.m */,
+				170D79961B202BA8009D2CEF /* ManongDigest.h */,
+				170D79971B202BA8009D2CEF /* ManongDigest.m */,
+				170D79991B202BA8009D2CEF /* ManongContent.h */,
+				170D799A1B202BA8009D2CEF /* ManongContent.m */,
+				170D799C1B202BA9009D2CEF /* ManongTitle.h */,
+				170D799D1B202BA9009D2CEF /* ManongTitle.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -672,23 +678,24 @@
 				177E92401AE76B9D008F83B4 /* TFHpple.m in Sources */,
 				177C80A71AEF2EC50069149A /* searchInfoViewController.m in Sources */,
 				177E92411AE76B9D008F83B4 /* TFHppleElement.m in Sources */,
+				170D799B1B202BA8009D2CEF /* ManongContent.m in Sources */,
 				177E92421AE76B9D008F83B4 /* XPathQuery.m in Sources */,
 				177E92431AE76B9D008F83B4 /* HTMLStringParse.m in Sources */,
-				17D1C3321AFE17CC005EF874 /* ManongDigest.m in Sources */,
 				17DDBA3E1B1EBD7900002579 /* readingChartViewController.m in Sources */,
-				17D1C32F1AFE17CC005EF874 /* ManongContent.m in Sources */,
 				1737893F1AF2053300F883EC /* WeixinSessionActivity.m in Sources */,
 				17B1DCD81AFC98500070E20D /* MNSettingCell.m in Sources */,
 				177C80A41AEF2B1C0069149A /* MNSearchInfoCell.m in Sources */,
 				177E923B1AE76B86008F83B4 /* modelManager.m in Sources */,
 				173789401AF2053300F883EC /* WeixinTimelineActivity.m in Sources */,
 				177E92441AE76B9D008F83B4 /* ViewController.m in Sources */,
-				17D1C3351AFE17CD005EF874 /* ManongTag.m in Sources */,
+				170D79951B202BA8009D2CEF /* ManongTag.m in Sources */,
 				177E924B1AE76C66008F83B4 /* manong.xcdatamodeld in Sources */,
 				177E92621AE76ED3008F83B4 /* UITableView+FDTemplateLayoutCell.m in Sources */,
+				17B4B11C1B1FFCD60004A4C0 /* privacyPolicyViewController.m in Sources */,
 				1737893E1AF2053300F883EC /* WeixinActivityBase.m in Sources */,
 				177E92451AE76B9D008F83B4 /* webPageViewController.m in Sources */,
 				1737890E1AF0BAC600F883EC /* Reachability.m in Sources */,
+				170D799E1B202BA9009D2CEF /* ManongTitle.m in Sources */,
 				177E92711AE77200008F83B4 /* MNContentCell.m in Sources */,
 				173788FA1AF0896E00F883EC /* referralPageViewController.m in Sources */,
 				177E92461AE76B9D008F83B4 /* tableInfoViewController.m in Sources */,
@@ -696,7 +703,7 @@
 				177E926E1AE771EF008F83B4 /* MNTagCell.m in Sources */,
 				1737893D1AF2053300F883EC /* WeixinActivity.m in Sources */,
 				17B1DCD51AFC916D0070E20D /* settingViewController.m in Sources */,
-				17D1C3381AFE17CD005EF874 /* ManongTitle.m in Sources */,
+				170D79981B202BA8009D2CEF /* ManongDigest.m in Sources */,
 				177E92481AE76B9D008F83B4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1009,9 +1016,10 @@
 		177E92491AE76C66008F83B4 /* manong.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				170D79921B202B10009D2CEF /* manong1.2.xcdatamodel */,
 				177E924A1AE76C66008F83B4 /* manong.xcdatamodel */,
 			);
-			currentVersion = 177E924A1AE76C66008F83B4 /* manong.xcdatamodel */;
+			currentVersion = 170D79921B202B10009D2CEF /* manong1.2.xcdatamodel */;
 			path = manong.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
