@@ -268,7 +268,7 @@
                 });
             }else{
                 //搜索成功
-                NSLog(@"%@",result);
+//                NSLog(@"%@",result);
                 [weakSelf.searchDataSource removeAllObjects];
                 [weakSelf.searchDataSource addObjectsFromArray:result];
                 //查询成功，更新UI
@@ -307,6 +307,9 @@
             NSURL *url = [NSURL URLWithString:mncontent.wkUrl];
             webPage.requestURL = url;
             webPage.requestTitle = mncontent.wkName;
+            webPage.currentMC = mncontent;
+            webPage.dataSource = weakSelf.searchDataSource;
+            webPage.manager = weakSelf.manager;
         });
     }
 }

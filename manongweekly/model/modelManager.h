@@ -46,4 +46,8 @@ typedef void(^updateDB)(BOOL success,NSError *error);
 
 -(BOOL)isBlankString:(NSString *)string;
 
+-(NSArray *)tagLadderForStatistics;
+
+-(NSArray *)readLadderForStatistics;
+
 @end

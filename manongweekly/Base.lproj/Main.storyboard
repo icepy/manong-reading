@@ -174,13 +174,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eya-vo-Z3L">
-                                <rect key="frame" x="0.0" y="157" width="600" height="443"/>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无显示数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgr-ge-4wb">
+                                <rect key="frame" x="258" y="110" width="84" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91z-dt-8PQ">
+                                <rect key="frame" x="0.0" y="129" width="600" height="471"/>
+                            </scrollView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bNf-yD-Ufb">
-                                <rect key="frame" x="200" y="64" width="201" height="29"/>
+                                <rect key="frame" x="200" y="64" width="200" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="201" id="h5V-kc-em7"/>
+                                    <constraint firstAttribute="width" constant="200" id="lrX-HG-09u"/>
                                 </constraints>
                                 <segments>
                                     <segment title="分类天梯"/>
@@ -191,16 +197,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Eya-vo-Z3L" secondAttribute="trailing" id="5XM-75-iGN"/>
-                            <constraint firstItem="Eya-vo-Z3L" firstAttribute="top" secondItem="MWr-Ce-B9L" secondAttribute="top" constant="157" id="PeM-wS-YEV"/>
-                            <constraint firstItem="bNf-yD-Ufb" firstAttribute="centerX" secondItem="Eya-vo-Z3L" secondAttribute="centerX" id="S4Z-XY-wy9"/>
-                            <constraint firstItem="Eya-vo-Z3L" firstAttribute="leading" secondItem="MWr-Ce-B9L" secondAttribute="leading" id="deH-PH-qHl"/>
-                            <constraint firstItem="bNf-yD-Ufb" firstAttribute="top" secondItem="40N-iI-BUy" secondAttribute="bottom" constant="44" id="iQD-RM-i0o"/>
-                            <constraint firstItem="Eya-vo-Z3L" firstAttribute="bottom" secondItem="v7d-t7-GOB" secondAttribute="top" id="nwX-2Y-oRI"/>
+                            <constraint firstItem="bNf-yD-Ufb" firstAttribute="top" secondItem="40N-iI-BUy" secondAttribute="bottom" constant="44" id="J9Q-oR-go3"/>
+                            <constraint firstItem="91z-dt-8PQ" firstAttribute="bottom" secondItem="v7d-t7-GOB" secondAttribute="top" id="LP1-jR-YRR"/>
+                            <constraint firstItem="91z-dt-8PQ" firstAttribute="top" secondItem="Xgr-ge-4wb" secondAttribute="bottom" constant="2" id="Mrm-WQ-fza"/>
+                            <constraint firstItem="Xgr-ge-4wb" firstAttribute="top" secondItem="bNf-yD-Ufb" secondAttribute="bottom" constant="18" id="XS2-Hu-jbl"/>
+                            <constraint firstItem="bNf-yD-Ufb" firstAttribute="centerX" secondItem="MWr-Ce-B9L" secondAttribute="centerX" id="el0-d8-3oo"/>
+                            <constraint firstItem="bNf-yD-Ufb" firstAttribute="centerX" secondItem="Xgr-ge-4wb" secondAttribute="centerX" id="gLR-ik-FaU"/>
+                            <constraint firstItem="91z-dt-8PQ" firstAttribute="centerX" secondItem="Xgr-ge-4wb" secondAttribute="centerX" id="nTT-C1-90a"/>
+                            <constraint firstItem="91z-dt-8PQ" firstAttribute="leading" secondItem="MWr-Ce-B9L" secondAttribute="leading" id="oKC-nS-d0U"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="chartDrawContainsView" destination="Eya-vo-Z3L" id="KFF-Jz-Qaj"/>
+                        <outlet property="chartDrawContainsView" destination="91z-dt-8PQ" id="oII-IJ-cCg"/>
+                        <outlet property="notDataLabel" destination="Xgr-ge-4wb" id="keZ-jh-o4C"/>
                         <outlet property="segmentView" destination="bNf-yD-Ufb" id="n6c-FP-OJ6"/>
                     </connections>
                 </viewController>

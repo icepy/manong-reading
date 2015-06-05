@@ -18,6 +18,7 @@
     </entity>
     <entity name="ManongTag" representedClassName="ManongTag" syncable="YES">
         <attribute name="contentCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="tagCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="tagKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tagName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -30,7 +31,7 @@
     <elements>
         <element name="ManongContent" positionX="-54" positionY="-9" width="128" height="195"/>
         <element name="ManongDigest" positionX="-36" positionY="45" width="128" height="75"/>
-        <element name="ManongTag" positionX="-36" positionY="9" width="128" height="90"/>
+        <element name="ManongTag" positionX="-36" positionY="9" width="128" height="105"/>
         <element name="ManongTitle" positionX="-18" positionY="27" width="128" height="105"/>
     </elements>
 </model>

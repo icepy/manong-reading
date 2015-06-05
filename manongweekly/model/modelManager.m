@@ -460,6 +460,33 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
     return NO;
 }
 
+-(NSArray *)queryForLadder:(NSString *)tableName fieldName:(NSString *)fieldName limit:(NSUInteger)Limit
+{
+    NSError *error = nil;
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:tableName];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:fieldName ascending:NO];
+    NSPredicate *dicate = [NSPredicate predicateWithFormat:@"%K > %d",fieldName,0];
+    [request setSortDescriptors:[[NSArray alloc] initWithObjects:sort, nil]];
+    [request setFetchLimit:Limit];
+    [request setPredicate:dicate];
+    NSArray *result = [self.context executeFetchRequest:request error:&error];
+    if (error) {
+        return @[];
+    }
+    return result;
+}
+
+-(NSArray *)tagLadderForStatistics
+{
+    return [self queryForLadder:@"ManongTag" fieldName:@"tagCount" limit:3];
+}
+
+-(NSArray *)readLadderForStatistics
+{
+    return [self queryForLadder:@"ManongContent" fieldName:@"wkCount" limit:7];
+}
+
+
 -(void)dealloc
 {
     NSLog(@"model manager  销毁");

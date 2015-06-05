@@ -14,6 +14,7 @@
 #import "webPageViewController.h"
 #import "modelManager.h"
 #import "ManongContent.h"
+#import "ManongTag.h"
 
 
 @interface webPageViewController()<WKNavigationDelegate>
@@ -76,13 +77,11 @@
         [weakSelf.WKWebPageView addObserver:weakSelf forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
         [weakSelf.WKWebPageView addObserver:weakSelf forKeyPath:@"canGoForward" options:NSKeyValueObservingOptionNew context:nil];
         weakSelf.WKWebPageView.allowsBackForwardNavigationGestures = YES;
-        if (weakSelf.currentMC) {
-            weakSelf.cursorMC = [weakSelf.dataSource indexOfObject:weakSelf.currentMC];
-            weakSelf.dataCount = weakSelf.dataSource.count;
-            NSUInteger tCursorMC = weakSelf.cursorMC + 1;
-            if (tCursorMC >= weakSelf.dataCount) {
-                weakSelf.nextPagesWK.enabled = NO;
-            }
+        weakSelf.cursorMC = [weakSelf.dataSource indexOfObject:weakSelf.currentMC];
+        weakSelf.dataCount = weakSelf.dataSource.count;
+        NSUInteger tCursorMC = weakSelf.cursorMC + 1;
+        if (tCursorMC >= weakSelf.dataCount) {
+            weakSelf.nextPagesWK.enabled = NO;
         }
     });
     
@@ -149,6 +148,10 @@
     [self.WKWebProgress setProgress:0.0f];
     self.requestURL = webView.URL;
     self.actionNumber += 1;
+    
+    ManongTag *tag = [self.manager fetchManong:@"ManongTag" fetchKey:@"tagKey" fetchValue:self.currentMC.wkContrsationKey];
+    tag.tagCount = [NSNumber numberWithInteger:[tag.tagCount integerValue] + 1];
+    [self.manager saveData];
 }
 
 
@@ -243,6 +246,7 @@
         }
         NSURL *url = [NSURL URLWithString:mnCont.wkUrl];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        self.currentMC = mncontent;
         [self.WKWebPageView loadRequest:request];
     }else{
         self.nextPagesWK.enabled = NO;

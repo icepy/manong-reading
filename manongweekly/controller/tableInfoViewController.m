@@ -103,7 +103,6 @@
             NSDate *date = [NSDate date];
             NSString *readTime = [weakSelf.manager createDateNowString:date];
             ManongContent *mncontent = [weakSelf.manager fetchManong:@"ManongContent" fetchKey:@"wkName" fetchValue:content.wkName];
-            NSLog(@"%@",content.wkCount);
             if (mncontent) {
                 mncontent.wkTime = date;
                 mncontent.wkStringTime = readTime;
