@@ -95,12 +95,7 @@ NSInteger testTime = 1;
     [self.reachability startNotifier];
     self.titleCategoryTable.dataSource = self;
     self.titleCategoryTable.delegate = self;
-    
-    //night
-
-    
     self.hideTagCon = [[NSMutableArray alloc] init];
-//    NSLog(@"view controller Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)self));
     [self.manager readConfig:^(NSDictionary *config) {
         weakSelf.configData = [[NSMutableDictionary alloc] initWithDictionary:config];
         isDownload =  [config[@"download"] intValue];
@@ -201,6 +196,25 @@ NSInteger testTime = 1;
 {
     return section == 0 ? @"浏览标签" : @"语言分类";
 }
+
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40)];
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(17, 5, 22, 22)];
+//    imageView.image = [UIImage imageNamed: section == 0 ? @"BrowseTagImage" : @"TagListImage"];
+//    UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(45,5, tableView.frame.size.width - 60, 28)];
+//    labelView.text = section == 0 ? @"浏览标签" : @"语言分类";
+//    labelView.textColor = [UIColor colorWithWhite:0.600 alpha:1.000];
+//    labelView.font = [UIFont systemFontOfSize:12.0];
+//    [headerView addSubview:imageView];
+//    [headerView addSubview:labelView];
+//    return headerView;
+//}
+//
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 40.0;
+//}
 
 //-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 //{

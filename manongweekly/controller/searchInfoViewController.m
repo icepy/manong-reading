@@ -25,7 +25,6 @@
 @property (assign,nonatomic) BOOL isSearchSelected;
 @property (assign,nonatomic) BOOL isSearchBlock;
 @property (copy, nonatomic) NSString *searchText;
-
 @property (assign, nonatomic) BOOL isFirstResponder;
 
 @end
@@ -242,7 +241,6 @@
     }
     //用户输入结束时，默认搜索浏览列表
     self.searchText = searchBar.text;
-    
     if (!self.isSearchBlock) {
         /*
             搜索逻辑处理

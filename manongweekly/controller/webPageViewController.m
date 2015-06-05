@@ -77,10 +77,14 @@
         [weakSelf.WKWebPageView addObserver:weakSelf forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
         [weakSelf.WKWebPageView addObserver:weakSelf forKeyPath:@"canGoForward" options:NSKeyValueObservingOptionNew context:nil];
         weakSelf.WKWebPageView.allowsBackForwardNavigationGestures = YES;
-        weakSelf.cursorMC = [weakSelf.dataSource indexOfObject:weakSelf.currentMC];
-        weakSelf.dataCount = weakSelf.dataSource.count;
-        NSUInteger tCursorMC = weakSelf.cursorMC + 1;
-        if (tCursorMC >= weakSelf.dataCount) {
+        if (weakSelf.currentMC) {
+            weakSelf.cursorMC = [weakSelf.dataSource indexOfObject:weakSelf.currentMC];
+            weakSelf.dataCount = weakSelf.dataSource.count;
+            NSUInteger tCursorMC = weakSelf.cursorMC + 1;
+            if (tCursorMC >= weakSelf.dataCount) {
+                weakSelf.nextPagesWK.enabled = NO;
+            }
+        }else{
             weakSelf.nextPagesWK.enabled = NO;
         }
     });

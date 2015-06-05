@@ -30,12 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    self.dataSource = @[@[@"阅读图表统计",@"应用介绍与反馈",@"更新推送"],@[@"更新分类"],@[@"清除缓存"]];
-    
     self.dataSource = @[
                         @[
                             @{
-                                @"setName":@"阅读图表统计",
+                                @"setName":@"图表天梯",
                                 @"setIcon":@"RankFillImage"
                                 },
                             @{
@@ -67,12 +65,10 @@
     self.settingTable.dataSource = self;
     self.settingTable.delegate = self;
     self.identifierMap = @{
-                           @"阅读图表统计":@"readingChart",
+                           @"图表天梯":@"readingChart",
                            @"应用介绍与反馈":@"referralPage",
                            @"隐私政策":@"privacyPolicyPage"
                            };
-//    self.dknightSwitchView = [[UISwitch alloc] initWithFrame:CGRectZero];
-//    [self.dknightSwitchView addTarget:self action:@selector(toNightChange) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -100,10 +96,6 @@
     MNSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MNSettingCell" forIndexPath:indexPath];
     cell.section = indexPath.section;
     cell.MNSettingInfo = self.dataSource[indexPath.section][indexPath.row];
-//    if ([cell.MNSettingInfo[@"setName"] isEqualToString:@"更新推送"]) {
-//        cell.accessoryView = self.dknightSwitchView;
-//        cell.imageView.image = [UIImage imageNamed:@"RankFillImage"];
-//    }
     return cell;
 }
 
@@ -159,7 +151,6 @@
             }
         }
     }else{
-        
         NSString *identifier = self.identifierMap[tag];
         if ([identifier isEqualToString:@"referralPage"]) {
             referralPageViewController *referral = [self.storyboard instantiateViewControllerWithIdentifier:identifier];

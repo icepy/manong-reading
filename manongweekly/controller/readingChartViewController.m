@@ -18,19 +18,13 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *chartDrawContainsView;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentView;
 @property (weak, nonatomic) IBOutlet UILabel *notDataLabel;
-
 @property (strong, nonatomic) PNBarChart *barChart;
 @property (strong, nonatomic) PNPieChart *pieChart;
 @property (strong, nonatomic) UIView *legend;
-
 @property (strong, nonatomic) NSArray *tagPieChartDataSource;
 @property (strong, nonatomic) NSArray *readBarCharDataSource;
-
 @property (strong, nonatomic) UIView *barCharInfoContains;
 @property (strong, nonatomic) UILabel *barCharInfoLabel;
-
-//@property (strong, nonatomic) NSDictionary *animationIndex;
-//@property (assign ,nonatomic) NSInteger animationHistryIndex;
 
 @end
 
@@ -87,7 +81,6 @@
 //    NSLog(@"current index %@",currentIndex);
 //    NSLog(@"histry index %@",histryindex);
 //    [self.segmentContains exchangeSubviewAtIndex:[currentIndex integerValue] withSubviewAtIndex:2];
-    
 }
 
 
@@ -169,19 +162,16 @@
         label.font = [UIFont systemFontOfSize:12.0f];
         [weakSelf.barCharInfoContains addSubview:label];
     }];
-    
     [self.barChart setXLabels:topR];
     self.barChart.rotateForXAxisText = true;
     [self.barChart setYValues:valR];
     [self.barChart setStrokeColors:@[PNGreen,PNGreen,PNRed,PNGreen,PNGreen,PNYellow,PNGreen]];
-    // Adding gradient
     self.barChart.barColorGradientStart = PNMauve;
     [self.barChart strokeChart];
     self.barChart.delegate = self;
     [self.chartDrawContainsView addSubview:self.barCharInfoLabel];
     [self.chartDrawContainsView addSubview:self.barChart];
     [self.chartDrawContainsView addSubview:self.barCharInfoContains];
-
     CGFloat scrollHeight = self.barCharInfoLabel.frame.size.height + self.barChart.frame.size.height + self.barCharInfoContains.frame.size.height + 20.0;
     self.chartDrawContainsView.contentSize = CGSizeMake(SCREEN_WIDTH, scrollHeight);
 }

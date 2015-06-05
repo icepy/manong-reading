@@ -12,7 +12,6 @@
 @interface MNTagCell()
 
 @property (weak, nonatomic) IBOutlet UILabel *tagTitleName;
-
 @property (weak, nonatomic) IBOutlet UILabel *colorTag;
 
 
@@ -27,6 +26,8 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.colorTag.layer.cornerRadius = 2.0;
     self.colorTag.layer.masksToBounds = YES;
+    
+    NSLog(@"%@",NSStringFromCGRect(self.colorTag.frame));
     
 //    NSLog(@"%@",_manongTag.tagName);
     self.tagTitleName.text = _manongTag.tagName;

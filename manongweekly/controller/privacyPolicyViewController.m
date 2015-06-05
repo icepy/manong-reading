@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 xiangwenwen. All rights reserved.
 //
 
+#import "GStaticDataSource.h"
 #import "privacyPolicyViewController.h"
 
 @interface privacyPolicyViewController ()<UIGestureRecognizerDelegate>
@@ -19,6 +20,20 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = self.policyTitle;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
+    UITextView *textview = [[UITextView alloc] initWithFrame:CGRectMake(10, MANNAVHEIGHT-20, MANSCREENWIDTH-10, 140)];
+    textview.text = @"《猿已阅》不会存留你的任何信息（包括Email），若你确认订阅《码农周刊》，一切事宜与此应用作者无关，请阅读《码农周刊》的隐私政策及服务条款。";
+    textview.textColor = [UIColor colorWithWhite:0.200 alpha:1.000];
+    textview.font = [UIFont systemFontOfSize:16.0];
+    textview.editable = NO;
+    [self.view addSubview:textview];
+    
+    UIButton *gotoManong = [[UIButton alloc] initWithFrame:CGRectMake(10,(MANNAVHEIGHT - 20)+160, MANSCREENWIDTH-10, 30)];
+    [gotoManong setTitle:@"《码农周刊》隐私政策及服务条款" forState:UIControlStateNormal];
+    [gotoManong setTitleColor:[UIColor colorWithRed:0.000 green:0.502 blue:0.502 alpha:1.000] forState:UIControlStateNormal];
+    [gotoManong setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [gotoManong addTarget:self action:@selector(gotoManongWeeklyPolicy) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:gotoManong];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -26,6 +41,11 @@
     [super viewWillAppear:animated];
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"BackImage"] style:UIBarButtonItemStylePlain target:self action:@selector(backForSetting)];
     self.navigationItem.leftBarButtonItem = back;
+}
+
+-(void)gotoManongWeeklyPolicy
+{
+    NSLog(@"隐私政策");
 }
 
 -(void)backForSetting{

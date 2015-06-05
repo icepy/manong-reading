@@ -37,7 +37,6 @@
     self.contentCategoryTable.hidden = YES;
     self.navigationItem.title = self.tagToInfoParameter;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray *arr = [weakSelf.manager fetchAllManongContent:weakSelf.tagToInfoParameter];
         weakSelf.dataSource = [[NSMutableArray alloc] initWithArray:arr];
@@ -77,14 +76,6 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
-
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    __weak tableInfoViewController *weakSelf = self;
-//    return [tableView fd_heightForCellWithIdentifier:@"MNContentsCell" configuration:^(MNContentCell *cell) {
-//        cell.manongContent = weakSelf.dataSource[indexPath.row];
-//    }];
-//}
 
 -(void)didReceiveMemoryWarning
 {

@@ -20,17 +20,17 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-5I-YPx">
                                 <rect key="frame" x="10" y="30" width="580" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">致谢
+                                <mutableString key="text">致谢
 
        感谢《码农周刊》为中国区的开发者精选一周的技术文章。
 
 基本功能
 
-       1. 根据开发语言进行分类
-       2. 全局的搜索（在全列表中）查找您想学习的知识
-       3. 按阅读时间的搜索（在全列表中）不怕阅读之后忘记
-       4. 如果您认为文章有价值，那么可以保存到印象笔记（学习积累），或者Pocket（稍后阅读）
-       5. 此外您还可以通过微博，微信分享给你的好友，同事
+       1. 根据开发语言进行分类        2. 全局的搜索 （在全列表中） 随时随地精准的查找您想学习的知识
+       3. 按浏览分类的搜索（在全列表中）查找您想要的分类
+       4. 按阅读时间的搜索（在全列表中）不怕阅读之后忘记        5. 图表天梯  查看自己学习的排行
+       6. 如果您认为文章有价值，那么可以保存到印象笔记（学习积累），或者Pocket（稍后阅读）
+       7. 此外您还可以通过微博，微信分享给你的好友，同事        8. 可以快速的阅读下一篇文章
 
 申明
 
@@ -39,7 +39,7 @@
 如何反馈？
 
        邮箱：wenwenicepy@qq.com
-       支持：http://lcepy.github.io</string>
+       支持：http://lcepy.github.io</mutableString>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
