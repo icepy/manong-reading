@@ -287,12 +287,14 @@ NSInteger testTime = 1;
                         [self.manager saveDigest:dataTag[0] manongDigest:manongTag isRemove:YES];
                         [dataTag removeObjectAtIndex:0];
                         [dataTag addObject:manongTag];
-//                        self.digestIndexPath = [NSIndexPath indexPathForRow:2 inSection:0];
                     }else{
                         [dataTag addObject:manongTag];
                         [self.manager saveDigest:nil manongDigest:manongTag isRemove:NO];
                     }
                 }
+                
+                //快捷存入处理给通知中心target
+                
             }
         }
     }

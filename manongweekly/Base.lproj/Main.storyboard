@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-5I-YPx">
-                                <rect key="frame" x="10" y="30" width="580" height="454"/>
+                                <rect key="frame" x="10" y="30" width="580" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">致谢
 
@@ -49,7 +49,7 @@
                         <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Qgb-5I-YPx" secondAttribute="trailing" constant="10" id="FDj-zx-Gmp"/>
-                            <constraint firstItem="Ub3-wo-72J" firstAttribute="top" secondItem="Qgb-5I-YPx" secondAttribute="bottom" constant="72" id="mI6-Gp-uDj"/>
+                            <constraint firstItem="Ub3-wo-72J" firstAttribute="top" secondItem="Qgb-5I-YPx" secondAttribute="bottom" constant="26" id="mI6-Gp-uDj"/>
                             <constraint firstItem="Qgb-5I-YPx" firstAttribute="leading" secondItem="4FH-fd-PaU" secondAttribute="leading" constant="10" id="xBD-FI-Ah3"/>
                             <constraint firstItem="Qgb-5I-YPx" firstAttribute="top" secondItem="4FH-fd-PaU" secondAttribute="top" constant="30" id="y7b-f5-BPz"/>
                         </constraints>
@@ -160,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHf-JR-hz6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1362" y="-1653"/>
+            <point key="canvasLocation" x="1316" y="-1653"/>
         </scene>
         <!--Reading Chart View Controller-->
         <scene sceneID="GCD-Yt-4vF">
@@ -734,6 +734,6 @@
         <image name="SettingImage" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YUJ-17-L8W"/>
+        <segue reference="qJB-Di-oD4"/>
     </inferredMetricsTieBreakers>
 </document>

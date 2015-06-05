@@ -49,7 +49,7 @@
                             ],
                         @[
                             @{
-                                @"setName":@"码农周刊订阅",
+                                @"setName":@"订阅码农周刊",
                                 @"setIcon":@"ManongRessImage"
                                 },
                             @{
@@ -145,6 +145,16 @@
                         [weakSelf dismissViewControllerAnimated:YES completion:nil];
                         [[NSNotificationCenter defaultCenter] postNotificationName:@"kRemoveCacheSuccess" object:nil];
                     });
+                });
+            }
+            if ([tag isEqualToString:@"订阅码农周刊"]) {
+                UIAlertView *alert = [[UIAlertView alloc] init];
+                alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
+                [alert addButtonWithTitle:@"取消"];
+                [alert addButtonWithTitle:@"确认"];
+                alert.title = @"输入email订阅《码农周刊》";
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [alert show];
                 });
             }
         }
