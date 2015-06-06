@@ -24,6 +24,7 @@
 		1737893F1AF2053300F883EC /* WeixinSessionActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1737893A1AF2053300F883EC /* WeixinSessionActivity.m */; };
 		173789401AF2053300F883EC /* WeixinTimelineActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1737893C1AF2053300F883EC /* WeixinTimelineActivity.m */; };
 		174F3CDA1AEB9C4D002E2040 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 174F3CD91AEB9C4D002E2040 /* libc++.dylib */; };
+		175425751B23401B00C8CC27 /* TodayMNCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 175425741B23401B00C8CC27 /* TodayMNCellTableViewCell.m */; };
 		175522D31B1D7CC00033098B /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 175522D21B1D7CC00033098B /* libWeChatSDK.a */; };
 		176B63841AEB8844003CA376 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B63831AEB8844003CA376 /* SystemConfiguration.framework */; };
 		176B63861AEB8856003CA376 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B63851AEB8856003CA376 /* libz.dylib */; };
@@ -124,6 +125,10 @@
 		1737893B1AF2053300F883EC /* WeixinTimelineActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeixinTimelineActivity.h; sourceTree = "<group>"; };
 		1737893C1AF2053300F883EC /* WeixinTimelineActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeixinTimelineActivity.m; sourceTree = "<group>"; };
 		174F3CD91AEB9C4D002E2040 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		1754255A1B230A8000C8CC27 /* manongweekly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = manongweekly.entitlements; sourceTree = "<group>"; };
+		1754255B1B230AE900C8CC27 /* manongweeklyExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = manongweeklyExtension.entitlements; sourceTree = "<group>"; };
+		175425731B23401B00C8CC27 /* TodayMNCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayMNCellTableViewCell.h; sourceTree = "<group>"; };
+		175425741B23401B00C8CC27 /* TodayMNCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayMNCellTableViewCell.m; sourceTree = "<group>"; };
 		175522D21B1D7CC00033098B /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		176B63831AEB8844003CA376 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		176B63851AEB8856003CA376 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -326,8 +331,11 @@
 		178D25F21B1D450E008236E7 /* manongweeklyExtension */ = {
 			isa = PBXGroup;
 			children = (
+				1754255B1B230AE900C8CC27 /* manongweeklyExtension.entitlements */,
 				178D25F51B1D450E008236E7 /* TodayViewController.h */,
 				178D25F61B1D450E008236E7 /* TodayViewController.m */,
+				175425731B23401B00C8CC27 /* TodayMNCellTableViewCell.h */,
+				175425741B23401B00C8CC27 /* TodayMNCellTableViewCell.m */,
 				178D25F81B1D450E008236E7 /* MainInterface.storyboard */,
 				178D25F31B1D450E008236E7 /* Supporting Files */,
 			);
@@ -381,6 +389,7 @@
 		17B251971AE4E44000394467 /* manongweekly */ = {
 			isa = PBXGroup;
 			children = (
+				1754255A1B230A8000C8CC27 /* manongweekly.entitlements */,
 				17B251D01AE4F42E00394467 /* GStaticDataSource.h */,
 				17B251D31AE5192500394467 /* HTMLStringParse.h */,
 				17B251D41AE5192500394467 /* HTMLStringParse.m */,
@@ -558,11 +567,19 @@
 					178D25ED1B1D450E008236E7 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = V94YS5RCTX;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					17B251941AE4E44000394467 = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = V94YS5RCTX;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 0;
 							};
@@ -667,6 +684,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				175425751B23401B00C8CC27 /* TodayMNCellTableViewCell.m in Sources */,
 				178D25F71B1D450E008236E7 /* TodayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -758,7 +776,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
-				CODE_SIGN_IDENTITY = "iPhone Developer: wenwen xiang (D69C7E3QAW)";
+				CODE_SIGN_ENTITLEMENTS = manongweeklyExtension/manongweeklyExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -767,7 +787,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3cf71cff-9806-47a9-b8a3-8ae6595b3839";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -777,12 +797,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
-				CODE_SIGN_IDENTITY = "iPhone Developer: wenwen xiang (D69C7E3QAW)";
+				CODE_SIGN_ENTITLEMENTS = manongweeklyExtension/manongweeklyExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = manongweeklyExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3cf71cff-9806-47a9-b8a3-8ae6595b3839";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -886,7 +908,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: wenwen xiang (D69C7E3QAW)";
+				CODE_SIGN_ENTITLEMENTS = manongweekly/manongweekly.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -903,7 +927,7 @@
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = manongweekly;
-				PROVISIONING_PROFILE = "ca69226a-5e13-4bc7-8bad-c707d8fd0822";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -915,7 +939,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: wenwen xiang (D69C7E3QAW)";
+				CODE_SIGN_ENTITLEMENTS = manongweekly/manongweekly.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -932,7 +958,7 @@
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = manongweekly;
-				PROVISIONING_PROFILE = "ca69226a-5e13-4bc7-8bad-c707d8fd0822";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

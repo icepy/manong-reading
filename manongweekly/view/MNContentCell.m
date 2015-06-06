@@ -8,6 +8,7 @@
 
 #import "MNContentCell.h"
 #import "ManongContent.h"
+#import "GStaticDataSource.h"
 
 @interface MNContentCell()
 
@@ -33,8 +34,10 @@
     self.contentOrigin.text = inputURL.host;
     if ([_manongContent.wkStatus intValue]) {
         readTime = [NSString stringWithFormat:@"阅读：%@",_manongContent.wkStringTime];
+        self.contentTitle.textColor = MANREAD;
     }else{
         readTime = @"阅读：No";
+        self.contentTitle.textColor = MANNOTREAD;
     }
     
     self.contentTime.text = readTime;

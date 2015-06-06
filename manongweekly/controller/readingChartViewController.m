@@ -12,6 +12,7 @@
 #import "modelManager.h"
 #import "ManongTag.h"
 #import "ManongContent.h"
+#import "GStaticDataSource.h"
 
 @interface readingChartViewController()<UIGestureRecognizerDelegate,PNChartDelegate,UIScrollViewDelegate>
 
@@ -93,7 +94,7 @@
     }
     self.notDataLabel.hidden = YES;
     NSMutableArray *items = [[NSMutableArray alloc] init];
-    NSArray *itemsColor = @[PNGreen,PNPinkGrey,PNDeepGrey];
+    NSArray *itemsColor = @[PNGreen,PNPinkGrey,PNDeepGrey,PNLightBlue,PNMauve];
     [self.tagPieChartDataSource enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         ManongTag *tag = (ManongTag *)obj;
         CGFloat value = (CGFloat)[tag.tagCount integerValue];
@@ -157,8 +158,8 @@
         float repToNumber = ([mnconte.wkCount floatValue] / sumCount)*100;
         [valR addObject:[NSNumber numberWithFloat:repToNumber]];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10,(idx*20.0), SCREEN_WIDTH-10, 20.0)];
-        label.text = [NSString stringWithFormat:@"Top %tu -- R %zd -- %@",idx+1,[mnconte.wkCount integerValue],mnconte.wkName];
-        label.textColor = [UIColor colorWithWhite:0.600 alpha:1.000];
+        label.text = [NSString stringWithFormat:@"Top %tu - R %zd - %@",idx+1,[mnconte.wkCount integerValue],mnconte.wkName];
+        label.textColor = MANNOTREAD;
         label.font = [UIFont systemFontOfSize:12.0f];
         [weakSelf.barCharInfoContains addSubview:label];
     }];

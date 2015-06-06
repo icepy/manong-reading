@@ -13,6 +13,8 @@
 
 @property(strong,nonatomic) NSMutableArray *exitDataSource;
 
+@property(assign,nonatomic) BOOL isStart;
+
 @end
 
 @implementation AppDelegate
@@ -21,6 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [WXApi registerApp:@"wx1a49976b369fc192" withDescription:@"猿已阅"];
+    self.isStart = YES;
     return YES;
 }
 
@@ -48,11 +51,23 @@
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
+    if ([[url scheme] isEqualToString:@"icepyManongWeekly"]) {
+        [application setApplicationIconBadgeNumber:10];
+        return YES;
+    }
     return [WXApi handleOpenURL:url delegate:self];
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
+    if ([[url scheme] isEqualToString:@"wenIcepy"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"taskDidActionInWidgetNotification" object:nil userInfo:@{@"appWidget":url.host}];
+        if (self.isStart){
+            self.isStart = NO;
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            [userDefaults setObject:url.host forKey:@"startApplicationWidget"];
+        }
+    }
     return [WXApi handleOpenURL:url delegate:self];
 }
 

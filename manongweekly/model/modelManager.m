@@ -35,11 +35,19 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
 @property(strong,nonatomic) NSManagedObjectContext *context;
 @property(strong,nonatomic) HTMLStringParse *htmlParse;
 @property(strong,nonatomic) NSDateFormatter *formatter;
-
+@property(strong,nonatomic) NSUserDefaults *userDefaults;
 
 @end
 
 @implementation modelManager
+
+-(NSUserDefaults *)userDefaults
+{
+    if (!_userDefaults) {
+        _userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.manongweeklySharedDefaults"];
+    }
+    return _userDefaults;
+}
 
 -(NSDateFormatter *)formatter
 {
@@ -474,6 +482,25 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
         return @[];
     }
     return result;
+}
+
+-(void)extensionNeedDataSource
+{
+    NSArray *extensionD = [self tagLadderForStatistics];
+    NSMutableArray *userD = [[NSMutableArray alloc] init];
+    if (extensionD.count > 0) {
+        [extensionD enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSMutableDictionary *userK = [[NSMutableDictionary alloc] init];
+            ManongTag *mnTag = (ManongTag *)obj;
+            [userK setObject:mnTag.tagCount forKey:@"tagCount"];
+            [userK setObject:mnTag.tagName forKey:@"tagName"];
+            [userD addObject:userK];
+        }];
+        [self.userDefaults setObject:userD forKey:@"wen.manongweekly.MANTagDataSource"];
+    }else{
+        [self.userDefaults setObject:@[] forKey:@"wen.manongweekly.MANTagDataSource"];
+    }
+    [self.userDefaults synchronize];
 }
 
 -(NSArray *)tagLadderForStatistics

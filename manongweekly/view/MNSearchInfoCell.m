@@ -8,6 +8,7 @@
 
 #import "MNSearchInfoCell.h"
 #import "ManongContent.h"
+#import "GStaticDataSource.h"
 
 @interface MNSearchInfoCell()
 
@@ -32,8 +33,10 @@
     NSString *readTime;
     if ([manongC.wkStatus intValue]) {
         readTime = [NSString stringWithFormat:@"阅读：%@",manongC.wkStringTime];
+        self.cName.textColor = MANREAD;
     }else{
         readTime = @"阅读：No";
+        self.cName.textColor = MANNOTREAD;
     }
     self.cTime.text = readTime;
 }

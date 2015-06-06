@@ -22,14 +22,26 @@
 @property (weak, nonatomic) IBOutlet UIView *showShade;
 @property (strong, nonatomic) NSDictionary *identifierMap;
 @property (strong, nonatomic) UISwitch *dknightSwitchView;
+@property (strong, nonatomic) UIApplication *application;
 
 @end
 
 @implementation settingViewController
 
+-(UIApplication *)application
+{
+    if (!_application) {
+        _application = [UIApplication sharedApplication];
+    }
+    return _application;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //mailto:xiangwenwe@foxmail.com?SUBJECT=About 猿已阅
+    //https://itunes.apple.com/cn/app/yuan-yi-yue/id990227579?l=en&mt=8
+    
     self.dataSource = @[
                         @[
                             @{
@@ -37,7 +49,7 @@
                                 @"setIcon":@"RankFillImage"
                                 },
                             @{
-                                @"setName":@"应用介绍与反馈",
+                                @"setName":@"应用介绍",
                                 @"setIcon":@"ProtocolReadImage"
                                 },
                             @{
@@ -47,8 +59,12 @@
                             ],
                         @[
                             @{
-                                @"setName":@"订阅码农周刊",
-                                @"setIcon":@"ManongRessImage"
+                                @"setName":@"意见反馈",
+                                @"setIcon":@"ToMessageMeImage"
+                                },
+                            @{
+                                @"setName":@"给个好评",
+                                @"setIcon":@"ToLikeMeImage"
                                 },
                             @{
                                 @"setName":@"更新分类",
@@ -57,6 +73,10 @@
                             @{
                                 @"setName":@"清除缓存",
                                 @"setIcon":@"ClearCacheImage"
+                                },
+                            @{
+                                @"setName":@"订阅《码农周刊》快捷通道",
+                                @"setIcon":@"ManongRessImage"
                                 }
                             ]
                         ];
@@ -66,7 +86,7 @@
     self.settingTable.delegate = self;
     self.identifierMap = @{
                            @"图表天梯":@"readingChart",
-                           @"应用介绍与反馈":@"referralPage",
+                           @"应用介绍":@"referralPage",
                            @"隐私政策":@"privacyPolicyPage"
                            };
 }
@@ -139,7 +159,7 @@
                     });
                 });
             }
-            if ([tag isEqualToString:@"订阅码农周刊"]) {
+            if ([tag isEqualToString:@"订阅《码农周刊》快捷通道"]) {
                 UIAlertView *alert = [[UIAlertView alloc] init];
                 alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
                 [alert addButtonWithTitle:@"取消"];
@@ -148,6 +168,22 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [alert show];
                 });
+            }
+            
+            if ([tag isEqualToString:@"意见反馈"]) {
+                NSMutableString *mailUrl = [[NSMutableString alloc]init];
+                //添加收件人
+                NSArray *toRecipients = [NSArray arrayWithObject: @"xiangwenwe@foxmail.com"];
+                [mailUrl appendFormat:@"mailto:%@", [toRecipients componentsJoinedByString:@","]];
+                //添加主题
+                [mailUrl appendString:@"&subject=About 猿已阅"];
+                NSString *email = [mailUrl stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+                [self.application openURL:[NSURL URLWithString:email]];
+            }
+            
+            if ([tag isEqualToString:@"给个好评"]) {
+                NSURL *url = [NSURL URLWithString:@"https://itunes.apple.com/cn/app/yuan-yi-yue/id990227579?l=en&mt=8"];
+                [self.application openURL:url];
             }
         }
     }else{

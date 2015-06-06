@@ -50,4 +50,6 @@ typedef void(^updateDB)(BOOL success,NSError *error);
 
 -(NSArray *)readLadderForStatistics;
 
+-(void)extensionNeedDataSource;
+
 @end

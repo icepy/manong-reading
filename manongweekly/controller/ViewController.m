@@ -27,7 +27,6 @@ NSInteger testTime = 1;
 @property (weak, nonatomic) IBOutlet UIProgressView *downloadProgress;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingBtn;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchBtn;
-
 @property (strong, nonatomic) modelManager *manager;
 @property (strong, nonatomic) UIApplication *application;
 @property (strong, nonatomic) NSMutableData *READMEData;
@@ -36,15 +35,11 @@ NSInteger testTime = 1;
 
 //同步锁
 @property (assign, nonatomic) BOOL syncBlock;
-
 //网络监测
 @property (strong, nonatomic) Reachability *reachability;
 @property (assign, nonatomic) BOOL networks;
 @property (weak, nonatomic) IBOutlet UILabel *showNetMessage;
-
 @property (assign, nonatomic) BOOL isFetchData;
-
-
 @property (strong, nonatomic) NSMutableArray *hideTagCon;
 
 @end
@@ -92,6 +87,10 @@ NSInteger testTime = 1;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(asyncFetchOrigin:) name:@"kFetchGithubManongData" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeCacheSuccess:) name:@"kRemoveCacheSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive) name:UIApplicationWillResignActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(taskDidActionInWidgetNotification:) name:@"taskDidActionInWidgetNotification" object:nil];
+    
+    
     [self.reachability startNotifier];
     self.titleCategoryTable.dataSource = self;
     self.titleCategoryTable.delegate = self;
@@ -105,12 +104,72 @@ NSInteger testTime = 1;
             //无需下载数据源了，从core data 中获取
             [weakSelf.manager fetchAllManongTag];
         }else{
-            if (!self.isFetchData) {
-                self.isFetchData = YES;
-                [self firstFetchData];
+            if (!weakSelf.isFetchData) {
+                weakSelf.isFetchData = YES;
+                [weakSelf firstFetchData];
             }
         }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            NSString *appWidget = [userDefaults objectForKey:@"startApplicationWidget"];
+            if (appWidget) {
+                [userDefaults removeObjectForKey:@"startApplicationWidget"];
+                [weakSelf taskDidActionInWidget:appWidget];
+            }
+        });
     }];
+}
+
+-(void)applicationWillResignActive
+{
+    [self.manager extensionNeedDataSource];
+}
+
+-(void)taskDidActionInWidget:(NSString *)tagName
+{
+    tableInfoViewController *tableInfoWidget = (tableInfoViewController *) [self.storyboard instantiateViewControllerWithIdentifier:@"icepyTableInfoWidget"];
+    NSMutableArray *dataTag = self.manager.dataSource[0];
+    ManongTag *manongTag = (ManongTag *)[self.manager fetchManong:@"ManongTag" fetchKey:@"tagName" fetchValue:tagName];
+    NSLog(@"%@",manongTag.tagKey);
+    tableInfoWidget.tagToInfoParameter = manongTag.tagName;
+    tableInfoWidget.manager = self.manager;
+    NSLog(@"view controller Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)self));
+    NSLog(@"model manager Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)self.manager));
+    if (!dataTag.count) {
+        [self.manager saveDigest:nil manongDigest:manongTag isRemove:NO];
+        [dataTag addObject:manongTag];
+        self.digestIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    }else{
+        __block BOOL tag;
+        [dataTag enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            ManongTag *mnTag = (ManongTag *) obj;
+            tag = YES;
+            if ([manongTag.tagKey isEqualToString:mnTag.tagKey]) {
+                tag = NO;
+                *stop = YES;
+            }
+        }];
+        if (tag) {
+            //点击了不同的标签
+            if (dataTag.count > 2) {
+                [self.manager saveDigest:dataTag[0] manongDigest:manongTag isRemove:YES];
+                [dataTag removeObjectAtIndex:0];
+                [dataTag addObject:manongTag];
+            }else{
+                [dataTag addObject:manongTag];
+                [self.manager saveDigest:nil manongDigest:manongTag isRemove:NO];
+            }
+        }
+    }
+    [self.navigationController pushViewController:tableInfoWidget animated:YES];
+}
+
+-(void)taskDidActionInWidgetNotification:(NSNotification *)note
+{
+    NSDictionary *userInfo = note.userInfo;
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self taskDidActionInWidget:userInfo[@"appWidget"]];
 }
 
 -(void)removeCacheSuccess:(NSNotification *)note
@@ -306,9 +365,6 @@ NSInteger testTime = 1;
                         [self.manager saveDigest:nil manongDigest:manongTag isRemove:NO];
                     }
                 }
-                
-                //快捷存入处理给通知中心target
-                
             }
         }
     }

@@ -34,6 +34,16 @@
 				<string>wx1a49976b369fc192</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>wen.today.icepy</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wenIcepy</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.4.1</string>
