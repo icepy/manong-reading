@@ -1,6 +1,6 @@
 ## manong reading
 
-> Tag v1.0.1
+> Tag v1.2
 
 ![](https://img.shields.io/codeship/d6c1ddd0-16a3-0132-5f85-2e35c05e22b1.svg)
 ![](https://img.shields.io/github/license/mashape/apistatus.svg)
@@ -8,6 +8,7 @@
 
 [<img src="http://websources.qiniudn.com/iOS/963e0ee8-9013-11e4-8091-7ece67d64729.png" width="135" height="40" alt="AppStore"/>](https://itunes.apple.com/cn/app/yuan-yi-yue/id990227579?l=en&mt=8)
 
+![效果图](http://7qncz5.com1.z0.glb.clouddn.com/iOS/yuanyiyuan1.png)
 
 ##Requirements（运行）
 
@@ -21,9 +22,22 @@ To compile the project, you may temporarily modify the bundle_id after adding yo
 
 编译此项目，bundle id可以临时修改成你想要的，然后添加到你的苹果开发者中心。
 
+##基本功能
+
+学习编程----好帮手，来查找您想学习的知识吧
+
+* 根据开发语言进行分类
+* 全局的搜索 （在全列表中） 随时随地精准的查找您想学习的知识
+* 按阅读时间的搜索（在全列表中）不怕阅读之后忘记
+* 图表天梯  随时掌握自己学习的排行
+* 通知中心  随时掌握分类的阅读数，快速打开到相应的分类
+* 如果您认为文章有价值，那么可以保存到印象笔记（学习积累），或者Pocket（稍后阅读）
+* 此外您还可以通过微博，微信分享给你的好友，同事
+* 快速的阅读下一篇文章
+
 ## 致谢
 
-dataSource [manong](https://github.com/nemoTyrant/manong)
+数据源 [manong](https://github.com/nemoTyrant/manong)
 
 码农周刊 [精选一周IT技术干货](http://weekly.manong.io/)
 
@@ -79,3 +93,15 @@ The Reachability sample application demonstrates how to use the SystemConfigurat
 An iOS 6 UIActivity subclass implementing uploads to Weixin(WeChat)
 
 [WeixinActivity](https://github.com/iDay/WeixinActivity)
+
+##PNChart
+
+A simple and beautiful chart lib used in Piner and CoinsMan for iOS
+
+[PNChart](https://github.com/kevinzhow/PNChart)
+
+##Masonry
+
+Harness the power of AutoLayout NSLayoutConstraints with a simplified, chainable and expressive syntax. Supports iOS and OSX Auto Layout
+
+[Masonry](https://github.com/SnapKit/Masonry)
