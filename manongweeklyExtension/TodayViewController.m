@@ -78,7 +78,7 @@
 {
     NSDictionary *tagData =  self.dataSource[indexPath.row];
     NSString *hostApp = tagData[@"tagName"];
-    NSString *openUrl = [NSString stringWithFormat:@"wenIcepy://%@",hostApp];
+    NSString *openUrl = [[NSString stringWithFormat:@"wenIcepy://%@",hostApp] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [self.extensionContext openURL:[NSURL URLWithString:openUrl] completionHandler:^(BOOL success) {
         
     }];

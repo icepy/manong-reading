@@ -65,7 +65,9 @@
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     if ([[url scheme] isEqualToString:@"wenIcepy"]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"taskDidActionInWidgetNotification" object:nil userInfo:@{@"appWidget":url.host}];
+        NSString *urlString = [url.absoluteString stringByRemovingPercentEncoding];
+        NSArray *compen = [urlString componentsSeparatedByString:@"wenIcepy://"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"taskDidActionInWidgetNotification" object:nil userInfo:@{@"appWidget":compen[1]}];
         if (self.isStart){
             self.isStart = NO;
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
