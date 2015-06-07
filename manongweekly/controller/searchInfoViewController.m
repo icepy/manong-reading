@@ -38,7 +38,7 @@
     self.exeSearchBar.showsScopeBar = NO;
     self.isFirstResponder = NO;
     self.exeSearchBar.selectedScopeButtonIndex = 1;
-    self.currentSelected = 1;
+    self.currentSelected = 0;
     self.exeSearchBar.delegate = self;
     self.showSearchInfoTable.hidden = YES;
     self.showSearchInfoTable.dataSource = self;
@@ -134,20 +134,23 @@
                                  };
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
-        if (selectedScope == 0) {
-            weakSelf.currentSelected = selectedScope;
-            NSLog(@"%@",searchInfo);
-            weakSelf.showErrorMessage.hidden = YES;
-            weakSelf.showErrorMessage.text = @"";
-            //隐藏loading
-            weakSelf.searchLoading.hidden = YES;
-            weakSelf.showSearchInfoTable.hidden = NO;
-            //解锁
-            weakSelf.isSearchBlock = NO;
-            
-        }else{
+//        if (selectedScope == 0) {
+//            weakSelf.currentSelected = selectedScope;
+//            NSLog(@"%@",searchInfo);
+//            weakSelf.showErrorMessage.hidden = YES;
+//            weakSelf.showErrorMessage.text = @"";
+//            //隐藏loading
+//            weakSelf.searchLoading.hidden = YES;
+//            weakSelf.showSearchInfoTable.hidden = NO;
+//            //解锁
+//            weakSelf.isSearchBlock = NO;
+//            [self.manager vagueSearchToMN:searchInfo globalSearching:^(BOOL success, NSError *error, NSArray *searchResult) {
+//                
+//            }];
+//            
+//        }else{
             NSArray *result =  [weakSelf.manager vagueSearchToMN:searchInfo];
-            if (selectedScope == 2) {
+            if (selectedScope == 1) {
                 //这里实现的逻辑是，最近阅读
                 weakSelf.currentSelected = selectedScope;
                 NSPredicate *dicate = [NSPredicate predicateWithFormat:@"wkStatus > %@",@0];
@@ -192,7 +195,7 @@
                     weakSelf.isSearchBlock = NO;
                     [weakSelf.showSearchInfoTable reloadData];
                 });
-            }else if(selectedScope == 1){
+            }else if(selectedScope == 0){
                 weakSelf.currentSelected = selectedScope;
                 if (!result.count) {
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -220,7 +223,7 @@
                     [weakSelf.showSearchInfoTable reloadData];
                 });
             }
-        }
+//        }
     });
 }
 
@@ -253,9 +256,9 @@
         
         //用户成功的按过一次搜索按钮
         if (!self.isUseSearchSuccess) {
-            [self.exeSearchBar setScopeButtonTitles:@[@"全局搜索",@"浏览列表",@"最近阅读"]];
+            [self.exeSearchBar setScopeButtonTitles:@[@"浏览列表",@"最近阅读"]];
             self.exeSearchBar.showsScopeBar = YES;
-            self.exeSearchBar.selectedScopeButtonIndex = 1;
+            self.exeSearchBar.selectedScopeButtonIndex = 0;
             self.isUseSearchSuccess = YES;
         }
         //开启后台线程去查询数据

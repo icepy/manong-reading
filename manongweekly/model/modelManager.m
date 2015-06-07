@@ -352,16 +352,46 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
     if ([type isEqualToString:@"ManongTag"]) {
         dicate = [NSPredicate predicateWithFormat:@"%K BEGINSWITH[c] %@",attributes,key];
     }else{
-//        key = [self removeSpaceAndNewline:key];
         dicate = [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@",attributes,key];
     }
-    
     [request setPredicate:dicate];
     NSArray *arr = [self.context executeFetchRequest:request error:&error];
     if (!error) {
         return arr;
     }
     return nil;
+}
+
+-(void)vagueSearchToMN:(NSDictionary *)searchInfo globalSearching:(globalSearching)searching
+{
+    
+    //TODO
+    /*
+         需要实现一个权重表，来匹配更优化的模糊搜索
+         
+     
+         将来（可能实现）
+     */
+    
+    NSError *error = nil;
+    NSString *type = searchInfo[@"searchType"];
+    NSString *attributes = searchInfo[@"searchAttributes"];
+    NSString *key = searchInfo[@"searchKey"];
+    key = [NSString stringWithFormat:@"[%@]",key];
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:type];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:attributes ascending:NO];
+    [request setSortDescriptors:[NSArray arrayWithObject:sort]];
+    NSPredicate *dicate = [NSPredicate predicateWithFormat:@"%K MATCHES[cd] %@",attributes,key];
+    [request setPredicate:dicate];
+    NSArray *arr = [self.context executeFetchRequest:request error:&error];
+    if (!error && arr.count) {
+        [arr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            ManongContent *mncontent = (ManongContent *)obj;
+            NSLog(@"%@",mncontent.wkName);
+        }];
+    }else{
+        NSLog(@"空的");
+    }
 }
 
 -(void)updateDataSourceForSQLite:(NSData *)data handlerCallback:(updateDB)updatehandler

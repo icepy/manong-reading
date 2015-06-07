@@ -13,6 +13,7 @@
 typedef void(^configHandler)(NSDictionary *config);
 typedef void(^writeDB)(BOOL success,NSError *error);
 typedef void(^updateDB)(BOOL success,NSError *error);
+typedef void(^globalSearching)(BOOL success,NSError *error,NSArray *searchResult);
 
 @class ManongTag;
 
@@ -41,6 +42,8 @@ typedef void(^updateDB)(BOOL success,NSError *error);
 -(BOOL)saveData;
 
 -(NSArray *)vagueSearchToMN:(NSDictionary *)searchInfo;
+
+-(void)vagueSearchToMN:(NSDictionary *)searchInfo globalSearching:(globalSearching)searching;
 
 -(void)updateDataSourceForSQLite:(NSData *)data handlerCallback:(updateDB)updatehandler;
 
