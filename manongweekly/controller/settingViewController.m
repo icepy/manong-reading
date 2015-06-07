@@ -41,6 +41,20 @@
     // Do any additional setup after loading the view.
     //mailto:xiangwenwe@foxmail.com?SUBJECT=About 猿已阅
     //https://itunes.apple.com/cn/app/yuan-yi-yue/id990227579?l=en&mt=8
+    /*
+     @{
+        @"setName":@"隐私政策",
+        @"setIcon":@"PrivacyImage"
+     }
+     
+     @"隐私政策":@"privacyPolicyPage"
+     
+     @{
+        @"setName":@"订阅《码农周刊》快捷通道",
+        @"setIcon":@"ManongRessImage"
+     }
+     
+     */
     
     self.dataSource = @[
                         @[
@@ -51,10 +65,6 @@
                             @{
                                 @"setName":@"应用介绍",
                                 @"setIcon":@"ProtocolReadImage"
-                                },
-                            @{
-                                @"setName":@"隐私政策",
-                                @"setIcon":@"PrivacyImage"
                                 }
                             ],
                         @[
@@ -73,10 +83,6 @@
                             @{
                                 @"setName":@"清除缓存",
                                 @"setIcon":@"ClearCacheImage"
-                                },
-                            @{
-                                @"setName":@"订阅《码农周刊》快捷通道",
-                                @"setIcon":@"ManongRessImage"
                                 }
                             ]
                         ];
@@ -86,8 +92,7 @@
     self.settingTable.delegate = self;
     self.identifierMap = @{
                            @"图表天梯":@"readingChart",
-                           @"应用介绍":@"referralPage",
-                           @"隐私政策":@"privacyPolicyPage"
+                           @"应用介绍":@"referralPage"
                            };
 }
 
@@ -159,16 +164,17 @@
                     });
                 });
             }
-            if ([tag isEqualToString:@"订阅《码农周刊》快捷通道"]) {
-                UIAlertView *alert = [[UIAlertView alloc] init];
-                alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
-                [alert addButtonWithTitle:@"取消"];
-                [alert addButtonWithTitle:@"确认"];
-                alert.title = @"输入email订阅《码农周刊》";
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [alert show];
-                });
-            }
+            
+//            if ([tag isEqualToString:@"订阅《码农周刊》快捷通道"]) {
+//                UIAlertView *alert = [[UIAlertView alloc] init];
+//                alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
+//                [alert addButtonWithTitle:@"取消"];
+//                [alert addButtonWithTitle:@"确认"];
+//                alert.title = @"输入email订阅《码农周刊》";
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [alert show];
+//                });
+//            }
             
             if ([tag isEqualToString:@"意见反馈"]) {
                 NSMutableString *mailUrl = [[NSMutableString alloc]init];
@@ -197,11 +203,12 @@
             readChart.readingChartTitle = tag;
             readChart.manager = self.manager;
             [self.navigationController pushViewController:readChart animated:YES];
-        }else if ([identifier isEqualToString:@"privacyPolicyPage"]){
-            privacyPolicyViewController *policy = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-            policy.policyTitle = tag;
-            [self.navigationController pushViewController:policy animated:YES];
         }
+//        else if ([identifier isEqualToString:@"privacyPolicyPage"]){
+//            privacyPolicyViewController *policy = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+//            policy.policyTitle = tag;
+//            [self.navigationController pushViewController:policy animated:YES];
+//        }
     }
     
 }

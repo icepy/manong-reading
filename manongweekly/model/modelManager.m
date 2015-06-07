@@ -328,8 +328,18 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
     NSArray *arr = [self.context executeFetchRequest:request error:&error];
     if (!error) {
         if (arr.count) {
-            id manong = arr[0];
-            return manong;
+            if ([tag isEqualToString:@"ManongContent"]) {
+                __block id manong;
+                [arr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    ManongContent *mncontent = (ManongContent *)obj;
+                    if ([mncontent.wkName isEqualToString:value]) {
+                        manong = obj;
+                        *stop = YES;
+                    }
+                }];
+                return manong;
+            }
+            return arr[0];
         }
         return nil;
     }

@@ -32,7 +32,7 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     
     UITextView *textview = [[UITextView alloc] initWithFrame:CGRectMake(10, MANNAVHEIGHT-20, MANSCREENWIDTH-10, 200)];
-    textview.text = @"申明 \n\n《猿已阅》不会存留你的任何信息（包括Email），若你需要订阅《码农周刊》，可在[订阅《码农周刊》快捷通道]中输入你的Email进行订阅。若你确认订阅，一切事宜与此应用作者无关，请详细阅读《码农周刊》的隐私政策及服务条款。";
+    textview.text = @"申明 \n\n《猿已阅》不会存留你的（用户）任何信息，包括Email，若你需要订阅《码农周刊》，可以在［订阅《码农周刊》快捷通道］中输入你的Email进行订阅。若你（用户）确认订阅，一切事宜与此应用作者无关，请详细阅读《码农周刊》的隐私政策以及服务条款。";
     textview.textColor = [UIColor colorWithWhite:0.200 alpha:1.000];
     textview.font = [UIFont systemFontOfSize:14.0];
     textview.editable = NO;
