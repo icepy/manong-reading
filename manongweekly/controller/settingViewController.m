@@ -182,7 +182,7 @@
                 NSArray *toRecipients = [NSArray arrayWithObject: @"xiangwenwe@foxmail.com"];
                 [mailUrl appendFormat:@"mailto:%@", [toRecipients componentsJoinedByString:@","]];
                 //添加主题
-                [mailUrl appendString:@"&subject=About 猿已阅"];
+                [mailUrl appendString:@"?subject=About 猿已阅"];
                 NSString *email = [mailUrl stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
                 [self.application openURL:[NSURL URLWithString:email]];
             }
