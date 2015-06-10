@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 xiangwenwen. All rights reserved.
 //
 
+
+#import <SCLAlertView-Objective-C/SCLAlertView.h>
 #import "settingViewController.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "MNSettingCell.h"
@@ -14,7 +16,8 @@
 #import "privacyPolicyViewController.h"
 
 
-@interface settingViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+@interface settingViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *settingTable;
 @property (strong, nonatomic) NSArray *dataSource;
@@ -65,6 +68,10 @@
                             @{
                                 @"setName":@"应用介绍",
                                 @"setIcon":@"ProtocolReadImage"
+                                },
+                            @{
+                                @"setName":@"隐私政策",
+                                @"setIcon":@"PrivacyImage"
                                 }
                             ],
                         @[
@@ -83,6 +90,10 @@
                             @{
                                 @"setName":@"清除缓存",
                                 @"setIcon":@"ClearCacheImage"
+                                },
+                            @{
+                                @"setName":@"订阅《码农周刊》快捷通道",
+                                @"setIcon":@"ManongRessImage"
                                 }
                             ]
                         ];
@@ -92,7 +103,8 @@
     self.settingTable.delegate = self;
     self.identifierMap = @{
                            @"图表天梯":@"readingChart",
-                           @"应用介绍":@"referralPage"
+                           @"应用介绍":@"referralPage",
+                           @"隐私政策":@"privacyPolicyPage"
                            };
 }
 
@@ -134,6 +146,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    __weak settingViewController *weakSelf = self;
     NSDictionary *cellInfo =  self.dataSource[indexPath.section][indexPath.row];
     NSString *tag = cellInfo[@"setName"];
     
@@ -165,16 +178,101 @@
                 });
             }
             
-//            if ([tag isEqualToString:@"订阅《码农周刊》快捷通道"]) {
-//                UIAlertView *alert = [[UIAlertView alloc] init];
-//                alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
-//                [alert addButtonWithTitle:@"取消"];
-//                [alert addButtonWithTitle:@"确认"];
-//                alert.title = @"输入email订阅《码农周刊》";
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    [alert show];
-//                });
-//            }
+            if ([tag isEqualToString:@"订阅《码农周刊》快捷通道"]) {
+                SCLAlertView *alert = [[SCLAlertView alloc] init];
+                [alert setTitleFontFamily:@"Superclarendon" withSize:20.0f];
+                [alert setBodyTextFontFamily:@"TrebuchetMS" withSize:14.0f];
+                [alert setButtonsTextFontFamily:@"Baskerville" withSize:14.0f];
+                UITextField *textField = [alert addTextField:@"Enter your email"];
+                textField.delegate = self;
+                __block NSString *enterEmail;
+                [alert addButton:@"确定" validationBlock:^BOOL{
+                    enterEmail = textField.text;
+                    if (enterEmail.length > 0) {
+                        NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+                        NSPredicate *dicate = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",emailRegex];
+                        if ([dicate evaluateWithObject:enterEmail]) {
+                            NSString *URLApi = @"http://lcepy.github.io";
+                            NSURL *URL = [NSURL URLWithString:URLApi];
+                            NSMutableURLRequest *requestURL = [NSMutableURLRequest requestWithURL:URL];
+                            NSURLSessionConfiguration *configur = [NSURLSessionConfiguration defaultSessionConfiguration];
+                            NSURLSession *session = [NSURLSession sessionWithConfiguration:configur];
+                            NSURLSessionDataTask *task = [session dataTaskWithRequest:requestURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                if (error){
+                                    NSDictionary *userInfo = error.userInfo;
+                                    NSString *errorInfo = [NSString stringWithFormat:@"Error API %@ ",userInfo[@"NSErrorFailingURLStringKey"]];
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                        SCLAlertView *errorAlert = [[SCLAlertView alloc] init];
+                                        [errorAlert showError:weakSelf title:@"Error"
+                                                     subTitle:errorInfo
+                                             closeButtonTitle:@"确定" duration:3.0f];
+                                    });
+                                }else{
+                                    NSError *JSONError = nil;
+                                    NSDictionary *JSONParse = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&JSONError];
+                                    if (JSONError) {
+                                        NSDictionary *JSONUserInfo = JSONError.userInfo;
+                                        NSString *JSONErrorInfo = [NSString stringWithFormat:@"Error %@",JSONUserInfo[@"NSErrorFailingURLStringKey"]];
+                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                            SCLAlertView *errorAlert = [[SCLAlertView alloc] init];
+                                            [errorAlert showError:weakSelf title:@"Error"
+                                                         subTitle:JSONErrorInfo
+                                                 closeButtonTitle:@"确定" duration:3.0f];
+                                        });
+                                    }else{
+                                        if(JSONParse[@"error"]) {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                SCLAlertView *notEmailAlert = [[SCLAlertView alloc] initWithNewWindow];
+                                                [notEmailAlert showError:@"Error" subTitle:@"输入的Email已存在" closeButtonTitle:@"确定" duration:3.0f];
+                                            });
+                                        }else{
+                                           dispatch_async(dispatch_get_main_queue(), ^{
+                                               SCLAlertView *successAlert = [[SCLAlertView alloc] initWithNewWindow];
+                                               [successAlert showSuccess:@"Success" subTitle:@"订阅《码农周刊》成功"closeButtonTitle:@"确定" duration:2.0f];
+                                           });
+                                        }
+                                    }
+                                }
+                            }];
+                            [task resume];
+                            return YES;
+                        }else{
+                            textField.leftViewMode = UITextFieldViewModeAlways;
+                            textField.layer.borderColor = [UIColor colorWithRed:1.000 green:0.400 blue:0.400 alpha:1.000].CGColor;
+                            return NO;
+                        }
+                    }else{
+                        textField.leftViewMode = UITextFieldViewModeAlways;
+                        textField.layer.borderColor = [UIColor colorWithRed:1.000 green:0.400 blue:0.400 alpha:1.000].CGColor;
+                        return NO;
+                    }
+                } actionBlock:^{
+                    NSLog(@"%@",enterEmail);
+                }];
+                alert.completeButtonFormatBlock = ^NSDictionary* (void)
+                {
+                    NSMutableDictionary *buttonConfig = [[NSMutableDictionary alloc] init];
+                    buttonConfig[@"backgroundColor"] = [UIColor colorWithRed:0.000 green:0.502 blue:0.502 alpha:1.000];
+                    buttonConfig[@"borderColor"] = [UIColor colorWithRed:0.000 green:0.502 blue:0.502 alpha:1.000];
+                    buttonConfig[@"borderWidth"] = @"1.0f";
+                    buttonConfig[@"textColor"] = [UIColor whiteColor];
+                    return buttonConfig;
+                };
+                
+                alert.attributedFormatBlock = ^NSAttributedString* (NSString *value)
+                {
+                    NSMutableAttributedString *subTitle = [[NSMutableAttributedString alloc]initWithString:value];
+                    NSRange redRange = [value rangeOfString:@"Attributed" options:NSCaseInsensitiveSearch];
+                    [subTitle addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:redRange];
+                    NSRange greenRange = [value rangeOfString:@"successfully" options:NSCaseInsensitiveSearch];
+                    [subTitle addAttribute:NSForegroundColorAttributeName value:[UIColor brownColor] range:greenRange];
+                    NSRange underline = [value rangeOfString:@"completed" options:NSCaseInsensitiveSearch];
+                    [subTitle addAttributes:@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle)} range:underline];
+                    return subTitle;
+                };
+                NSString *kAttributeTitle = @"输入你的email，订阅《码农周刊》享受一周编程技术精选";
+                [alert showTitle:self title:@"免费订阅" subTitle:kAttributeTitle style:Success closeButtonTitle:@"取消" duration:0.0f];
+            }
             
             if ([tag isEqualToString:@"意见反馈"]) {
                 NSMutableString *mailUrl = [[NSMutableString alloc]init];
@@ -194,7 +292,7 @@
         }
     }else{
         NSString *identifier = self.identifierMap[tag];
-        if ([identifier isEqualToString:@"referralPage"]) {
+        if ([identifier isEqualToString:@"referralPage"]){
             referralPageViewController *referral = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
             referral.referraTitle = tag;
             [self.navigationController pushViewController:referral animated:YES];
@@ -203,12 +301,11 @@
             readChart.readingChartTitle = tag;
             readChart.manager = self.manager;
             [self.navigationController pushViewController:readChart animated:YES];
+        }else if ([identifier isEqualToString:@"privacyPolicyPage"]){
+            privacyPolicyViewController *policy = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+            policy.policyTitle = tag;
+            [self.navigationController pushViewController:policy animated:YES];
         }
-//        else if ([identifier isEqualToString:@"privacyPolicyPage"]){
-//            privacyPolicyViewController *policy = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-//            policy.policyTitle = tag;
-//            [self.navigationController pushViewController:policy animated:YES];
-//        }
     }
     
 }

@@ -25,6 +25,7 @@
 		173789401AF2053300F883EC /* WeixinTimelineActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1737893C1AF2053300F883EC /* WeixinTimelineActivity.m */; };
 		174F3CDA1AEB9C4D002E2040 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 174F3CD91AEB9C4D002E2040 /* libc++.dylib */; };
 		175425751B23401B00C8CC27 /* TodayMNCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 175425741B23401B00C8CC27 /* TodayMNCellTableViewCell.m */; };
+		176A23131B26EF2500A080E9 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 176A23121B26EF2500A080E9 /* libWeChatSDK.a */; };
 		176B63841AEB8844003CA376 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B63831AEB8844003CA376 /* SystemConfiguration.framework */; };
 		176B63861AEB8856003CA376 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B63851AEB8856003CA376 /* libz.dylib */; };
 		176B63881AEB8869003CA376 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B63871AEB8869003CA376 /* libsqlite3.0.dylib */; };
@@ -128,6 +129,7 @@
 		1754255B1B230AE900C8CC27 /* manongweeklyExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = manongweeklyExtension.entitlements; sourceTree = "<group>"; };
 		175425731B23401B00C8CC27 /* TodayMNCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayMNCellTableViewCell.h; sourceTree = "<group>"; };
 		175425741B23401B00C8CC27 /* TodayMNCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayMNCellTableViewCell.m; sourceTree = "<group>"; };
+		176A23121B26EF2500A080E9 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		176B63831AEB8844003CA376 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		176B63851AEB8856003CA376 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		176B63871AEB8869003CA376 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -219,6 +221,7 @@
 				174F3CDA1AEB9C4D002E2040 /* libc++.dylib in Frameworks */,
 				17177BF61AF4F71400DD4BB2 /* libWeChatSDK.a in Frameworks */,
 				176B63881AEB8869003CA376 /* libsqlite3.0.dylib in Frameworks */,
+				176A23131B26EF2500A080E9 /* libWeChatSDK.a in Frameworks */,
 				176B63861AEB8856003CA376 /* libz.dylib in Frameworks */,
 				176B63841AEB8844003CA376 /* SystemConfiguration.framework in Frameworks */,
 				17B251F51AE62EA700394467 /* libxml2.2.dylib in Frameworks */,
@@ -350,6 +353,7 @@
 		17B2518C1AE4E44000394467 = {
 			isa = PBXGroup;
 			children = (
+				176A23121B26EF2500A080E9 /* libWeChatSDK.a */,
 				1737891B1AF1DC5E00F883EC /* WebKit.framework */,
 				174F3CD91AEB9C4D002E2040 /* libc++.dylib */,
 				176B63871AEB8869003CA376 /* libsqlite3.0.dylib */,

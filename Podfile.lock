@@ -2,15 +2,18 @@ PODS:
   - Masonry (0.6.1)
   - PNChart (0.8.3):
     - UICountingLabel (~> 1.2.0)
+  - SCLAlertView-Objective-C (0.7.2)
   - UICountingLabel (1.2.0)
 
 DEPENDENCIES:
   - Masonry
   - PNChart
+  - SCLAlertView-Objective-C
 
 SPEC CHECKSUMS:
   Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
   PNChart: 8d81e061ec4845915184755d8da84f385ca1cb28
+  SCLAlertView-Objective-C: 4ad7397ca948b4ab75426c677368652fee475573
   UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
 
 COCOAPODS: 0.35.0
