@@ -2,7 +2,7 @@
 
 > Tag v1.2
 
-![](manong.png)
+![](manong-icon.png)
 
 ![](https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/precise-desktop-amd64_default.svg)
 ![](https://img.shields.io/github/license/mashape/apistatus.svg)
