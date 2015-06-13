@@ -53,6 +53,13 @@
     self.navigationItem.leftBarButtonItem = back;
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+}
+
 -(void)gotoManongWeeklyPolicy
 {
     NSLog(@"隐私政策");

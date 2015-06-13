@@ -20,7 +20,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-5I-YPx">
                                 <rect key="frame" x="10" y="28" width="580" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">致谢
+                                <string key="text">致谢
 
        感谢《码农周刊》为中国区的开发者精选一周的技术文章。
 
@@ -33,7 +33,7 @@
 
 申明
 
-       所有内容均来自《码农周刊》，与此应用作者无关。  反馈         可以通过意见反馈来向我发送邮件         ----&gt;xiangwenwe@foxmail.com </mutableString>
+       所有内容均来自《码农周刊》，与此应用作者无关。  反馈         可以通过意见反馈来向我发送邮件         ----&gt;xiangwenwe@foxmail.com </string>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

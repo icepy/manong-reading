@@ -91,6 +91,15 @@ NSInteger testTime = 1;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(taskDidActionInWidgetNotification:) name:@"taskDidActionInWidgetNotification" object:nil];
     
     
+//    NSString *url = @"http://tms.staging.missfresh.cn/api/v1/stations?page=1&page_size=10";
+//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+//    NSURLSessionConfiguration *configur = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    NSURLSession *session = [NSURLSession sessionWithConfiguration:configur];
+//    NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//        NSLog(@"%@",data);
+//    }];
+//    [task resume];
+    
     [self.reachability startNotifier];
     self.titleCategoryTable.dataSource = self;
     self.titleCategoryTable.delegate = self;

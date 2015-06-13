@@ -17,7 +17,7 @@
 
 
 
-@interface settingViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+@interface settingViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *settingTable;
 @property (strong, nonatomic) NSArray *dataSource;
@@ -106,6 +106,14 @@
                            @"应用介绍":@"referralPage",
                            @"隐私政策":@"privacyPolicyPage"
                            };
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

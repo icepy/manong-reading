@@ -2,11 +2,15 @@
 
 > Tag v1.2
 
+![](monkey-607708_6402.png)
+
 ![](https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/precise-desktop-amd64_default.svg)
 ![](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![](https://camo.githubusercontent.com/770175f6c01d89c84a020706126a9e6399ff76c4/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f702f4b696e676669736865722e7376673f7374796c653d666c6174)
 
 [<img src="http://websources.qiniudn.com/iOS/963e0ee8-9013-11e4-8091-7ece67d64729.png" width="135" height="40" alt="AppStore"/>](https://itunes.apple.com/cn/app/yuan-yi-yue/id990227579?l=en&mt=8)
+
+##效果图
 
 ![效果图](http://7qncz5.com1.z0.glb.clouddn.com/iOS/yuanyiyuan1.png)
 
