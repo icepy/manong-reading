@@ -2,7 +2,9 @@
 
 > Tag v1.2
 
-![](manong-icon-logo-v1.2.png)
+![](green-46180_640.png)
+
+大鲵 [百科](http://baike.baidu.com/link?url=AICKdlmsjeqZrwIi4VlmcuGDnayfohkDKPxa54F-0NxUEbKHiDQAUp5qH7bgB3Qp2lCoiEtk86odhH8BujSzMa)
 
 ![](https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/precise-desktop-amd64_default.svg)
 ![](https://img.shields.io/github/license/mashape/apistatus.svg)
