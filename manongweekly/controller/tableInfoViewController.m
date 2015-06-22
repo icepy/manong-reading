@@ -38,7 +38,7 @@
     self.navigationItem.title = self.tagToInfoParameter;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSArray *arr = [weakSelf.manager fetchAllManongContent:weakSelf.tagToInfoParameter];
+        NSArray *arr = [weakSelf.manager fetchAllManongContent:[NSString stringWithFormat:@"user-content-%@",weakSelf.tagToInfoParameter]];
         weakSelf.dataSource = [[NSMutableArray alloc] initWithArray:arr];
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.tableInfoLoading.hidden = YES;

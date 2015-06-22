@@ -296,7 +296,8 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
 
 -(NSArray *)fetchAllManongContent:(NSString *)tagToInfoParameter
 {
-    ManongTitle *manongTitle = (ManongTitle *) [self fetchManong:@"ManongTitle" fetchKey:@"tagKey" fetchValue:tagToInfoParameter];
+    ManongTitle *manongTitle = (ManongTitle *) [self MNNFetchManong:@"ManongTitle" fetchKey:@"tagKey" fetchValue:tagToInfoParameter];
+    NSLog(@"%@",manongTitle.tagKey);
     NSSet *contentSet =  manongTitle.mnwwContent;
     NSMutableArray *data = [[NSMutableArray alloc] init];
     for (ManongContent *mnContent in contentSet) {
@@ -319,11 +320,26 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
     return result;
 }
 
+
+-(id)MNNFetchManong:(NSString *)tag fetchKey:(NSString *)key fetchValue:(NSString *)value
+{
+    NSError *error = nil;
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:tag];
+    NSPredicate *dicate = [NSPredicate predicateWithFormat:@"%K == %@",key,value];
+    [request setPredicate:dicate];
+    NSArray *arr = [self.context executeFetchRequest:request error:&error];
+    if (!error) {
+        return arr[0];
+    }else{
+        return nil;
+    }
+}
+
 -(id)fetchManong:(NSString *)tag fetchKey:(NSString *)key fetchValue:(NSString *)value
 {
     NSError *error = nil;
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:tag];
-    NSPredicate *dicate = [NSPredicate predicateWithFormat:@"%K CONTAINS %@",key,value];
+    NSPredicate *dicate = [NSPredicate predicateWithFormat:@"%K CONTAIN %@",key,value];
     [request setPredicate:dicate];
     NSArray *arr = [self.context executeFetchRequest:request error:&error];
     if (!error) {
@@ -553,9 +569,9 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
     return [self queryForLadder:@"ManongContent" fieldName:@"wkCount" limit:7];
 }
 
-
 -(void)dealloc
 {
     NSLog(@"model manager  销毁");
 }
+
 @end

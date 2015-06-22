@@ -59,6 +59,7 @@
 		17B251D71AE5E9B500394467 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B251D61AE5E9B500394467 /* CoreData.framework */; };
 		17B251F51AE62EA700394467 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B251F41AE62EA700394467 /* libxml2.2.dylib */; };
 		17B4B11C1B1FFCD60004A4C0 /* privacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B4B11B1B1FFCD60004A4C0 /* privacyPolicyViewController.m */; };
+		17C6D5A21B37A4570037BB89 /* MNNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C6D5A11B37A4570037BB89 /* MNNetworking.m */; };
 		17D099B01B214B8200975677 /* ManongTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D099AF1B214B8200975677 /* ManongTitle.m */; };
 		17D099B31B214B8300975677 /* ManongTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D099B21B214B8300975677 /* ManongTag.m */; };
 		17D099B61B214B8300975677 /* ManongContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D099B51B214B8300975677 /* ManongContent.m */; };
@@ -189,6 +190,8 @@
 		17B251F41AE62EA700394467 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		17B4B11A1B1FFCD60004A4C0 /* privacyPolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = privacyPolicyViewController.h; sourceTree = "<group>"; };
 		17B4B11B1B1FFCD60004A4C0 /* privacyPolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = privacyPolicyViewController.m; sourceTree = "<group>"; };
+		17C6D5A01B37A4570037BB89 /* MNNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNNetworking.h; sourceTree = "<group>"; };
+		17C6D5A11B37A4570037BB89 /* MNNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNNetworking.m; sourceTree = "<group>"; };
 		17D099AE1B214B8200975677 /* ManongTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManongTitle.h; sourceTree = "<group>"; };
 		17D099AF1B214B8200975677 /* ManongTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManongTitle.m; sourceTree = "<group>"; };
 		17D099B11B214B8300975677 /* ManongTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManongTag.h; sourceTree = "<group>"; };
@@ -393,11 +396,13 @@
 				17B251D01AE4F42E00394467 /* GStaticDataSource.h */,
 				17B251D31AE5192500394467 /* HTMLStringParse.h */,
 				17B251D41AE5192500394467 /* HTMLStringParse.m */,
+				17C6D5A01B37A4570037BB89 /* MNNetworking.h */,
+				17C6D5A11B37A4570037BB89 /* MNNetworking.m */,
+				17B2519C1AE4E44000394467 /* AppDelegate.h */,
+				17B2519D1AE4E44000394467 /* AppDelegate.m */,
 				177E925E1AE76E21008F83B4 /* view */,
 				17B251C51AE4E81300394467 /* model */,
 				17B251BE1AE4E79D00394467 /* controller */,
-				17B2519C1AE4E44000394467 /* AppDelegate.h */,
-				17B2519D1AE4E44000394467 /* AppDelegate.m */,
 				177C60771B1DB308002D5852 /* Images.xcassets */,
 				17B251A21AE4E44000394467 /* Main.storyboard */,
 				17B251A71AE4E44000394467 /* LaunchScreen.xib */,
@@ -720,6 +725,7 @@
 				177E92471AE76B9D008F83B4 /* AppDelegate.m in Sources */,
 				177E926E1AE771EF008F83B4 /* MNTagCell.m in Sources */,
 				1737893D1AF2053300F883EC /* WeixinActivity.m in Sources */,
+				17C6D5A21B37A4570037BB89 /* MNNetworking.m in Sources */,
 				17D099B91B214B8300975677 /* ManongDigest.m in Sources */,
 				17B1DCD51AFC916D0070E20D /* settingViewController.m in Sources */,
 				177E92481AE76B9D008F83B4 /* main.m in Sources */,
