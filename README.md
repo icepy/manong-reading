@@ -18,24 +18,24 @@
 - Xcode 6.3
 - An Apple iOS developer account
 
-## Build with Xcode （在Xcode中编译）
+##Build with Xcode （在Xcode中编译）
 
 To compile the project, you may temporarily modify the bundle_id after adding yours into the Apple Developer Center. 
 
 编译此项目，bundle id可以临时修改成你想要的，然后添加到你的苹果开发者中心。
 
-##基本功能
+##Basic functions （基本功能）
 
-学习编程----好帮手，来查找您想学习的知识吧
+学习编程----好帮手，来查找您想学习的知识吧（searching programming language knowledge）
 
-* 根据开发语言进行分类
-* 全局的搜索 （在全列表中） 随时随地精准的查找您想学习的知识
-* 按阅读时间的搜索（在全列表中）不怕阅读之后忘记
-* 图表天梯  随时掌握自己学习的排行
-* 通知中心  随时掌握分类的阅读数，快速打开到相应的分类
-* 如果您认为文章有价值，那么可以保存到印象笔记（学习积累），或者Pocket（稍后阅读）
-* 此外您还可以通过微博，微信分享给你的好友，同事
-* 快速的阅读下一篇文章
+* 根据开发语言进行分类（depending on the programming language classification）
+* 全局的搜索 （在全列表中） 随时随地精准的查找您想学习的知识 （search the whole list）
+* 按阅读时间的搜索（在全列表中）不怕阅读之后忘记 （search the read time list）
+* 图表天梯  随时掌握自己学习的排行（chart）
+* 通知中心  随时掌握分类的阅读数，快速打开到相应的分类 (Today extension)
+* 如果您认为文章有价值，那么可以保存到印象笔记（学习积累），或者Pocket（稍后阅读）（save to Evernote or Pocket）
+* 此外您还可以通过微博，微信分享给你的好友，同事 （share with your friends）Weibo WeChat
+* 快速的阅读下一篇文章（reading for next article）
 
 ## 致谢
 
