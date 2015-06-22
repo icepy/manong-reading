@@ -56,8 +56,8 @@
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
-    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+//    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+//    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
 }
 
 -(void)gotoManongWeeklyPolicy

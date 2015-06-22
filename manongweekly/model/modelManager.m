@@ -221,7 +221,7 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
     if(isRemove){
         if (rmmnDigest) {
             //删除，再添加
-            id manongdigest = [self fetchManong:@"ManongDigest" fetchKey:@"tagKey" fetchValue:rmmnDigest.tagKey];
+            id manongdigest = [self fetchManongTag:@"ManongDigest" fetchKey:@"tagKey" fetchValue:rmmnDigest.tagKey];
             if (manongdigest) {
                 manongdigest = (ManongDigest *)manongdigest;
                 [self.context deleteObject:manongdigest];
@@ -296,7 +296,7 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
 
 -(NSArray *)fetchAllManongContent:(NSString *)tagToInfoParameter
 {
-    ManongTitle *manongTitle = (ManongTitle *) [self MNNFetchManong:@"ManongTitle" fetchKey:@"tagKey" fetchValue:tagToInfoParameter];
+    ManongTitle *manongTitle = (ManongTitle *) [self fetchManongTag:@"ManongTitle" fetchKey:@"tagKey" fetchValue:tagToInfoParameter];
     NSLog(@"%@",manongTitle.tagKey);
     NSSet *contentSet =  manongTitle.mnwwContent;
     NSMutableArray *data = [[NSMutableArray alloc] init];
@@ -321,7 +321,7 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
 }
 
 
--(id)MNNFetchManong:(NSString *)tag fetchKey:(NSString *)key fetchValue:(NSString *)value
+-(id)fetchManongTag:(NSString *)tag fetchKey:(NSString *)key fetchValue:(NSString *)value
 {
     NSError *error = nil;
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:tag];
@@ -339,7 +339,7 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
 {
     NSError *error = nil;
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:tag];
-    NSPredicate *dicate = [NSPredicate predicateWithFormat:@"%K CONTAIN %@",key,value];
+    NSPredicate *dicate = [NSPredicate predicateWithFormat:@"%K CONTAINS %@",key,value];
     [request setPredicate:dicate];
     NSArray *arr = [self.context executeFetchRequest:request error:&error];
     if (!error) {
