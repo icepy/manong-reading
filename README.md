@@ -12,10 +12,6 @@
 
 [<img src="http://websources.qiniudn.com/iOS/963e0ee8-9013-11e4-8091-7ece67d64729.png" width="135" height="40" alt="AppStore"/>](https://itunes.apple.com/cn/app/yuan-yi-yue/id990227579?l=en&mt=8)
 
-##效果图
-
-![效果图](http://7qncz5.com1.z0.glb.clouddn.com/iOS/yuanyiyuan1.png)
-
 ##Requirements（运行）
 
 - An iPhone running iOS 8.0+
@@ -111,3 +107,7 @@ A simple and beautiful chart lib used in Piner and CoinsMan for iOS
 Harness the power of AutoLayout NSLayoutConstraints with a simplified, chainable and expressive syntax. Supports iOS and OSX Auto Layout
 
 [Masonry](https://github.com/SnapKit/Masonry)
+
+##效果图
+
+![效果图](http://7qncz5.com1.z0.glb.clouddn.com/iOS/yuanyiyuan1.png)
