@@ -108,6 +108,12 @@ Harness the power of AutoLayout NSLayoutConstraints with a simplified, chainable
 
 [Masonry](https://github.com/SnapKit/Masonry)
 
+##AFNetworking
+
+A delightful iOS and OS X networking framework
+
+[AFNetworking](https://github.com/AFNetworking/AFNetworking)
+
 ##效果图
 
 ![效果图](http://7qncz5.com1.z0.glb.clouddn.com/iOS/yuanyiyuan1.png)

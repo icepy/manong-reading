@@ -146,22 +146,26 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
 
 -(void)writeAllDataForSQLite:(NSData *)data handlerCallback:(writeDB)writehandler
 {
-    self.htmlParse = [[HTMLStringParse alloc] initWithContentParse:data];
-    NSDictionary *modelData = [self.htmlParse manongTitleIndexHash];
-    NSArray *indexKey = modelData.allKeys;
-    
-    for (NSString *tagKey in indexKey) {
-        [self saveForSQLite:tagKey content:modelData[tagKey]];
-    }
-    
-    NSError *error = nil;
-    BOOL success;
-    [self.context save:&error];
-    success = error ? NO : YES;
-    if (success) {
-        [self fetchAllManongTag];
-    }
-    writehandler(success,error);
+    __weak modelManager *weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        weakSelf.htmlParse = [[HTMLStringParse alloc] initWithContentParse:data];
+        NSDictionary *modelData = [weakSelf.htmlParse manongTitleIndexHash];
+        NSArray *indexKey = modelData.allKeys;
+        for (NSString *tagKey in indexKey) {
+            [weakSelf saveForSQLite:tagKey content:modelData[tagKey]];
+        }
+        
+        NSError *error = nil;
+        BOOL success;
+        [weakSelf.context save:&error];
+        success = error ? NO : YES;
+        if (success) {
+            [weakSelf fetchAllManongTag];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            writehandler(success,error);
+        });
+    });
 }
 
 -(void)saveForSQLite:(NSString *)tagKey content:(NSMutableArray *)contentData
@@ -422,21 +426,26 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
 
 -(void)updateDataSourceForSQLite:(NSData *)data handlerCallback:(updateDB)updatehandler
 {
-    self.htmlParse = [[HTMLStringParse alloc] initWithContentParse:data];
-    NSDictionary *modelData = [self.htmlParse manongTitleIndexHash];
-    NSArray *indexKey = modelData.allKeys;
-    for (NSString *tagKey in indexKey) {
-        [self updateForSQLite:tagKey content:modelData[tagKey]];
-    }
-    
-    NSError *error = nil;
-    BOOL success;
-    [self.context save:&error];
-    success = error ? NO : YES;
-    if (success) {
-        [self fetchAllManongTag];
-    }
-    updatehandler(success,error);
+    __weak modelManager *weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        weakSelf.htmlParse = [[HTMLStringParse alloc] initWithContentParse:data];
+        NSDictionary *modelData = [weakSelf.htmlParse manongTitleIndexHash];
+        NSArray *indexKey = modelData.allKeys;
+        for (NSString *tagKey in indexKey) {
+            [weakSelf updateForSQLite:tagKey content:modelData[tagKey]];
+        }
+        
+        NSError *error = nil;
+        BOOL success;
+        [weakSelf.context save:&error];
+        success = error ? NO : YES;
+        if (success) {
+            [weakSelf fetchAllManongTag];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            updatehandler(success,error);
+        });
+    });
 }
 
 -(void)updateForSQLite:(NSString *)tagKey content:(NSMutableArray *)contentData
