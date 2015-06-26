@@ -1,4 +1,25 @@
 PODS:
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - Masonry (0.6.1)
   - PNChart (0.8.3):
     - UICountingLabel (~> 1.2.0)
@@ -6,11 +27,13 @@ PODS:
   - UICountingLabel (1.2.0)
 
 DEPENDENCIES:
+  - AFNetworking (~> 2.0)
   - Masonry
   - PNChart
   - SCLAlertView-Objective-C
 
 SPEC CHECKSUMS:
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
   PNChart: 8d81e061ec4845915184755d8da84f385ca1cb28
   SCLAlertView-Objective-C: 4ad7397ca948b4ab75426c677368652fee475573

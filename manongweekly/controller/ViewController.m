@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 xiangwenwen. All rights reserved.
 //
 
+#import <AFNetworking/AFNetworking.h>
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "Reachability.h"
 #import "ViewController.h"
