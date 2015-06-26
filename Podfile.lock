@@ -28,9 +28,9 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
-  - Masonry
-  - PNChart
-  - SCLAlertView-Objective-C
+  - Masonry (= 0.6.1)
+  - PNChart (~> 0.8.3)
+  - SCLAlertView-Objective-C (~> 0.7.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
