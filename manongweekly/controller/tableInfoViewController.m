@@ -30,15 +30,29 @@
 {
     [super viewDidLoad];
     NSLog(@"table view controller Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)self));
-    __weak tableInfoViewController *weakSelf = self;
     self.contentCategoryTable.dataSource = self;
     self.contentCategoryTable.delegate = self;
-    self.tableInfoLoading.hidden = NO;
-    self.contentCategoryTable.hidden = YES;
     self.navigationItem.title = self.tagToInfoParameter;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    [self updateUI];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if(self.contentCategoryTable && self.updateIndexPath) {
+        [self updateUI];
+    }
+}
+
+-(void)updateUI
+{
+    __weak tableInfoViewController *weakSelf = self;
+    self.tableInfoLoading.hidden = NO;
+    self.contentCategoryTable.hidden = YES;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray *arr = [weakSelf.manager fetchAllManongContent:[NSString stringWithFormat:@"user-content-%@",weakSelf.tagToInfoParameter]];
+        [weakSelf.dataSource removeAllObjects];
         weakSelf.dataSource = [[NSMutableArray alloc] initWithArray:arr];
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.tableInfoLoading.hidden = YES;
@@ -46,22 +60,6 @@
             [weakSelf.contentCategoryTable reloadData];
         });
     });
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    __weak tableInfoViewController *weakSelf = self;
-    if(self.contentCategoryTable && self.updateIndexPath) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSArray *arr = [weakSelf.manager fetchAllManongContent:[NSString stringWithFormat:@"user-content-%@",weakSelf.tagToInfoParameter]];
-            [weakSelf.dataSource removeAllObjects];
-            weakSelf.dataSource = [[NSMutableArray alloc] initWithArray:arr];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.contentCategoryTable reloadData];
-            });
-        });
-    }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
