@@ -327,12 +327,14 @@ NSInteger manongContentAZSorted(id obj1,id obj2,void *context)
 
 -(id)fetchManongTag:(NSString *)tag fetchKey:(NSString *)key fetchValue:(NSString *)value
 {
+    NSLog(@"%@",key);
+    NSLog(@"%@",value);
     NSError *error = nil;
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:tag];
     NSPredicate *dicate = [NSPredicate predicateWithFormat:@"%K == %@",key,value];
     [request setPredicate:dicate];
     NSArray *arr = [self.context executeFetchRequest:request error:&error];
-    if (!error) {
+    if (!error && arr.count > 0) {
         return arr[0];
     }else{
         return nil;

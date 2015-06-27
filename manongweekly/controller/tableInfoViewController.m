@@ -54,7 +54,7 @@
     __weak tableInfoViewController *weakSelf = self;
     if(self.contentCategoryTable && self.updateIndexPath) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSArray *arr = [weakSelf.manager fetchAllManongContent:weakSelf.tagToInfoParameter];
+            NSArray *arr = [weakSelf.manager fetchAllManongContent:[NSString stringWithFormat:@"user-content-%@",weakSelf.tagToInfoParameter]];
             [weakSelf.dataSource removeAllObjects];
             weakSelf.dataSource = [[NSMutableArray alloc] initWithArray:arr];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -75,11 +75,6 @@
     cell.manongContent = self.dataSource[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
-}
-
--(void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -113,6 +108,12 @@
 }
 - (IBAction)backForIndex:(UIBarButtonItem *)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 -(void)dealloc
