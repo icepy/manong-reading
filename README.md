@@ -18,6 +18,20 @@
 - Xcode 6.3
 - An Apple iOS developer account
 
+需要导入如下框架（import framework）
+
+- WebKit.framework
+- libc++.dylib
+- libsqlite3.0.dylib
+- libz.dylib
+- SystemConfiguration.framework
+- libxml2.2.dylib
+- CoreData.framework
+
+> pod install
+
+需要跑真机，模拟器无法运行（run iOS Device）
+
 ##Build with Xcode （在Xcode中编译）
 
 To compile the project, you may temporarily modify the bundle_id after adding yours into the Apple Developer Center. 
