@@ -100,7 +100,6 @@
     }else{
         [self.WKWebPageView goBack];
     }
-    
 }
 
 -(void)closeCurrentView:(UIButton *)sender
