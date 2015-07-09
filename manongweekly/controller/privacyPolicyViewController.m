@@ -8,10 +8,12 @@
 
 #import "GStaticDataSource.h"
 #import "privacyPolicyViewController.h"
+#import "webPageViewController.h"
 
 @interface privacyPolicyViewController ()<UIGestureRecognizerDelegate>
 
 @property (strong,nonatomic) NSURL *policyURL;
+@property (strong,nonatomic) UIApplication *application;
 
 @end
 
@@ -23,6 +25,14 @@
         _policyURL = [NSURL URLWithString:@"http://"];
     }
     return _policyURL;
+}
+
+-(UIApplication *)application
+{
+    if (!_application) {
+        _application = [UIApplication sharedApplication];
+    }
+    return _application;
 }
 
 - (void)viewDidLoad {
@@ -39,7 +49,7 @@
     [self.view addSubview:textview];
     
     UIButton *gotoManong = [[UIButton alloc] initWithFrame:CGRectMake(10,(MANNAVHEIGHT - 20)+200, MANSCREENWIDTH-10, 30)];
-    [gotoManong setTitle:@"《码农周刊》隐私政策及服务条款" forState:UIControlStateNormal];
+    [gotoManong setTitle:@"《码农周刊》隐私政策与订阅" forState:UIControlStateNormal];
     [gotoManong setTitleColor:[UIColor colorWithRed:0.000 green:0.502 blue:0.502 alpha:1.000] forState:UIControlStateNormal];
     [gotoManong setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     [gotoManong addTarget:self action:@selector(gotoManongWeeklyPolicy) forControlEvents:UIControlEventTouchUpInside];
@@ -56,13 +66,15 @@
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-//    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
-//    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
 }
 
 -(void)gotoManongWeeklyPolicy
 {
-    NSLog(@"隐私政策");
+    UINavigationController *navC= (UINavigationController *)[self.storyboard instantiateViewControllerWithIdentifier:@"manongwebpage"];
+    webPageViewController *webPage = (webPageViewController *)navC.topViewController;
+    webPage.requestURL = [NSURL URLWithString:@"http://weekly.manong.io/"];
+    webPage.requestTitle = @"码农周刊订阅隐私政策";
+    [self presentViewController:navC animated:YES completion:nil];
 }
 
 -(void)backForSetting{

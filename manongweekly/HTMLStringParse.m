@@ -22,6 +22,7 @@
     self = [super init];
     if (self) {
         self.indexHash = [[NSMutableDictionary alloc] init];
+        NSLog(@"%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         self.doc = [[TFHpple alloc] initWithData:data isXML:NO];
     }
     return self;
@@ -78,6 +79,20 @@
     }
     
     return self.indexHash;
+}
+
+-(NSString *)manongCRSFID
+{
+    NSArray *arr = [self.doc searchWithXPathQuery:@"//input"];
+    __block NSString *CRSF = nil;
+    [arr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        TFHppleElement *elem = (TFHppleElement *)obj;
+        CRSF =  elem.attributes[@"value"];
+        if (CRSF != nil && [elem.tagName isEqualToString:@"input"]){
+            *stop = YES;
+        }
+    }];
+    return CRSF;
 }
 
 @end

@@ -61,27 +61,6 @@
         [self.legend removeFromSuperview];
         [self readingLadder];
     }
-    
-    //    self.animationHistryIndex = 0;
-    //    self.animationIndex = @{
-    //                            @"0":@2,
-    //                            @"1":@1,
-    //                            @"2":@0
-    //                            };
-//    CATransition *transition = [CATransition animation];
-//    transition.duration = 1.2;
-//    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-//    transition.type = @"push";
-//    transition.subtype = kCATransitionFromLeft;
-//    [self.segmentContains.layer addAnimation:transition forKey:@"ChartViewpageCurl"];
-//    NSString *histryKey = [NSString stringWithFormat:@"%ld",(long)self.animationHistryIndex];
-//    NSNumber *histryindex = self.animationIndex[histryKey];
-//    NSString *currentKey = [NSString stringWithFormat:@"%ld",(long)self.segmentView.selectedSegmentIndex];
-//    NSNumber *currentIndex = self.animationIndex[currentKey];
-//    self.animationHistryIndex = self.segmentView.selectedSegmentIndex;
-//    NSLog(@"current index %@",currentIndex);
-//    NSLog(@"histry index %@",histryindex);
-//    [self.segmentContains exchangeSubviewAtIndex:[currentIndex integerValue] withSubviewAtIndex:2];
 }
 
 

@@ -22,4 +22,6 @@
 
 -(NSDictionary *)manongTitleIndexHash;
 
+-(NSString *)manongCRSFID;
+
 @end
