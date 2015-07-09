@@ -1,6 +1,6 @@
 ## manong reading
 
-> Tag v1.2
+> Tag v1.2.1
 
 ![](green-46180_640.png)
 
