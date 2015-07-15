@@ -12,13 +12,6 @@
 
 [<img src="http://websources.qiniudn.com/iOS/963e0ee8-9013-11e4-8091-7ece67d64729.png" width="135" height="40" alt="AppStore"/>](https://itunes.apple.com/cn/app/yuan-yi-yue/id990227579?l=en&mt=8)
 
-##谢谢
-
-**捐赠：支付宝 1368843198@qq.com 。支付宝链接 [https://shenghuo.alipay.com/send/payment/fill.htm?optEmail=1368843198@qq.com](https://shenghuo.alipay.com/send/payment/fill.htm?optEmail=1368843198@qq.com) ，支付宝二维码 $_$**
-<div align="center">
-<img src="http://7qncz5.com1.z0.glb.clouddn.com/action/aphqeqbbr88mde48c5.png" alt=""/><br>
-</div>
-
 ##Requirements（运行）
 
 - An iPhone running iOS 8.0+
