@@ -12,7 +12,7 @@
 
 [<img src="http://websources.qiniudn.com/iOS/963e0ee8-9013-11e4-8091-7ece67d64729.png" width="135" height="40" alt="AppStore"/>](https://itunes.apple.com/cn/app/yuan-yi-yue/id990227579?l=en&mt=8)
 
-##Requirements（运行）
+## Requirements（运行）
 
 - An iPhone running iOS 8.0+
 - Xcode 6.3
@@ -32,13 +32,13 @@
 
 需要跑真机，模拟器无法运行（run iOS Device）
 
-##Build with Xcode （在Xcode中编译）
+## Build with Xcode （在Xcode中编译）
 
 To compile the project, you may temporarily modify the bundle_id after adding yours into the Apple Developer Center. 
 
 编译此项目，bundle id可以临时修改成你想要的，然后添加到你的苹果开发者中心。
 
-##Basic functions （基本功能）
+## Basic functions （基本功能）
 
 学习编程----好帮手，来查找您想学习的知识吧（searching programming language knowledge）
 
@@ -86,48 +86,48 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 使用的第三方库列表
 
-##HPPLE
+## HPPLE
 
 Hpple: A nice Objective-C wrapper on the XPathQuery library for parsing HTML.
 
 [HPPLE](https://github.com/topfunky/hpple)
 
-##UITableView-FDTemplateLayoutCell
+## UITableView-FDTemplateLayoutCell
 
 Template auto layout cell for automatically UITableViewCell height calculating.
 
 [UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
 
-##Reachability 
+## Reachability 
 
 The Reachability sample application demonstrates how to use the SystemConfiguration framework to monitor the network state of an iOS device. In particular, it demonstrates how to know when IP can be routed and when traffic will be routed through a Wireless Wide Area Network (WWAN) interface such as EDGE or 3G.
 
 [Reachability ](https://developer.apple.com/library/ios/samplecode/Reachability/Introduction/Intro.html)
 
-##WeixinActivity
+## WeixinActivity
 
 An iOS 6 UIActivity subclass implementing uploads to Weixin(WeChat)
 
 [WeixinActivity](https://github.com/iDay/WeixinActivity)
 
-##PNChart
+## PNChart
 
 A simple and beautiful chart lib used in Piner and CoinsMan for iOS
 
 [PNChart](https://github.com/kevinzhow/PNChart)
 
-##Masonry
+## Masonry
 
 Harness the power of AutoLayout NSLayoutConstraints with a simplified, chainable and expressive syntax. Supports iOS and OSX Auto Layout
 
 [Masonry](https://github.com/SnapKit/Masonry)
 
-##AFNetworking
+## AFNetworking
 
 A delightful iOS and OS X networking framework
 
 [AFNetworking](https://github.com/AFNetworking/AFNetworking)
 
-##效果图
+## 效果图
 
 ![效果图](http://7qncz5.com1.z0.glb.clouddn.com/iOS/yuanyiyuan1.png)
